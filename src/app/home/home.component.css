@@ -7,10 +7,8 @@
     font-size: 20px;
   }
   .item {
-    padding: 5px;
-  }
-  .container {
-    padding: 5px !important;
+    padding-left: 5px;
+    padding-right: 5px;
   }
   .parallax3 {
     background-position: -300px 50px !important;
@@ -29,10 +27,8 @@
     font-size: 30px;
   }
   .item {
-    padding: 20px;
-  }
-  .container {
-    padding: 10px !important;
+    padding-left: 20px;
+    padding-right: 20px;
   }
   .parallax3 {
     background-position: -300px 50px !important;
@@ -55,7 +51,8 @@
     font-size: 40px;
   }
   .item {
-    padding: 30px;
+    padding-left: 30px;
+    padding-right: 30px;
   }
 }
 /* Medium screen devices (768px and above) */
@@ -72,7 +69,8 @@
     font-size: 50px;
   }
   .item {
-    padding: 40px;
+    padding-left: 40px;
+    padding-right: 40px;
   }
 }
 
@@ -91,7 +89,8 @@
     font-size: 60px;
   }
   .item {
-    padding: 50px;
+    padding-left: 50px;
+    padding-right: 50px;
   }
 }
 
@@ -179,7 +178,6 @@
 
 /* Main CSS */
 .container {
-  padding: 22px;
   margin: 0 auto;
   text-align: center;
 }
@@ -213,8 +211,13 @@
   width: 100%;
   text-align: center;
   min-height: 100vh;
-  margin-top: 40px;
-  margin-bottom: 40px;
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+.section-header {
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 .row {
@@ -262,11 +265,6 @@ mat-card {
   padding-bottom: 40px;
 }
 
-.ceremonia {
-  padding-left: 20px;
-  padding-right: 20px;
-}
-
 .ceremonia-content {
   display: flex;
   flex-flow: column wrap;
@@ -297,6 +295,15 @@ mat-card {
 .nota-importante {
   background: rgba(250, 250, 250, 0.8);
   border-radius: 5px;
+  margin-bottom: -200px;
+}
+.nota-importante h3 {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+.nota-importante p {
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 
 .hoteles {
@@ -371,7 +378,6 @@ mat-card {
   background-size: cover;
 }
 
-
 .box1,
 .box2 {
   width: 100px;
@@ -425,7 +431,8 @@ mat-card {
 
 @keyframes fadeoutin {
   50% {
-    opacity: 0;display: block;
+    opacity: 0;
+    display: block;
   }
   100% {
     opacity: 1;

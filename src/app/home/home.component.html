@@ -57,14 +57,14 @@
             ></add-to-calendar-button>
           </p>
         </div>
-        <div class="contador">
-          <app-countdown></app-countdown>
-        </div>
+        <app-countdown></app-countdown>
       </div>
     </div>
   </div>
   <div id="ceremonia" class="item container ceremonia-container">
-    <h2>Ceremonia</h2>
+    <div class="section-header">
+      <h2>Ceremonia</h2>
+    </div>
     <div class="ceremonia">
       <div class="row">
         <div class="ceremonia-content">
@@ -80,22 +80,14 @@
       <div class="row">
         <div class="ceremonia-content">
           <div class="row">
-            <div
-              class="column ceremonia-content-item"
-              data-aos="zoom-in-right"
-              data-aos-duration="3000"
-            >
+            <div class="column ceremonia-content-item">
               <img
                 class="vestimenta-icon"
                 src="../../assets/images/codigo-hombre.png"
               />
               <h3>Traje o Esmoquin</h3>
             </div>
-            <div
-              class="column ceremonia-content-item"
-              data-aos="zoom-in-left"
-              data-aos-duration="3000"
-            >
+            <div class="column ceremonia-content-item">
               <img
                 class="vestimenta-icon"
                 src="../../assets/images/codigo-mujer.png"
@@ -106,7 +98,7 @@
           <div class="row">
             <div class="column nota-importante">
               <h3>SÓLO ADULTOS</h3>
-              <hr>
+              <hr />
               <p>
                 Adoramos a sus hijos, pero creemos que necesitan una noche
                 libre. Sólo adultos, por favor.
@@ -278,13 +270,13 @@
   </div>
   <div class="parallax parallax2"></div>
   <div id="mesaRegalo" class="item container mesa-container">
-    <div class="ceremonia-header">
+    <div class="section-header">
       <h2>Mesa de regalos</h2>
-      <p>
-        Tu presencia es nuestro mejor regalo, pero si quieres tener un detalle
-        con nosotros te damos algunas ideas.
-      </p>
     </div>
+    <p>
+      Tu presencia es nuestro mejor regalo, pero si quieres tener un detalle con
+      nosotros te damos algunas ideas.
+    </p>
     <div class="row">
       <div class="column mesa-regalo-item" (click)="goToMesaRegalos(0)">
         <img class="regalos-icon" src="../../assets/images/liverpoollogo.png" />
@@ -307,7 +299,9 @@
 
   <div class="parallax parallax3"></div>
   <div id="rsvp" class="item rsvp-item">
-    <h2>RSVP</h2>
+    <div class="section-header">
+      <h2>Confirma tu Asistencia</h2>
+    </div>
     <app-rsvp [invitado]="invitado" [invitadosData]="invitadosData"></app-rsvp>
   </div>
 </section>

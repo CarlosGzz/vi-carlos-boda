@@ -1,3 +1,27 @@
+/* For extremely small screen devices (595px and below) */
+@media only screen and (max-width: 290) {
+  .time-unit {
+    width: calc(70% / 4)
+  }
+  .time-label {
+    font-size: x-small !important;
+  }
+}
+/* For extremely small screen devices (595px and below) */
+@media only screen and (max-width: 595px) {
+  .time-unit {
+    width: calc(80% / 4)
+  }
+  .time-label {
+    font-size: x-small !important;
+  }
+}
+@media only screen and (min-width: 700px) {
+  .time-unit {
+    width: calc(85% / 4)
+  }
+}
+
 .description {
   display: flex;
   flex-direction: row;
@@ -6,13 +30,8 @@
   justify-content: center;
   padding-bottom: 2em;
 }
-
-mat-card {
-  min-width: 25%;
-}
 .time-unit {
-  padding: 4px;
-  background: rgba(10, 10, 10, 0.8);
+  background: rgba(255,255,255, 0.4);
   margin: 4px;
   border-radius: 5px;
 }

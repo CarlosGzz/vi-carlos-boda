@@ -10,8 +10,8 @@
     position: relative;
     height: 100%;
     font-family: "Poppins-Medium", sans-serif;
-    background-image: url("assets/white-waves.webp");
-    /* background-size: 100%; */
+    background-image: url("assets/images/decoback.png");
+    background-size: 100%;
     background-repeat: repeat;
     background-attachment: fixed;
     -webkit-font-smoothing: antialiased;
@@ -28,4 +28,25 @@ html, body { height: 100%;scroll-behavior: smooth; }
 @font-face {
   font-family: 'Poppins-Medium';
   src: url('assets/fonts/Poppins-Medium.ttf');
+}
+
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }
