@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "vi-carlos-boda"
+  },
+  "targets": {
+    "vi-carlos-boda": {
+      "hosting": {
+        "vi-carlos-boda": [
+          "vi-carlos-boda"
+        ]
+      }
+    }
+  }
+}

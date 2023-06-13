@@ -1,0 +1,18 @@
+.description {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+  justify-content: center;
+  padding-bottom: 2em;
+}
+
+mat-card {
+  min-width: 25%;
+}
+.time-unit {
+  padding: 4px;
+  background: rgba(10, 10, 10, 0.8);
+  margin: 4px;
+  border-radius: 5px;
+}

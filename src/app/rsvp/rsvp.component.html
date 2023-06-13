@@ -1,0 +1,140 @@
+<div>
+  <div class="row">
+    <div class="column icon-col">
+      <img class="icon" src="../../assets/images/rsvp.png" />
+    </div>
+    <form class="rsvp-form" [formGroup]="rsvpForm" (ngSubmit)="onSubmit()">
+      <div class="row">
+        <div class="column">
+          <div class="column form-col" *ngIf="!hasInvitado">
+            <mat-form-field>
+              <mat-label>Nombre de Invitado</mat-label>
+              <mat-select (selectionChange)="invitadoSeleccionado($event)">
+                <mat-option
+                  *ngFor="let invitado of invitadosData"
+                  [value]="invitado.id"
+                >
+                  {{ invitado.nombre }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+          <div class="column form-col" *ngIf="hasInvitado">
+            <mat-form-field class="example-full-width">
+              <mat-label>Nombre</mat-label>
+              <input type="text" matInput formControlName="name" />
+            </mat-form-field>
+            <mat-form-field class="example-full-width">
+              <mat-label>Telefono</mat-label>
+              <input
+                type="tel"
+                matInput
+                formControlName="phone"
+                placeholder="+52 81-1778-4810"
+              />
+            </mat-form-field>
+            <div class="radio-field">
+              <p>¿Tienes alguna alergia?</p>
+              <mat-radio-group formControlName="tieneAlergia">
+                <mat-radio-button class="example-margin" [value]="true">
+                  Si
+                </mat-radio-button>
+                <mat-radio-button class="example-margin" [value]="false">
+                  No
+                </mat-radio-button>
+              </mat-radio-group>
+            </div>
+            <mat-form-field
+              class="example-full-width"
+              *ngIf="tieneAlergia.value"
+            >
+              <mat-label>Alergias</mat-label>
+              <input
+                type="text"
+                matInput
+                formControlName="alergies"
+                placeholder="Por favor ingresa los alimentos o condimentos a los cuales eres alérgic@"
+              />
+            </mat-form-field>
+            <div class="radio-field">
+              <p>¿Podrás asistir?</p>
+              <mat-radio-group formControlName="confirmarAsistencia">
+                <mat-radio-button class="example-margin" [value]="true">
+                  Si, asistiré
+                </mat-radio-button>
+                <mat-radio-button class="example-margin" [value]="false">
+                  No, lo siento
+                </mat-radio-button>
+              </mat-radio-group>
+            </div>
+            <div
+              *ngIf="hasPlusOne && invitadosExtraArray"
+              class="invitados-extra-container"
+              formArrayName="invitadosExtra"
+            >
+              <h3>Invitados Extra</h3>
+              <div
+                *ngFor="
+                  let invExtra of invitadosExtraArray.controls;
+                  let i = index
+                "
+                class="invitado-extra-content"
+                [formGroupName]="i"
+              >
+                <div class="row invitado-extra-title">Invitado {{ i }}</div>
+                <div class="row">
+                  <div class="column">
+                    <mat-form-field class="example-full-width">
+                      <mat-label>Nombre</mat-label>
+                      <input type="text" matInput formControlName="nombre" />
+                    </mat-form-field>
+                  </div>
+                  <div class="column">
+                    <div class="radio-field">
+                      <p>¿Tienes alguna alergia?</p>
+                      <mat-radio-group formControlName="tieneAlergia">
+                        <mat-radio-button class="example-margin" [value]="true">
+                          Si
+                        </mat-radio-button>
+                        <mat-radio-button
+                          class="example-margin"
+                          [value]="false"
+                        >
+                          No
+                        </mat-radio-button>
+                      </mat-radio-group>
+                    </div>
+                    <mat-form-field
+                      class="example-full-width"
+                      *ngIf="tieneAlergiaInvitadoExtra(invExtra)"
+                    >
+                      <mat-label>Alergias</mat-label>
+                      <input
+                        type="text"
+                        matInput
+                        formControlName="alergia"
+                        placeholder="Por favor ingresa los alimentos o condimentos a los cuales eres alérgic@"
+                      />
+                    </mat-form-field>
+                  </div>
+                  <div class="column">
+                    <mat-checkbox
+                      id="confirmarAsistencia"
+                      color="primary"
+                      formControlName="confirmarAsistencia"
+                      >Confirma Asistencia</mat-checkbox
+                    >
+                  </div>
+                </div>
+                <mat-divider class="divider"></mat-divider>
+              </div>
+            </div>
+            <button mat-raised-button color="primary" submit>
+              ¡Confirmar!
+            </button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

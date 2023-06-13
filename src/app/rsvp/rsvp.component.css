@@ -1,0 +1,62 @@
+/* For extremely small screen devices (595px and below) */
+@media only screen and (max-width: 595px) {
+  .row {
+    flex-direction: column !important;
+  }
+}
+
+/* Small screen devices (600px and above) */
+@media only screen and (max-width: 600px) {
+  .row {
+    flex-direction: column !important;
+  }
+}
+
+.rsvp-form {
+  display: flex;
+  flex-direction: column;
+}
+.row {
+  display: flex;
+  justify-content: center;
+}
+.column {
+  display: flex;
+  flex-direction: column;
+  padding: 1em;
+}
+.icon-col {
+  width: 100px;
+}
+.form-col {
+  width: 100%;
+}
+.columns-3 {
+  width: 100%;
+  display: flex;
+}
+.columns-3 > * {
+  width: calc(100% / 3);
+}
+
+.invitados-extra-container {
+  text-align: left;
+  border: 1px dotted white;
+  border-radius: 5px;
+  padding: 10px;
+}
+.invitado-extra-content {
+  padding-bottom: 10px;
+}
+.invitado-extra-title {
+  justify-content: flex-start;
+}
+.radio-field {
+  display: flex;
+  align-items: flex-start;
+  align-content: center;
+  flex-direction: column;
+}
+.divider{
+  border-top-color: rgba(255,255,255,.50);
+}

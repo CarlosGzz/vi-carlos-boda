@@ -1,0 +1,313 @@
+<section class="splash">
+  <div class="background-overlay"></div>
+  <div class="no-gap">
+    <div class="column-el">
+      <div class="populated">
+        <div class="heading" data-aos="fade-up" data-aos-duration="3000">
+          <div class="widget-container">
+            <h1 class="heading-title">Violeta & Carlos</h1>
+          </div>
+        </div>
+        <div
+          class="widget widget-heading"
+          data-aos="fade-up"
+          data-aos-duration="3000"
+        >
+          <h3 class="heading-title size-default">- SAVE THE DATE -</h3>
+        </div>
+        <div data-aos="fade-up" data-aos-duration="3000">
+          <h3 class="heading-title size-default">
+            Sábado, 23 de Septiembre 2023.
+          </h3>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<app-navigation></app-navigation>
+
+<section class="content-container">
+  <div id="contador" class="item container contador-item">
+    <div class="row">
+      <div class="column">
+        <div class="mensaje" *ngIf="invitado">
+          <p>
+            Los mejores momentos de la vida merecen ser compartidos, gracias por
+            ser parte de nuestra historia.
+          </p>
+          <h1 class="nombre-invitado">{{ invitado.nombre }}</h1>
+          <p>
+            ¡Nos hará muy felices que nos
+            {{ invitado.invitadoExtra === 0 ? "acompañes" : "acompañen" }} en
+            este día tan especial!
+          </p>
+          <p class="agregarCalendario">
+            <add-to-calendar-button
+              label="Agregar a Calendario"
+              name="Boda Violeta & Carlos"
+              startDate="2023-09-23"
+              startTime="17:30"
+              endDate="2023-09-24"
+              endTime="03:00"
+              location="Jw Marriot"
+              options="'Apple','Google'"
+              timeZone="America/Monterrey"
+              lightMode="bodyScheme"
+            ></add-to-calendar-button>
+          </p>
+        </div>
+        <div class="contador">
+          <app-countdown></app-countdown>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="ceremonia" class="item container ceremonia-container">
+    <h2>Ceremonia</h2>
+    <div class="ceremonia">
+      <div class="row">
+        <div class="ceremonia-content">
+          <div class="row">
+            <app-timeline class="column"></app-timeline>
+          </div>
+        </div>
+      </div>
+      <div class="ceremonia-header">
+        <h3>Código de vestimenta</h3>
+        <p>Etiqueta</p>
+      </div>
+      <div class="row">
+        <div class="ceremonia-content">
+          <div class="row">
+            <div
+              class="column ceremonia-content-item"
+              data-aos="zoom-in-right"
+              data-aos-duration="3000"
+            >
+              <img
+                class="vestimenta-icon"
+                src="../../assets/images/codigo-hombre.png"
+              />
+              <h3>Traje o Esmoquin</h3>
+            </div>
+            <div
+              class="column ceremonia-content-item"
+              data-aos="zoom-in-left"
+              data-aos-duration="3000"
+            >
+              <img
+                class="vestimenta-icon"
+                src="../../assets/images/codigo-mujer.png"
+              />
+              <h3>Vestido Largo</h3>
+            </div>
+          </div>
+          <div class="row">
+            <div class="column nota-importante">
+              <h3>SÓLO ADULTOS</h3>
+              <hr>
+              <p>
+                Adoramos a sus hijos, pero creemos que necesitan una noche
+                libre. Sólo adultos, por favor.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="parallax parallax1"></div>
+  <div id="hospedaje" class="item container hospedaje-container">
+    <div class="section-header">
+      <h2>Hospedaje</h2>
+    </div>
+    <div class="hoteles">
+      <div class="row">
+        <div class="column">
+          <mat-card
+            (mouseover)="toggleHover('jw')"
+            (mouseleave)="removeHover()"
+          >
+            <img
+              mat-card-image
+              class="hotel-logo"
+              src="../../assets/images/JWMarriott.svg.png"
+              alt="JW Marriot"
+            />
+            <mat-card-content>
+              <h3>JW Marriot</h3>
+              <small>Contamos con descuentos de hospedaje</small>
+            </mat-card-content>
+            <mat-card-actions *ngIf="hoveredElement === 'jw'">
+              <div class="hotel-hidden-content">
+                <p>aqui ponemos cual es el numero para el descuento</p>
+                <p>aqui va la direccion</p>
+                <button mat-raised-button color="primary">
+                  boton que te lleva al hotel
+                </button>
+                <img
+                  mat-card-image
+                  class="hotel-img"
+                  src="../../assets/images/jw-marriott.jpg"
+                  alt="JW Marriot"
+                />
+              </div>
+            </mat-card-actions>
+          </mat-card>
+        </div>
+        <div class="column">
+          <mat-card
+            (mouseover)="toggleHover('westin')"
+            (mouseleave)="removeHover()"
+          >
+            <img
+              mat-card-image
+              class="hotel-logo"
+              src="../../assets/images/westinlogo.png"
+              alt="JW Marriot"
+            />
+            <mat-card-content>
+              <h3>Westin</h3>
+              <small>Contamos con descuentos de hospedaje</small>
+            </mat-card-content>
+            <mat-card-actions *ngIf="hoveredElement === 'westin'">
+              <div class="hotel-hidden-content">
+                <p>aqui ponemos cual es el numero para el descuento</p>
+                <p>aqui va la direccion</p>
+                <button mat-raised-button>boton que te lleva al hotel</button>
+                <img
+                  mat-card-image
+                  class="hotel-img"
+                  src="../../assets/images/westin-monterey.jpg"
+                  alt="JW Marriot"
+                />
+              </div>
+            </mat-card-actions>
+          </mat-card>
+        </div>
+        <div class="column">
+          <mat-card
+            (mouseover)="toggleHover('nh')"
+            (mouseleave)="removeHover()"
+          >
+            <img
+              mat-card-image
+              class="hotel-logo"
+              src="../../assets/images/nhlogo.png"
+              alt="Hotel NH Logo"
+            />
+            <mat-card-content>
+              <h3>Hotel NH</h3>
+              <small
+                >Como opcion alterna te sugerimos el hotel por su
+                cercania.</small
+              >
+            </mat-card-content>
+            <mat-card-actions *ngIf="hoveredElement === 'nh'">
+              <div class="hotel-hidden-content">
+                <p>aqui ponemos cual es el numero para el descuento</p>
+                <p>aqui va la direccion</p>
+                <button mat-raised-button color="primary">
+                  boton que te lleva al hotel
+                </button>
+                <img
+                  mat-card-image
+                  class="hotel-img"
+                  src="../../assets/images/hotel-nh.jpg"
+                  alt="JW Marriot"
+                />
+              </div>
+            </mat-card-actions>
+          </mat-card>
+        </div>
+        <div class="column">
+          <mat-card
+            (mouseover)="toggleHover('holiday')"
+            (mouseleave)="removeHover()"
+          >
+            <div class="hotel-img-container">
+              <img
+                mat-card-image
+                class="hotel-logo"
+                src="../../assets/images/holidayinnlogo.png"
+                alt="Holiday Inn Express & Suites"
+              />
+            </div>
+            <mat-card-content>
+              <h3>Holiday Inn Tanarah</h3>
+              <small
+                >Como opcion alterna te sugerimos el hotel por su
+                cercania.</small
+              >
+            </mat-card-content>
+            <mat-card-actions *ngIf="hoveredElement === 'holiday'">
+              <div class="hotel-hidden-content">
+                <p>aqui ponemos cual es el numero para el descuento</p>
+                <p>aqui va la direccion</p>
+                <button mat-raised-button color="primary">
+                  boton que te lleva al hotel
+                </button>
+                <img
+                  mat-card-image
+                  class="hotel-img"
+                  src="../../assets/images/holiday-inn-express.jpg"
+                  alt="JW Marriot"
+                />
+              </div>
+            </mat-card-actions>
+          </mat-card>
+        </div>
+      </div>
+    </div>
+    <div class="hoteles">
+      <div class="row">
+        <div class="column">
+          <div class="wrapper">
+            <div class="box1">
+              <p>data 1</p>
+            </div>
+
+            <div class="box2">
+              <p>data 2</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="parallax parallax2"></div>
+  <div id="mesaRegalo" class="item container mesa-container">
+    <div class="ceremonia-header">
+      <h2>Mesa de regalos</h2>
+      <p>
+        Tu presencia es nuestro mejor regalo, pero si quieres tener un detalle
+        con nosotros te damos algunas ideas.
+      </p>
+    </div>
+    <div class="row">
+      <div class="column mesa-regalo-item" (click)="goToMesaRegalos(0)">
+        <img class="regalos-icon" src="../../assets/images/liverpoollogo.png" />
+        <small>51069619</small>
+      </div>
+      <div class="column mesa-regalo-item" (click)="goToMesaRegalos(1)">
+        <img class="regalos-icon" src="../../assets/images/palaciologo.png" />
+        <small>376579</small>
+      </div>
+      <div class="column mesa-regalo-item" (click)="goToMesaRegalos(2)">
+        <img class="regalos-icon" src="../../assets/images/guadalquivir.png" />
+        <small>no lo se</small>
+      </div>
+      <div class="column mesa-regalo-item" (click)="goToMesaRegalos(3)">
+        <img class="regalos-icon" src="../../assets/images/amazonlogo.png" />
+        <small>no lo se</small>
+      </div>
+    </div>
+  </div>
+
+  <div class="parallax parallax3"></div>
+  <div id="rsvp" class="item rsvp-item">
+    <h2>RSVP</h2>
+    <app-rsvp [invitado]="invitado" [invitadosData]="invitadosData"></app-rsvp>
+  </div>
+</section>

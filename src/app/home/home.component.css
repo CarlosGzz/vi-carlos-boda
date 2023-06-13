@@ -1,0 +1,434 @@
+/* For extremely small screen devices (595px and below) */
+@media only screen and (max-width: 290) {
+  .ceremonia {
+    padding: 0;
+  }
+  .heading-title {
+    font-size: 20px;
+  }
+  .item {
+    padding: 5px;
+  }
+  .container {
+    padding: 5px !important;
+  }
+  .parallax3 {
+    background-position: -300px 50px !important;
+  }
+}
+/* For extremely small screen devices (595px and below) */
+@media only screen and (max-width: 595px) {
+  .background-overlay {
+    background-position: center center;
+    width: 115%;
+  }
+  .ceremonia-content-item {
+    width: 100%;
+  }
+  .heading-title {
+    font-size: 30px;
+  }
+  .item {
+    padding: 20px;
+  }
+  .container {
+    padding: 10px !important;
+  }
+  .parallax3 {
+    background-position: -300px 50px !important;
+  }
+}
+
+/* Small screen devices (600px and below) */
+@media only screen and (max-width: 600px) {
+  .background-overlay {
+    background-position: center center;
+    width: 115%;
+  }
+  .row {
+    flex-direction: column !important;
+  }
+  .ceremonia-content-item {
+    width: 100%;
+  }
+  .heading-title {
+    font-size: 40px;
+  }
+  .item {
+    padding: 30px;
+  }
+}
+/* Medium screen devices (768px and above) */
+@media only screen and (min-width: 700px) {
+  .background-overlay {
+    background-position: center center;
+    width: 100%;
+  }
+  .populated {
+    align-content: flex-end;
+    align-items: flex-end;
+  }
+  .heading-title {
+    font-size: 50px;
+  }
+  .item {
+    padding: 40px;
+  }
+}
+
+/* Big screen devices (889px and above) */
+@media only screen and (min-width: 889px) {
+  .background-overlay {
+    background-position: 0px 0px;
+    width: 100%;
+    background-position: bottom;
+  }
+  .populated {
+    align-content: center;
+    align-items: center;
+  }
+  .heading-title {
+    font-size: 60px;
+  }
+  .item {
+    padding: 50px;
+  }
+}
+
+/* Extra big screen devices (1200px and above) */
+@media only screen and (min-width: 1200px) {
+}
+
+/* SPLASH */
+
+.splash {
+  clip-path: polygon(0 0, 0 100%, 100% 100%, 100% 0);
+  overflow: hidden;
+  transition: background 0.3s, border 0.3s, border-radius 0.3s, box-shadow 0.3s;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  padding: 0em 0em 0em 0em;
+}
+
+.background-overlay {
+  box-sizing: border-box;
+  /* width: 115%; */
+  position: fixed;
+  /* top: -90px; */
+  left: 0;
+  height: 100vh;
+  pointer-events: none;
+  background-image: url("../../assets/images/VYC1.jpg ");
+  background-repeat: no-repeat;
+  background-size: cover;
+  opacity: 1;
+  transition: background 0.4s, border-radius 0.4s, opacity 0.4s;
+}
+
+.no-gap {
+  box-sizing: border-box;
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: auto;
+  margin-left: auto;
+  position: relative;
+  flex-wrap: wrap;
+  min-height: 100vh;
+}
+
+.column-el {
+  width: 100%;
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  min-height: 1px;
+}
+
+.populated {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+  justify-content: flex-end;
+  margin: 0px 0px 0px 0px;
+  --e-column-margin-right: 0px;
+  --e-column-margin-left: 0px;
+  padding: 0px 0px 120px 0px;
+}
+.heading {
+  text-align: center;
+  margin-bottom: 15px;
+  width: 100%;
+  position: relative;
+  -webkit-box-orient: vertical;
+}
+.heading-title {
+  text-align: center;
+  color: #ffffff;
+  font-family: "DancingScript", belleza;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.62);
+  line-height: 1.1;
+  margin: 0;
+  padding: 0;
+  font-weight: 400;
+  padding: 0;
+  margin: 0;
+  line-height: 1;
+}
+
+/* Main CSS */
+.container {
+  padding: 22px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.container ul li {
+  list-style: none;
+  margin: 0 10px;
+  display: inline-block;
+}
+.container ul li a:hover {
+  padding: 12px;
+  color: #fc0;
+}
+.container ul li a {
+  margin: 8px;
+  padding: 10px;
+  color: #fff;
+  font-size: 1.2em;
+  text-decoration: none;
+  transition: all 0.3s ease-out;
+}
+.active {
+  border-bottom: 2px solid #d0d7d9;
+}
+.container p {
+  margin-bottom: 16px;
+  font-size: 20px;
+}
+
+.item {
+  width: 100%;
+  text-align: center;
+  min-height: 100vh;
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-evenly;
+  padding-bottom: 2em;
+}
+
+.column {
+  flex-basis: 100%;
+  margin-bottom: 5px;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+mat-card {
+  min-width: 50%;
+  min-height: 50%;
+}
+
+.contador-item {
+  min-height: 80vh;
+  background-color: #050a30;
+  color: #b5a642;
+  display: flex;
+  align-items: center;
+}
+.contador {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+.mensaje {
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+.agregarCalendario {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.nombre-invitado {
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+.ceremonia {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.ceremonia-content {
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border-radius: 10px;
+  width: 100%;
+}
+
+.ceremonia-icon {
+  width: 100px;
+}
+.ceremonia-header {
+  padding-bottom: 2em;
+}
+.ceremonia-misa {
+  padding-bottom: 5em;
+}
+.ceremonia-recepcion {
+  padding-bottom: 2em;
+}
+.vestimenta-icon {
+  width: 150px;
+}
+.nota-importante {
+  background: rgba(250, 250, 250, 0.8);
+  border-radius: 5px;
+}
+
+.hoteles {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.hotel-logo {
+  width: 100%;
+  min-height: 80px;
+  padding: 10px;
+}
+.hotel-img {
+  width: 100%;
+  height: 100%;
+}
+.sugerencia {
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+
+.rsvp-item {
+  min-height: 20vh;
+}
+
+.regalos-icon {
+  width: 100%;
+  min-height: 140px;
+  padding: 2em 2em 2em 2em;
+}
+
+.mesa-regalo-item {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+}
+
+.parallax {
+  /* The image used */
+
+  /* Set a specific height */
+  min-height: 500px;
+
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.parallax1 {
+  background-image: url("../../assets/images/VYC2.jpg");
+}
+.parallax2 {
+  background-image: url("../../assets/images/VYC3.jpg");
+}
+.parallax3 {
+  background-image: url("../../assets/images/VYC4.jpg");
+}
+
+#myVideo {
+  min-height: 500px;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+
+.box1,
+.box2 {
+  width: 100px;
+  height: 100px;
+  border: 1px solid black;
+  text-align: center;
+}
+
+.box1 {
+  display: block;
+  opacity: 1;
+}
+
+.box2 {
+  display: none;
+  opacity: 0;
+}
+
+.wrapper {
+  width: auto;
+  display: inline-block;
+  background-color: red;
+}
+
+.wrapper:hover .box1 {
+  /* display: none; */
+  -webkit-animation: fadeinout 2s linear forwards;
+  animation: fadeinout 2s linear forwards;
+}
+
+.wrapper:hover .box2 {
+  /* display: block; */
+  -webkit-animation: fadeoutin 2s linear forwards;
+  animation: fadeoutin 2s linear forwards;
+}
+
+@keyframes fadeinout {
+  50% {
+    opacity: 0.5;
+    height: 50%;
+  }
+  99% {
+    opacity: 0;
+    height: 20%;
+  }
+  100% {
+    display: none;
+    height: 0px;
+  }
+}
+
+@keyframes fadeoutin {
+  50% {
+    opacity: 0;display: block;
+  }
+  100% {
+    opacity: 1;
+    display: block;
+  }
+}
