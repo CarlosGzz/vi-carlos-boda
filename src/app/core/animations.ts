@@ -102,3 +102,21 @@ export const SlideInOutAnimationVertical = [
     ]),
   ]),
 ];
+
+export const LogoAnimation = [
+  trigger('vPath', [
+    transition(':enter', [
+      style({ 'stroke-dashoffset': '1000' }),
+      animate(5000, style({ 'stroke-dashoffset': '0', fill: '#b5a642' })),
+    ]),
+  ]),
+  trigger('cPath', [
+    transition(':enter', [
+      style({ 'stroke-dashoffset': '1000', fill: '#ffffff' }),
+      animate(5000, style({ 'stroke-dashoffset': '370', fill: '#b5a642' })),
+    ]),
+    transition(':leave', [
+      animate(5000, style({ 'stroke-dashoffset': '370', fill: '#b5a642' })),
+    ]),
+  ]),
+];

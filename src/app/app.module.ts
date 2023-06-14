@@ -35,6 +35,7 @@ import { CommonModule } from '@angular/common';
 import { HotelCardComponent } from './hotel-card/hotel-card.component';
 import { provideDatabase, getDatabase } from '@angular/fire/database';
 import { ListaInvitadosComponent } from './lista-invitados/lista-invitados.component';
+import { SplashComponent } from './splash/splash.component';
 
 @NgModule({
   declarations: [
@@ -46,6 +47,7 @@ import { ListaInvitadosComponent } from './lista-invitados/lista-invitados.compo
     CountdownComponent,
     TimelineComponent,
     HotelCardComponent,
+    SplashComponent,
   ],
   imports: [
     BrowserModule,
@@ -68,7 +70,7 @@ import { ListaInvitadosComponent } from './lista-invitados/lista-invitados.compo
     provideDatabase(() => getDatabase()),
   ],
   providers: [ScreenTrackingService, UserTrackingService],
-  bootstrap: [AppComponent],
+  bootstrap: [AppComponent, SplashComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class AppModule {}

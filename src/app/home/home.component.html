@@ -1,4 +1,4 @@
-<section class="splash">
+<section class="splash" >
   <div class="background-overlay"></div>
   <div class="no-gap">
     <div class="column-el">
@@ -41,8 +41,10 @@
           </h1>
           <p *ngIf="invitado">
             ¡Nos hará muy felices que nos
-            {{ invitado.numeroDeInvitadosExtra === 0 ? "acompañes" : "acompañen" }} en
-            este día tan especial!
+            {{
+              invitado.numeroDeInvitadosExtra === 0 ? "acompañes" : "acompañen"
+            }}
+            en este día tan especial!
           </p>
           <p class="agregarCalendario">
             <add-to-calendar-button
@@ -302,6 +304,10 @@
     <div class="section-header">
       <h2>Confirma tu Asistencia</h2>
     </div>
-    <app-rsvp [invitado]="invitado" [invitadosData]="listaInvitados" (updatedInvitado)="updateInvitado($event)"></app-rsvp>
+    <app-rsvp
+      [invitado]="invitado"
+      [invitadosData]="listaInvitados"
+      (updatedInvitado)="updateInvitado($event)"
+    ></app-rsvp>
   </div>
 </section>

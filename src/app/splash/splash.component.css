@@ -1,0 +1,54 @@
+.container {
+  cursor: pointer;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  height: 100%;
+  width: 100%;
+  background-color: #050a30;
+  transform: translate(-50%, -50%);
+  transition: all ease-in-out 600ms;
+  z-index: 9000;
+}
+.splash {
+  height: 90%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.splash-img {
+  width: 40%;
+  height: 40%;
+}
+.hidden {
+  transition: 0.5s;
+  display: none;
+}
+.topline,
+.bottomline {
+  display: inline;
+  fill: #b5a642;
+  fill-opacity: 1;
+  stroke-width: 0.264583;
+  stroke-opacity: 1;
+  stroke: #b5a642 ;
+  stroke-width: 1 ;
+  stroke-dasharray: 2566;
+  stroke-dashoffset: 2566;
+
+  animation: logo 3s linear ;
+}
+
+@keyframes logo {
+  from {
+    stroke-dashoffset: 2566;
+    fill-opacity: 0;
+  }
+  to {
+    stroke-opacity: 0;
+    stroke-dashoffset: 0;
+    fill: #b5a642;
+    stroke: none;
+    fill-opacity: 1;
+  }
+}
