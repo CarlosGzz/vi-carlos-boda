@@ -1,0 +1,91 @@
+<div class="container">
+  <div class="row">
+    <button mat-raised-button (click)="exportExcel()">Export To Excel</button>
+    <button mat-raised-button (click)="addColumn()">Add column</button>
+    <button mat-raised-button (click)="removeColumn()">Remove column</button>
+    <button mat-raised-button (click)="shuffle()">Shuffle</button>
+  </div>
+  <div class="row">
+    <table
+      mat-table
+      [dataSource]="invitadosList"
+      class="mat-elevation-z8"
+      multiTemplateDataRows
+    >
+      <ng-container
+        [matColumnDef]="column"
+        *ngFor="let column of displayedColumns"
+      >
+        <th mat-header-cell *matHeaderCellDef>{{ column }}</th>
+        <td mat-cell *matCellDef="let element">
+          <ng-container
+            *ngIf="column === 'confirmacionAsistencia'; else newDeb"
+          >
+            <mat-chip-listbox>
+              <mat-chip-option
+                color="accent"
+                disabled=""
+                [selected]="element.confirmacionAsistencia"
+                >{{
+                  element.confirmacionAsistencia
+                    ? "confirmado"
+                    : "sin confirmar"
+                }}</mat-chip-option
+              >
+            </mat-chip-listbox>
+          </ng-container>
+          <ng-template #newDeb>
+            {{ element[column] }}
+          </ng-template>
+        </td>
+      </ng-container>
+
+      <!-- Expanded Content Column - The detail row is made up of this one column that spans across all columns -->
+      <ng-container matColumnDef="invitadosExtraLista">
+        <td
+          mat-cell
+          *matCellDef="let element"
+          [attr.colspan]="columnsToDisplay.length"
+        >
+          <div
+            class="row"
+            *ngFor="let invExtra of element.invitadosExtraLista; let i = index"
+          >
+            <div class="column example-element-position">
+              Acompañante {{ i + 1 }}
+            </div>
+            <div class="column example-element-position">
+              {{ invExtra.nombre }}
+            </div>
+            <div class="column example-element-symbol">
+              <mat-chip-listbox>
+                <mat-chip-option
+                  color="accent"
+                  disabled=""
+                  [selected]="invExtra.confirmacionAsistencia"
+                  >{{
+                    invExtra.confirmacionAsistencia
+                      ? "confirmado"
+                      : "sin confirmar"
+                  }}</mat-chip-option
+                >
+              </mat-chip-listbox>
+            </div>
+            <div class="column example-element-symbol">
+              {{ invExtra.alergia }}
+            </div>
+          </div>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+      <tr mat-row *matRowDef="let row; columns: columnsToDisplay"></tr>
+      <tr
+        mat-row
+        *matRowDef="let row; columns: ['invitadosExtraLista']"
+        [hidden]="!hideExtraRow(row)"
+        class="example-detail-row"
+      ></tr>
+    </table>
+  </div>
+</div>

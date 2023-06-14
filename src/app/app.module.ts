@@ -33,7 +33,8 @@ import { CountdownComponent } from './countdown/countdown.component';
 import { TimelineComponent } from './timeline/timeline.component';
 import { CommonModule } from '@angular/common';
 import { HotelCardComponent } from './hotel-card/hotel-card.component';
-import { provideDatabase,getDatabase } from '@angular/fire/database';
+import { provideDatabase, getDatabase } from '@angular/fire/database';
+import { ListaInvitadosComponent } from './lista-invitados/lista-invitados.component';
 
 @NgModule({
   declarations: [
