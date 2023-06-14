@@ -41,7 +41,7 @@
           </h1>
           <p *ngIf="invitado">
             ¡Nos hará muy felices que nos
-            {{ invitado.invitadoExtra === 0 ? "acompañes" : "acompañen" }} en
+            {{ invitado.numeroDeInvitadosExtra === 0 ? "acompañes" : "acompañen" }} en
             este día tan especial!
           </p>
           <p class="agregarCalendario">
@@ -302,6 +302,6 @@
     <div class="section-header">
       <h2>Confirma tu Asistencia</h2>
     </div>
-    <app-rsvp [invitado]="invitado" [invitadosData]="invitadosData"></app-rsvp>
+    <app-rsvp [invitado]="invitado" [invitadosData]="listaInvitados" (updatedInvitado)="updateInvitado($event)"></app-rsvp>
   </div>
 </section>

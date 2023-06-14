@@ -9,6 +9,7 @@ import {
   SlideInOutAnimationVertical,
 } from 'src/app/core/animations';
 import { Hotel } from '../hotel-card/hotel-card.component';
+import { DatabaseService, Invitado } from '../core/database.service';
 
 @Component({
   selector: 'app-home',
@@ -23,9 +24,6 @@ import { Hotel } from '../hotel-card/hotel-card.component';
 export class HomeComponent {
   public hoveredElement: any;
   private userId: any;
-  title = 'json-read-example';
-  invitadosData: any = [];
-  url: string = '/assets/invitados.json';
   mesaDeRegalos = [
     'https://mesaderegalos.liverpool.com.mx/milistaderegalos/51069619',
     'https://www.elpalaciodehierro.com/buscar?eventId=376579',
@@ -87,26 +85,34 @@ export class HomeComponent {
   }
 
   get invitado() {
-    if (this.invitadosData.length > 0) {
-      return this.invitadosData.find(
-        (element: any) => element.id === +this.userId
-      );
+    this.invitadosService.invitado;
+    if (this.invitadosService.invitado) {
+      return this.invitadosService.invitado;
     }
     return null;
   }
 
-  constructor(private http: HttpClient, route: ActivatedRoute) {
+  get listaInvitados() {
+    if (this.invitadosService.invitados) {
+      return this.invitadosService.invitados;
+    }
+    return [];
+  }
+
+  constructor(
+    private http: HttpClient,
+    route: ActivatedRoute,
+    private invitadosService: DatabaseService
+  ) {
     route.params.subscribe((params) => {
       this.userId = params['invitado'];
-      console.log(this.userId);
+      this.invitadosService.getInvitado(this.userId);
     });
   }
 
   ngOnInit() {
     AOS.init();
-    this.http.get(this.url).subscribe((res) => {
-      this.invitadosData = res;
-    });
+    // this.addKeyToJSON();
   }
 
   toggleHover(id: any) {
@@ -119,5 +125,37 @@ export class HomeComponent {
 
   goToMesaRegalos(id: number) {
     window.open(this.mesaDeRegalos[id], '_blank');
+  }
+
+  updateInvitado(invitadoActualizado: Invitado) {
+    this.invitadosService.update(this.userId, invitadoActualizado)
+  }
+
+  addKeyToJSON() {
+    let keyValidatorArray: any = [];
+    this.http.get('/assets/invitados.json').subscribe((res: any) => {
+      let newJson: any = {
+        invitados: {},
+      };
+      res.invitados.forEach((element: any) => {
+        let newKey = element.nombre.replace(/\s/g, '');
+        newKey = newKey.replace(/\./g, '');
+        newKey = newKey.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+        newKey = newKey.toLowerCase();
+        if (keyValidatorArray.includes(newKey)) {
+          let increment = 1;
+          while (keyValidatorArray.includes(newKey)) {
+            newKey = newKey + increment;
+            increment++;
+          }
+        }
+        keyValidatorArray.push(newKey);
+        newJson.invitados[newKey] = element;
+      });
+      console.log(
+        '🚀 ~ file: home.component.ts:126 ~ HomeComponent ~ this.http.get ~ JSON.stringify(newJson):',
+        JSON.stringify(newJson)
+      );
+    });
   }
 }

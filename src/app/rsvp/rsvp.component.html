@@ -3,7 +3,18 @@
     <div class="column icon-col">
       <img class="icon" src="../../assets/images/rsvp.png" />
     </div>
-    <form class="rsvp-form" [formGroup]="rsvpForm" (ngSubmit)="onSubmit()">
+    <div class="column" *ngIf="invitadoConfirmado">
+      <h2>¡Gracias por confirmar tu asistencia, nos vemos en la fiesta!</h2>
+      <button mat-raised-button color="accent" (click)="reabrirFormulario()">
+        Modificar confirmacion
+      </button>
+    </div>
+    <form
+      class="rsvp-form"
+      [formGroup]="rsvpForm"
+      (ngSubmit)="onSubmit()"
+      *ngIf="showForm"
+    >
       <div class="column form-col" *ngIf="!hasInvitado">
         <mat-form-field>
           <mat-label>Nombre de Invitado</mat-label>
@@ -20,14 +31,14 @@
       <div class="column form-col" *ngIf="hasInvitado">
         <mat-form-field class="example-full-width">
           <mat-label>Nombre</mat-label>
-          <input type="text" matInput formControlName="name" />
+          <input type="text" matInput formControlName="nombre" />
         </mat-form-field>
         <mat-form-field class="example-full-width">
           <mat-label>Telefono</mat-label>
           <input
             type="tel"
             matInput
-            formControlName="phone"
+            formControlName="telefono"
             placeholder="+52 81-1778-4810"
           />
         </mat-form-field>
@@ -47,7 +58,7 @@
           <input
             type="text"
             matInput
-            formControlName="alergies"
+            formControlName="alergias"
             placeholder="Por favor ingresa los alimentos o condimentos a los cuales eres alérgic@"
           />
         </mat-form-field>
@@ -84,7 +95,10 @@
               <div class="column">
                 <div class="radio-field">
                   <p>¿Tienes alguna alergia?</p>
-                  <mat-radio-group formControlName="tieneAlergia">
+                  <mat-radio-group
+                    formControlName="tieneAlergia"
+                    (change)="invExtraAlergiaChange($event, i)"
+                  >
                     <mat-radio-button class="example-margin" [value]="true">
                       Si
                     </mat-radio-button>
@@ -101,7 +115,7 @@
                   <input
                     type="text"
                     matInput
-                    formControlName="alergia"
+                    formControlName="alergias"
                     placeholder="Por favor ingresa los alimentos o condimentos a los cuales eres alérgic@"
                   />
                 </mat-form-field>

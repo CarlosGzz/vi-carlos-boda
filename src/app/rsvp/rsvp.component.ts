@@ -1,4 +1,10 @@
-import { Component, Input, SimpleChanges } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  Output,
+  SimpleChanges,
+} from '@angular/core';
 import {
   AbstractControl,
   FormArray,
@@ -8,6 +14,7 @@ import {
 } from '@angular/forms';
 import { Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Invitado } from '../core/database.service';
 
 @Component({
   selector: 'app-rsvp',
@@ -17,10 +24,13 @@ import { Router } from '@angular/router';
 export class RsvpComponent {
   @Input() invitado: any;
   @Input() invitadosData: any;
+  @Output() updatedInvitado = new EventEmitter<Invitado>();
+
+  showForm = true;
 
   rsvpForm = this.fb.group({
-    name: ['', Validators.required],
-    phone: ['', [Validators.required, Validators.maxLength(15)]],
+    nombre: ['', Validators.required],
+    telefono: ['', [Validators.required, Validators.maxLength(15)]],
     tieneAlergia: [false],
     alergias: [''],
     confirmarAsistencia: [false],
@@ -28,8 +38,8 @@ export class RsvpComponent {
   });
 
   invitados = [
-    { name: 'invitado 1', invitadosDeInvitado: ['plus 1', 'plus 2'] },
-    { name: 'invitado 2', invitadosDeInvitado: ['plus 1', 'plus 2'] },
+    { nombre: 'invitado 1', invitadosDeInvitado: ['plus 1', 'plus 2'] },
+    { nombre: 'invitado 2', invitadosDeInvitado: ['plus 1', 'plus 2'] },
   ];
   get hasInvitado() {
     return !!this.invitado;
@@ -37,7 +47,7 @@ export class RsvpComponent {
 
   get hasPlusOne() {
     if (this.invitado) {
-      return this.invitado.invitadoExtra > 0;
+      return this.invitado.numeroDeInvitadosExtra > 0;
     }
     return false;
   }
@@ -54,21 +64,43 @@ export class RsvpComponent {
     return this.rsvpForm.get('confirmarAsistencia') as FormControl;
   }
 
+  get invitadoConfirmado(): boolean {
+    if (this.hasInvitado) {
+      return this.invitado.confirmacionAsistencia && !this.showForm;
+    }
+    return !this.showForm;
+  }
+
   constructor(private fb: FormBuilder, private router: Router) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.rsvpForm.get('tieneAlergia')!.valueChanges.subscribe((data) => {
+      this.rsvpForm.patchValue({ alergias: '' });
+    });
+  }
+
   ngOnChanges(changes: SimpleChanges) {
     if (
+      changes['invitado'] &&
       changes['invitado'].currentValue !== null &&
       changes['invitado'].currentValue !== changes['invitado'].previousValue
     ) {
       if (this.hasInvitado) {
+        this.showForm = !this.invitado.confirmacionAsistencia;
+        const tieneAlergia = this.invitado.alergias !== '';
         this.rsvpForm.patchValue({
-          name: this.invitado.nombre,
-          phone: this.invitado.telefono,
+          nombre: this.invitado.nombre,
+          telefono: this.invitado.telefono,
+          tieneAlergia: tieneAlergia,
+          alergias: this.invitado.alergias,
+          confirmarAsistencia: this.invitado.confirmacionAsistencia,
         });
-        if (this.invitado.invitadoExtra > 0) {
-          for (let index = 0; index < this.invitado.invitadoExtra; index++) {
+        if (this.invitado.numeroDeInvitadosExtra > 0) {
+          for (
+            let index = 0;
+            index < this.invitado.numeroDeInvitadosExtra;
+            index++
+          ) {
             if (this.invitado.invitadosExtraLista) {
               this.addInvitadoExtra(
                 this.invitadosExtraArray,
@@ -78,25 +110,23 @@ export class RsvpComponent {
               this.addInvitadoExtra(this.invitadosExtraArray, null);
             }
           }
-          // this.invitado.invitadosExtraLista.forEach((invitado: any) => {
-          //   this.addInvitadoExtra(this.invitadosExtraArray, invitado);
-          // });
         }
       }
     }
   }
+
   invitadoSeleccionado(event: any) {
-    console.log(event);
     this.router.navigate(['/inicio', event.value]);
   }
 
-  invitadoExtra(invitadoExtraData: any): FormGroup {
+  invitadoExtraFormGroup(invitadoExtraData: any): FormGroup {
     if (invitadoExtraData) {
+      const tieneAlergia = invitadoExtraData.alergias !== '';
       return this.fb.group({
-        nombre: invitadoExtraData.nombre,
-        tieneAlergia: [false],
-        alergias: [''],
-        confirmarAsistencia: [false],
+        nombre: [invitadoExtraData.nombre],
+        tieneAlergia: [tieneAlergia],
+        alergias: [invitadoExtraData.alergias],
+        confirmarAsistencia: [invitadoExtraData.confirmacionAsistencia],
       });
     }
     return this.fb.group({
@@ -108,10 +138,10 @@ export class RsvpComponent {
   }
 
   addInvitadoExtra(formArray: any, invitadoExtraData: any) {
-    formArray.push(this.invitadoExtra(invitadoExtraData));
+    formArray.push(this.invitadoExtraFormGroup(invitadoExtraData));
   }
+
   tieneAlergiaInvitadoExtra(form: any): boolean {
-    console.log(form);
     if (form !== null) {
       let tieneAlergia = form.get('tieneAlergia');
       return tieneAlergia ? tieneAlergia.value : false;
@@ -119,7 +149,42 @@ export class RsvpComponent {
     return false;
   }
 
+  invExtraAlergiaChange(event: any, index: any) {
+    if (!event.value) {
+      this.invitadosExtraArray.controls[index].patchValue({alergias: '  ' });
+    }
+  }
+
+  reabrirFormulario() {
+    this.showForm = true;
+  }
+
   onSubmit() {
-    console.log(this.rsvpForm.value);
+    let updatedInvitado: any = {
+      nombre: this.rsvpForm.value.nombre,
+      telefono: this.rsvpForm.value.telefono,
+      alergias: this.rsvpForm.value.alergias,
+      confirmacionAsistencia: this.rsvpForm.value.confirmarAsistencia,
+    };
+    if (this.invitado.numeroDeInvitadosExtra > 0) {
+      updatedInvitado['invitadosExtraLista'] =
+        this.invitado.invitadosExtraLista;
+      for (
+        let index = 0;
+        index < this.invitado.numeroDeInvitadosExtra;
+        index++
+      ) {
+        if (updatedInvitado.invitadosExtraLista[index]) {
+          let invExtraForm = this.invitadosExtraArray.value[index];
+          updatedInvitado.invitadosExtraLista[index] = {
+            ...updatedInvitado.invitadosExtraLista[index],
+            nombre: invExtraForm.nombre,
+            alergias: invExtraForm.alergias,
+            confirmacionAsistencia: invExtraForm.confirmarAsistencia,
+          };
+        }
+      }
+    }
+    this.updatedInvitado.emit(updatedInvitado);
   }
 }

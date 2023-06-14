@@ -103,7 +103,6 @@ export class TimelineComponent {
   }
 
   ngAfterViewInit() {
-    console.log(this.firstElement);
     this.firstPosition = this.firstElement.nativeElement.offsetTop;
     let verticalTimelines = document.getElementsByClassName('js-cd-timeline');
     if (verticalTimelines.length > 0) {

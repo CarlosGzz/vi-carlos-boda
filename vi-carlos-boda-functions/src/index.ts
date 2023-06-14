@@ -8,8 +8,11 @@
  */
 
 import {onRequest} from "firebase-functions/v2/https";
+const {onValueCreated} = require("firebase-functions/v2/database");
 import * as logger from "firebase-functions/logger";
 
+const admin = require("firebase-admin");
+admin.initializeApp();
 // Start writing functions
 // https://firebase.google.com/docs/functions/typescript
 

@@ -12,6 +12,8 @@ import {
   UserTrackingService,
 } from '@angular/fire/analytics';
 import { provideFunctions, getFunctions } from '@angular/fire/functions';
+import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
@@ -31,6 +33,7 @@ import { CountdownComponent } from './countdown/countdown.component';
 import { TimelineComponent } from './timeline/timeline.component';
 import { CommonModule } from '@angular/common';
 import { HotelCardComponent } from './hotel-card/hotel-card.component';
+import { provideDatabase,getDatabase } from '@angular/fire/database';
 
 @NgModule({
   declarations: [
@@ -45,9 +48,10 @@ import { HotelCardComponent } from './hotel-card/hotel-card.component';
   ],
   imports: [
     BrowserModule,
-    provideFirebaseApp(() => initializeApp(environment.firebase)),
     // provideAnalytics(() => getAnalytics()),
     provideFunctions(() => getFunctions()),
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireDatabaseModule,
     AppRoutingModule,
     CommonModule,
     BrowserAnimationsModule,
@@ -60,6 +64,7 @@ import { HotelCardComponent } from './hotel-card/hotel-card.component';
     MatDividerModule,
     ReactiveFormsModule,
     HttpClientModule,
+    provideDatabase(() => getDatabase()),
   ],
   providers: [ScreenTrackingService, UserTrackingService],
   bootstrap: [AppComponent],
