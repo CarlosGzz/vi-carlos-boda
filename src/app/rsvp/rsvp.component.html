@@ -21,7 +21,7 @@
           <mat-select (selectionChange)="invitadoSeleccionado($event)">
             <mat-option
               *ngFor="let invitado of invitadosData"
-              [value]="invitado.id"
+              [value]="invitado.key"
             >
               {{ invitado.nombre }}
             </mat-option>

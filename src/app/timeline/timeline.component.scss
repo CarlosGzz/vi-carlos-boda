@@ -2974,7 +2974,7 @@ mark {
   width: 4px;
   background: hsl(205, 38%, 89%);
 }
-@media (min-width: 64rem) {
+@media (min-width: 48rem) {
   .time-line {
     left: 50%;
     -webkit-transform: translateX(-50%);
@@ -2993,7 +2993,7 @@ mark {
 .cd-timeline__block:last-child {
   margin-bottom: 0;
 }
-@media (min-width: 64rem) {
+@media (min-width: 48rem) {
   .cd-timeline__block:nth-child(even) {
     -ms-flex-direction: row-reverse;
     flex-direction: row-reverse;
@@ -3018,7 +3018,7 @@ mark {
   width: 24px;
   height: 24px;
 }
-@media (min-width: 64rem) {
+@media (min-width: 48rem) {
   .cd-timeline__img {
     width: 60px;
     height: 60px;
@@ -3074,7 +3074,7 @@ mark {
     padding: 10px 20px 10px 20px !important;
   }
 }
-@media (min-width: 64rem) {
+@media (min-width: 48rem) {
   .cd-timeline__content {
     width: 45%;
     -ms-flex-positive: 0;
@@ -3099,7 +3099,7 @@ mark {
 .cd-timeline__date {
   color: hsla(207, 10%, 55%, 0.7);
 }
-@media (min-width: 64rem) {
+@media (min-width: 48rem) {
   .cd-timeline__date {
     position: absolute;
     width: 100%;
@@ -3113,7 +3113,7 @@ mark {
     text-align: right;
   }
 }
-@media (min-width: 64rem) {
+@media (min-width: 48rem) {
   .cd-timeline__img--hidden,
   .cd-timeline__content--hidden {
     visibility: hidden;
@@ -3229,10 +3229,12 @@ mark {
 }
 .timeline-item-title {
   padding-bottom: 20px;
+  font-family: Cinzel;
 }
 .timeline-item-content {
   padding-top: 10px;
   padding-bottom: 20px;
+  font-family: DellaRespira;
 }
 .timeline-item-content h4 {
   padding-bottom: 5px;

@@ -1,0 +1,92 @@
+<div class="section-header">
+  <h2>Ceremonia</h2>
+</div>
+<div class="ceremonia">
+  <div class="row">
+    <div class="ceremonia-content">
+      <div class="row">
+        <app-timeline class="column"></app-timeline>
+      </div>
+    </div>
+  </div>
+  <div class="section-header">
+    <h3>Código de vestimenta</h3>
+    <p>Etiqueta</p>
+  </div>
+  <div class="row">
+    <div class="vestimenta-content" *ngIf="!isMobile">
+      <div class="row vestimenta">
+        <div class="column traje">
+          <p>{{ "Traje o Esmoquin" | uppercase }}</p>
+        </div>
+        <div class="column">
+          <img
+            data-aos="zoom-in"
+            data-aos-duration="3000"
+            class="vestimenta-icon"
+            src="../../assets/images/codigo-hombre.png"
+          />
+        </div>
+        <div class="column">
+          <img
+            data-aos="zoom-in"
+            data-aos-duration="3000"
+            class="vestimenta-icon"
+            src="../../assets/images/codigo-mujer.png"
+          />
+        </div>
+        <div class="column vestido">
+          <p>{{ "Vestido Largo" | uppercase }}</p>
+        </div>
+      </div>
+      <div class="row nota">
+        <div class="column nota-importante">
+          <h3>SÓLO ADULTOS</h3>
+          <hr />
+          <p>
+            {{
+              "Adoramos a sus hijos, pero creemos que necesitan una noche libre."
+                | uppercase
+            }}
+          </p>
+          <p>{{ "Sólo adultos, por favor." | uppercase }}</p>
+        </div>
+      </div>
+    </div>
+    <div class="vestimenta-content" *ngIf="isMobile">
+      <div class="row vestimenta">
+        <div class="column">
+          <img
+            data-aos="zoom-in"
+            data-aos-duration="3000"
+            class="vestimenta-icon"
+            src="../../assets/images/codigo-hombre.png"
+          />
+          <img
+            data-aos="zoom-in"
+            data-aos-duration="3000"
+            class="vestimenta-icon"
+            src="../../assets/images/codigo-mujer.png"
+          />
+        </div>
+        <div class="column vestido">
+          <p>{{ "Traje o Esmoquin" | uppercase }}</p>
+          <p>{{ "Vestido Largo" | uppercase }}</p>
+        </div>
+      </div>
+      <div class="row nota">
+        <div class="column nota-importante">
+          <h3>SÓLO ADULTOS</h3>
+          <hr />
+          <p>
+            {{
+              "Adoramos a sus hijos, pero creemos que necesitan una noche libre."
+                | uppercase
+            }}
+          </p>
+          <p>{{ "Sólo adultos, por favor." | uppercase }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

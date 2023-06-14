@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import AOS from 'aos';
@@ -10,6 +10,7 @@ import {
 } from 'src/app/core/animations';
 import { Hotel } from '../hotel-card/hotel-card.component';
 import { DatabaseService, Invitado } from '../core/database.service';
+import { AngularFireAnalytics } from '@angular/fire/compat/analytics';
 
 @Component({
   selector: 'app-home',
@@ -102,11 +103,22 @@ export class HomeComponent {
   constructor(
     private http: HttpClient,
     route: ActivatedRoute,
-    private invitadosService: DatabaseService
+    private invitadosService: DatabaseService,
+    private analytics: AngularFireAnalytics
   ) {
     route.params.subscribe((params) => {
       this.userId = params['invitado'];
-      this.invitadosService.getInvitado(this.userId);
+      if (this.userId) {
+        this.analytics.logEvent('home with user id: ' + this.userId, {
+          component: 'Home Component',
+        });
+        this.invitadosService.getInvitado(this.userId);
+      } else {
+        this.analytics.logEvent('home without user id ', {
+          component: 'Home Component',
+        });
+        this.invitadosService.retrieveInvitados();
+      }
     });
   }
 
@@ -128,7 +140,7 @@ export class HomeComponent {
   }
 
   updateInvitado(invitadoActualizado: Invitado) {
-    this.invitadosService.update(this.userId, invitadoActualizado)
+    this.invitadosService.update(this.userId, invitadoActualizado);
   }
 
   addKeyToJSON() {

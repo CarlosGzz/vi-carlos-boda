@@ -1,34 +1,55 @@
 /* You can add global styles to this file, and also import other style files */
 * {
-    margin: 0;
-    padding: 0;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-  }
+  margin: 0;
+  padding: 0;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
 
-  body {
-    position: relative;
-    height: 100%;
-    font-family: "Poppins-Medium", sans-serif;
-    background-image: url("assets/images/texturaazulcasiinvisible.png");
-    background-size: 100%;
-    background-repeat: repeat;
-    background-attachment: fixed;
-    -webkit-font-smoothing: antialiased;
-  }
+body {
+  position: relative;
+  height: 100%;
+  font-family: "Poppins-Medium", sans-serif;
+  background-image: url("assets/images/texturaazulcasiinvisible.png");
+  background-size: 100%;
+  background-repeat: repeat;
+  background-attachment: fixed;
+  -webkit-font-smoothing: antialiased;
+}
 
-html, body { height: 100%;scroll-behavior: smooth; }
-
-@font-face {
-  font-family: 'DancingScript';
-  src: url('assets/fonts/DancingScript-Medium.ttf');
+html,
+body {
+  height: 100%;
+  scroll-behavior: smooth;
 }
 
 @font-face {
-  font-family: 'Poppins-Medium';
-  src: url('assets/fonts/Poppins-Medium.ttf');
+  font-family: "DancingScript";
+  src: url("assets/fonts/DancingScript/DancingScript-Bold.ttf");
 }
 
+@font-face {
+  font-family: "Poppins-Medium";
+  src: url("assets/fonts/Poppins/Poppins-Medium.ttf");
+}
+
+@font-face {
+  font-family: "Cinzel";
+  src: url("assets/fonts/Cinzel_Decorative/CinzelDecorative-Regular.ttf");
+}
+@font-face {
+  font-family: "Cinzel-bold";
+  src: url("assets/fonts/Cinzel_Decorative/CinzelDecorative-Bold.ttf");
+}
+@font-face {
+  font-family: "Cinzel-black";
+  src: url("assets/fonts/Cinzel_Decorative/CinzelDecorative-Black.ttf");
+}
+
+@font-face {
+  font-family: "DellaRespira";
+  src: url("assets/fonts/Della_Respira/DellaRespira-Regular.ttf");
+}
 
 /* width */
 ::-webkit-scrollbar {

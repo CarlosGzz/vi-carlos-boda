@@ -96,7 +96,7 @@ export class TimelineComponent {
   scrollerHeight = 0;
 
   get isMobile() {
-    if (window.screen.width <= 600) {
+    if (window.screen.width <= 750) {
       return true;
     }
     return false;

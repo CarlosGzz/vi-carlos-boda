@@ -14,6 +14,7 @@ import {
 import { provideFunctions, getFunctions } from '@angular/fire/functions';
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
+import {AngularFireAnalyticsModule} from "@angular/fire/compat/analytics";
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
@@ -34,8 +35,9 @@ import { TimelineComponent } from './timeline/timeline.component';
 import { CommonModule } from '@angular/common';
 import { HotelCardComponent } from './hotel-card/hotel-card.component';
 import { provideDatabase, getDatabase } from '@angular/fire/database';
-import { ListaInvitadosComponent } from './lista-invitados/lista-invitados.component';
 import { SplashComponent } from './splash/splash.component';
+import { CeremoniaComponent } from './ceremonia/ceremonia.component';
+import { LandingComponent } from './landing/landing.component';
 
 @NgModule({
   declarations: [
@@ -48,17 +50,19 @@ import { SplashComponent } from './splash/splash.component';
     TimelineComponent,
     HotelCardComponent,
     SplashComponent,
+    CeremoniaComponent,
+    LandingComponent,
   ],
   imports: [
-    BrowserModule,
-    // provideAnalytics(() => getAnalytics()),
-    provideFunctions(() => getFunctions()),
     AngularFireModule.initializeApp(environment.firebase),
+    provideFunctions(() => getFunctions()),
+    provideDatabase(() => getDatabase()),
+    AngularFireAnalyticsModule,
+    BrowserModule,
     AngularFireDatabaseModule,
     AppRoutingModule,
     CommonModule,
     BrowserAnimationsModule,
-    MatCardModule,
     MatInputModule,
     MatSelectModule,
     MatButtonModule,
@@ -67,7 +71,6 @@ import { SplashComponent } from './splash/splash.component';
     MatDividerModule,
     ReactiveFormsModule,
     HttpClientModule,
-    provideDatabase(() => getDatabase()),
   ],
   providers: [ScreenTrackingService, UserTrackingService],
   bootstrap: [AppComponent, SplashComponent],

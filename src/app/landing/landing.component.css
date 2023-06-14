@@ -1,0 +1,231 @@
+/* For extremely small screen devices (595px and below) */
+@media only screen and (max-width: 290) {
+  .heading-title {
+    font-size: 20px;
+  }
+  .title {
+    font-size: 1.2rem;
+  }
+  .parallax3 {
+    background-position: -300px 50px !important;
+  }
+  .section-header {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+}
+/* For extremely small screen devices (595px and below) */
+@media only screen and (max-width: 595px) {
+  .background-overlay {
+    background-position: center center;
+    width: 115%;
+  }
+}
+
+/* Small screen devices (600px and below) */
+@media only screen and (max-width: 600px) {
+  .background-overlay {
+    background-position: center center;
+    width: 115%;
+  }
+  .heading-title {
+    font-size: 40px;
+  }
+  .title-name {
+    font-size: 3rem;
+  }
+  .title .title-date {
+    font-size: 1.5rem;
+  }
+  .title .title-save {
+    font-size: 1.5rem;
+  }
+
+  .empty-col {
+    display: none;
+  }
+}
+/* Medium screen devices (768px and above) */
+@media only screen and (min-width: 700px) {
+  .background-overlay {
+    background-position: center center;
+    width: 100%;
+  }
+  .populated {
+    align-content: flex-end;
+    align-items: flex-end;
+  }
+}
+
+/* Big screen devices (889px and above) */
+@media only screen and (min-width: 889px) {
+  .background-overlay {
+    background-position: 0px 0px;
+    width: 100%;
+    background-position: bottom;
+  }
+  .populated {
+    align-content: center;
+    align-items: center;
+  }
+  .heading-title {
+    font-size: 60px;
+  }
+  .title-name {
+    font-size: 5rem;
+  }
+  .title .title-date {
+    font-size: 2.2rem;
+  }
+  .title .title-save {
+    font-size: 2.2rem;
+  }
+}
+
+/* SPLASH */
+
+.splash {
+  clip-path: polygon(0 0, 0 100%, 100% 100%, 100% 0);
+  overflow: hidden;
+  transition: background 0.3s, border 0.3s, border-radius 0.3s, box-shadow 0.3s;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  padding: 0em 0em 0em 0em;
+}
+
+.background-overlay {
+  box-sizing: border-box;
+  /* width: 115%; */
+  position: fixed;
+  /* top: -90px; */
+  left: 0;
+  height: 100vh;
+  pointer-events: none;
+  background-image: url("../../assets/images/VYC1.jpg ");
+  background-repeat: no-repeat;
+  background-size: cover;
+  opacity: 1;
+  transition: background 0.4s, border-radius 0.4s, opacity 0.4s;
+  animation: fadein 1.5s linear;
+}
+@keyframes fadein {
+  from {
+    opacity: 0.5;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.no-gap {
+  box-sizing: border-box;
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: auto;
+  margin-left: auto;
+  position: relative;
+  flex-wrap: wrap;
+  min-height: 100vh;
+}
+
+.column-el {
+  width: 100%;
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  min-height: 1px;
+}
+
+.populated {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+  justify-content: flex-end;
+  margin: 0px 0px 0px 0px;
+  --e-column-margin-right: 0px;
+  --e-column-margin-left: 0px;
+  padding: 0px 0px 120px 0px;
+}
+.heading {
+  text-align: center;
+  margin-bottom: 15px;
+  width: 100%;
+  position: relative;
+  -webkit-box-orient: vertical;
+}
+.heading-title {
+  text-align: center;
+  color: #ffffff;
+  font-family: "DancingScript", belleza;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.62);
+  line-height: 1.1;
+  margin: 0;
+  padding: 0;
+  font-weight: 400;
+  padding: 0;
+  margin: 0;
+  line-height: 1;
+}
+
+.container {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  min-height: 1px;
+}
+.row {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+.column {
+  flex: 1;
+  margin-bottom: 5px;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+.col {
+  flex-basis: 100%;
+}
+.title {
+  text-align: center;
+  color: #050a30;
+  font-family: Cinzel-bold;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.62);
+  line-height: 1.1;
+  margin: 0;
+  padding: 40px 0 0 0;
+  font-weight: 400;
+  padding: 0;
+  margin: 0;
+  line-height: 1;
+  padding-top: 40px;
+  -webkit-text-stroke-width: 0, 0.5px;
+  -webkit-text-stroke-color: #b5a642;
+}
+.title-name {
+  /* font-family: Cinzel-bold; */
+  font-family: DancingScript;
+  padding-top: 40px;
+  margin-bottom: 20px;
+}
+.title-name::after {
+  content: "";
+  display: block;
+  position: absolute;
+  bottom: 10px;
+  width: 50%;
+  left: 25%;
+  border-top: 2px solid #050a30;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.62);
+}
+.title-save {
+  font-family: DellaRespira;
+}
+.title-date {
+  font-family: DellaRespira;
+}

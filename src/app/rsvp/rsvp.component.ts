@@ -37,10 +37,6 @@ export class RsvpComponent {
     invitadosExtra: this.fb.array([]),
   });
 
-  invitados = [
-    { nombre: 'invitado 1', invitadosDeInvitado: ['plus 1', 'plus 2'] },
-    { nombre: 'invitado 2', invitadosDeInvitado: ['plus 1', 'plus 2'] },
-  ];
   get hasInvitado() {
     return !!this.invitado;
   }
@@ -151,7 +147,7 @@ export class RsvpComponent {
 
   invExtraAlergiaChange(event: any, index: any) {
     if (!event.value) {
-      this.invitadosExtraArray.controls[index].patchValue({alergias: '  ' });
+      this.invitadosExtraArray.controls[index].patchValue({ alergias: '  ' });
     }
   }
 
