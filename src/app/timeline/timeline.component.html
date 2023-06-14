@@ -19,19 +19,24 @@
           data-aos="zoom-in-right"
           data-aos-duration="3000"
         >
-          <h2>{{ item.title }}</h2>
-          <p class="color-contrast-medium">
-            {{ item.lugar }}
-          </p>
-          <p>
-            {{ item.direccion }}
-          </p>
+          <span class="cd-timeline__date">
+            {{ item.horario }}
+          </span>
+          <h2 class="timeline-item-title">{{ item.title }}</h2>
+          <div class="timeline-item-content">
+            <h4>
+              {{ item.lugar }}
+            </h4>
+            <p class="color-contrast-medium" (click)="goToMap(item.maps)">
+              {{ item.direccion }}
+            </p>
+          </div>
 
           <div class="flex justify-between items-center">
-            <span class="cd-timeline__date">{{ item.horario }}</span>
-            <a target="_blank" [href]="item.maps" class="btn btn--subtle"
-              >Ver en Mapa</a
-            >
+            <!-- <span class="cd-timeline__date">{{ item.horario }}</span> -->
+            <!-- <a target="_blank" [href]="item.maps" class="btn btn--subtle">
+              Ver en Mapa
+            </a> -->
           </div>
         </div>
         <!-- cd-timeline__content -->
@@ -45,19 +50,23 @@
         <!-- cd-timeline__img -->
 
         <div class="cd-timeline__content text-component">
-          <h2>{{ item.title }}</h2>
-          <p class="color-contrast-medium">
-            {{ item.lugar }}
-          </p>
-          <p>
-            {{ item.direccion }}
-          </p>
+          <h2 class="timeline-item-title">{{ item.title }}</h2>
+          <div class="timeline-item-content">
+            <h4>
+              {{ item.lugar }}
+            </h4>
+            <p class="color-contrast-medium" (click)="goToMap(item.maps)">
+              {{ item.direccion }}
+            </p>
+          </div>
 
           <div class="flex justify-between items-center">
-            <span class="cd-timeline__date">{{ item.horario }}</span>
-            <a target="_blank" [href]="item.maps" class="btn btn--subtle"
-              >Ver en Mapa</a
-            >
+            <span class="cd-timeline__date timeline-item-date">{{
+              item.horario
+            }}</span>
+            <a target="_blank" [href]="item.maps" class="btn btn--subtle">
+              Ver en Mapa
+            </a>
           </div>
         </div>
         <!-- cd-timeline__content -->

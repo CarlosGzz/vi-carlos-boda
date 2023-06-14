@@ -173,165 +173,7 @@
 *::before {
   box-sizing: inherit;
 }
-* {
-  font: inherit;
-}
-html,
-body,
-div,
-span,
-applet,
-object,
-iframe,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-blockquote,
-pre,
-a,
-abbr,
-acronym,
-address,
-big,
-cite,
-code,
-del,
-dfn,
-em,
-img,
-ins,
-kbd,
-q,
-s,
-samp,
-small,
-strike,
-strong,
-sub,
-sup,
-tt,
-var,
-b,
-u,
-i,
-center,
-dl,
-dt,
-dd,
-ol,
-ul,
-li,
-fieldset,
-form,
-label,
-legend,
-table,
-caption,
-tbody,
-tfoot,
-thead,
-tr,
-th,
-td,
-article,
-aside,
-canvas,
-details,
-embed,
-figure,
-figcaption,
-footer,
-header,
-hgroup,
-menu,
-nav,
-output,
-ruby,
-section,
-summary,
-time,
-mark,
-audio,
-video,
-hr {
-  margin: 0;
-  padding: 0;
-  border: 0;
-}
-html {
-  box-sizing: border-box;
-}
-body {
-  background-color: hsl(0, 0%, 100%);
-  background-color: var(--color-bg, white);
-}
-article,
-aside,
-details,
-figcaption,
-figure,
-footer,
-header,
-hgroup,
-menu,
-nav,
-section,
-main,
-form legend {
-  display: block;
-}
-ol,
-ul {
-  list-style: none;
-}
-blockquote,
-q {
-  quotes: none;
-}
-button,
-input,
-textarea,
-select {
-  margin: 0;
-}
-.btn,
-.form-control,
-.link,
-.reset {
-  background-color: transparent;
-  padding: 0;
-  border: 0;
-  border-radius: 0;
-  color: inherit;
-  line-height: inherit;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-}
-select.form-control::-ms-expand {
-  display: none;
-}
-textarea {
-  resize: vertical;
-  overflow: auto;
-  vertical-align: top;
-}
-input::-ms-clear {
-  display: none;
-}
-table {
-  border-collapse: collapse;
-  border-spacing: 0;
-}
-img,
-video,
-svg {
-  max-width: 100%;
-}
+
 [data-theme] {
   background-color: hsl(0, 0%, 100%);
   background-color: var(--color-bg, #fff);
@@ -1086,17 +928,16 @@ svg {
 body {
   font-size: 1em;
   font-size: var(--text-base-size, 1em);
-  font-family: "Droid Serif", serif;
-  font-family: var(--font-primary, sans-serif);
-  color: hsl(240, 4%, 20%);
-  color: var(--color-contrast-high, #313135);
+  // font-family: "Droid Serif", serif;
+  // color: hsl(240, 4%, 20%);
+  color: white;
 }
 h1,
 h2,
 h3,
 h4 {
-  color: hsl(240, 8%, 12%);
-  color: var(--color-contrast-higher, #1c1c21);
+  // color: hsl(240, 8%, 12%);
+  color: white;
   line-height: 1.2;
   line-height: var(--heading-line-height, 1.2);
 }
@@ -3113,7 +2954,7 @@ mark {
 }
 .cd-timeline {
   overflow: hidden;
-  padding: 2em 0;
+  padding: 2em 0 0 0;
   color: white;
   width: 100%;
 }
@@ -3122,7 +2963,7 @@ mark {
 }
 .cd-timeline__container {
   position: relative;
-  padding: 1.25em 0;
+  padding: 1.25em 0px 0px 0px ;
   width: 100%;
 }
 .time-line {
@@ -3203,11 +3044,11 @@ mark {
   -ms-flex-positive: 1;
   flex-grow: 1;
   position: relative;
-  margin-left: 1.25em;
-  background: rgba(200, 200, 200, 0.5);
+  // margin-left: 1.25em;
+  // background: rgba(200, 200, 200, 0.5);
   border-radius: 0.25em;
   padding: 1.25em;
-  box-shadow: 0 3px 0 hsl(205, 38%, 89%);
+  // box-shadow: 0 3px 0 hsl(205, 38%, 89%);
   padding: 40px 60px 40px 60px;
   display: flex;
   align-items: center;
@@ -3222,10 +3063,16 @@ mark {
   width: 0;
   height: 0;
   border: 7px solid transparent;
-  border-right-color: hsl(0, 0%, 100%);
+  // border-right-color: hsl(0, 0%, 100%);
 }
-.cd-timeline__content h2 {
-  color: hsl(206, 21%, 24%);
+// .cd-timeline__content h2 {
+//   color: hsl(206, 21%, 24%);
+// }
+/* Small screen devices (600px and above) */
+@media only screen and (max-width: 600px) {
+  .cd-timeline__content{
+    padding: 10px 20px 10px 20px !important;
+  }
 }
 @media (min-width: 64rem) {
   .cd-timeline__content {
@@ -3233,7 +3080,7 @@ mark {
     -ms-flex-positive: 0;
     flex-grow: 0;
     will-change: transform;
-    margin: 0;
+    margin: -100px 0px 0px 0px;
     font-size: 0.8em;
     --line-height-multiplier: 1.2;
   }
@@ -3246,7 +3093,7 @@ mark {
     width: 0;
     height: 0;
     border: 7px solid transparent;
-    border-left-color: hsl(0, 0%, 100%);
+    // border-left-color: hsl(0, 0%, 100%);
   }
 }
 .cd-timeline__date {
@@ -3379,4 +3226,19 @@ mark {
     -webkit-transform: translateX(0);
     transform: translateX(0);
   }
+}
+.timeline-item-title {
+  padding-bottom: 20px;
+}
+.timeline-item-content {
+  padding-top: 10px;
+  padding-bottom: 20px;
+}
+.timeline-item-content h4 {
+  padding-bottom: 5px;
+}
+.timeline-item-date {
+  margin-top: 90px;
+  color: white;
+  font-size: 2em;
 }

@@ -31,13 +31,15 @@
   <div id="contador" class="item container contador-item">
     <div class="row">
       <div class="column">
-        <div class="mensaje" *ngIf="invitado">
+        <div class="mensaje">
           <p>
             Los mejores momentos de la vida merecen ser compartidos, gracias por
             ser parte de nuestra historia.
           </p>
-          <h1 class="nombre-invitado">{{ invitado.nombre }}</h1>
-          <p>
+          <h1 class="nombre-invitado" *ngIf="invitado">
+            {{ invitado.nombre }}
+          </h1>
+          <p *ngIf="invitado">
             ¡Nos hará muy felices que nos
             {{ invitado.invitadoExtra === 0 ? "acompañes" : "acompañen" }} en
             este día tan especial!
@@ -54,6 +56,7 @@
               options="'Apple','Google'"
               timeZone="America/Monterrey"
               lightMode="bodyScheme"
+              styleLight="--btn-background: #b5a642;--btn-border:none;"
             ></add-to-calendar-button>
           </p>
         </div>
@@ -73,7 +76,7 @@
           </div>
         </div>
       </div>
-      <div class="ceremonia-header">
+      <div class="section-header">
         <h3>Código de vestimenta</h3>
         <p>Etiqueta</p>
       </div>
@@ -82,17 +85,21 @@
           <div class="row">
             <div class="column ceremonia-content-item">
               <img
+                data-aos="zoom-in"
+                data-aos-duration="3000"
                 class="vestimenta-icon"
                 src="../../assets/images/codigo-hombre.png"
               />
-              <h3>Traje o Esmoquin</h3>
+              <p>Traje o Esmoquin</p>
             </div>
             <div class="column ceremonia-content-item">
               <img
+                data-aos="zoom-in"
+                data-aos-duration="3000"
                 class="vestimenta-icon"
                 src="../../assets/images/codigo-mujer.png"
               />
-              <h3>Vestido Largo</h3>
+              <p>Vestido Largo</p>
             </div>
           </div>
           <div class="row">
@@ -101,8 +108,9 @@
               <hr />
               <p>
                 Adoramos a sus hijos, pero creemos que necesitan una noche
-                libre. Sólo adultos, por favor.
+                libre.
               </p>
+              <p>Sólo adultos, por favor.</p>
             </div>
           </div>
         </div>
@@ -114,7 +122,7 @@
     <div class="section-header">
       <h2>Hospedaje</h2>
     </div>
-    <div class="hoteles">
+    <!-- <div class="hoteles">
       <div class="row">
         <div class="column">
           <mat-card
@@ -251,19 +259,11 @@
           </mat-card>
         </div>
       </div>
-    </div>
+    </div> -->
     <div class="hoteles">
       <div class="row">
-        <div class="column">
-          <div class="wrapper">
-            <div class="box1">
-              <p>data 1</p>
-            </div>
-
-            <div class="box2">
-              <p>data 2</p>
-            </div>
-          </div>
+        <div class="column" *ngFor="let hotel of hoteles">
+          <app-hotel-card [hotel]="hotel"></app-hotel-card>
         </div>
       </div>
     </div>

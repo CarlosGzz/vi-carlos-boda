@@ -50,6 +50,10 @@ export class RsvpComponent {
     return this.rsvpForm.get('tieneAlergia') as FormControl;
   }
 
+  get asistira(): FormControl {
+    return this.rsvpForm.get('confirmarAsistencia') as FormControl;
+  }
+
   constructor(private fb: FormBuilder, private router: Router) {}
 
   ngOnInit() {}
@@ -64,9 +68,19 @@ export class RsvpComponent {
           phone: this.invitado.telefono,
         });
         if (this.invitado.invitadoExtra > 0) {
-          this.invitado.invitadosExtraLista.forEach((invitado: any) => {
-            this.addInvitadoExtra(this.invitadosExtraArray, invitado);
-          });
+          for (let index = 0; index < this.invitado.invitadoExtra; index++) {
+            if (this.invitado.invitadosExtraLista) {
+              this.addInvitadoExtra(
+                this.invitadosExtraArray,
+                this.invitado.invitadosExtraLista[index]
+              );
+            } else {
+              this.addInvitadoExtra(this.invitadosExtraArray, null);
+            }
+          }
+          // this.invitado.invitadosExtraLista.forEach((invitado: any) => {
+          //   this.addInvitadoExtra(this.invitadosExtraArray, invitado);
+          // });
         }
       }
     }
@@ -97,10 +111,10 @@ export class RsvpComponent {
     formArray.push(this.invitadoExtra(invitadoExtraData));
   }
   tieneAlergiaInvitadoExtra(form: any): boolean {
-    console.log(form)
+    console.log(form);
     if (form !== null) {
-      let tieneAlergia = form.get('tieneAlergia')
-      return tieneAlergia? tieneAlergia.value: false;
+      let tieneAlergia = form.get('tieneAlergia');
+      return tieneAlergia ? tieneAlergia.value : false;
     }
     return false;
   }

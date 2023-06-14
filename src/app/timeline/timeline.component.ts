@@ -144,4 +144,8 @@ export class TimelineComponent {
     });
     this.scrolling = false;
   }
+
+  goToMap(mapURL: string) {
+    window.open(mapURL, '_blank');
+  }
 }

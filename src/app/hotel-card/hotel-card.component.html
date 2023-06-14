@@ -1,0 +1,54 @@
+<div class="hotel-container">
+  <div class="wrapper" *ngIf="hotel">
+    <div
+      class="box1"
+    >
+      <div class="row">
+        <div class="column">
+          <div class="info">
+            <div class="hotel-img-container">
+              <img
+                mat-card-image
+                class="hotel-logo"
+                [src]="'../../assets/images/' + hotel.logo"
+                alt="Holiday Inn Express & Suites"
+              />
+            </div>
+            <h3>Holiday Inn Tanarah</h3>
+          </div>
+          <img
+            mat-card-image
+            class="hotel-img demo-bg"
+            [src]="'../../assets/images/' + hotel.imagenExterior"
+            alt="JW Marriot"
+          />
+        </div>
+      </div>
+    </div>
+
+    <div class="box2">
+      <div class="row">
+        <div class="column">
+          <div class="info">
+            <div class="descuento" *ngIf="hotel.descuento">
+              <p>Tarifa especial con el Código:</p>
+              <p>{{ hotel.descuento }}</p>
+            </div>
+
+            <p class="telefono">{{ hotel.telefono }}</p>
+            <p class="direccion">{{ hotel.direccion }}</p>
+            <button mat-raised-button color="accent" (click)="goToHotel(hotel.url)">
+              Reservar
+            </button>
+          </div>
+          <img
+            mat-card-image
+            class="hotel-img demo-bg"
+            [src]="'../../assets/images/' + hotel.imagenHabitacion"
+            alt="JW Marriot"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -13,6 +13,10 @@
   .parallax3 {
     background-position: -300px 50px !important;
   }
+  .section-header {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
 }
 /* For extremely small screen devices (595px and below) */
 @media only screen and (max-width: 595px) {
@@ -32,6 +36,10 @@
   }
   .parallax3 {
     background-position: -300px 50px !important;
+  }
+  .section-header {
+    margin-top: 20px;
+    margin-bottom: 20px;
   }
 }
 
@@ -54,6 +62,10 @@
     padding-left: 30px;
     padding-right: 30px;
   }
+  .section-header {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
 }
 /* Medium screen devices (768px and above) */
 @media only screen and (min-width: 700px) {
@@ -71,6 +83,10 @@
   .item {
     padding-left: 40px;
     padding-right: 40px;
+  }
+  .section-header {
+    margin-top: 40px;
+    margin-bottom: 40px;
   }
 }
 
@@ -91,6 +107,10 @@
   .item {
     padding-left: 50px;
     padding-right: 50px;
+  }
+  .section-header {
+    margin-top: 40px;
+    margin-bottom: 40px;
   }
 }
 
@@ -216,8 +236,7 @@
 }
 
 .section-header {
-  margin-top: 20px;
-  margin-bottom: 20px;
+  color: white;
 }
 
 .row {
@@ -225,7 +244,7 @@
   flex-direction: row;
   width: 100%;
   justify-content: space-evenly;
-  padding-bottom: 2em;
+  /* padding-bottom: 2em; */
 }
 
 .column {
@@ -241,7 +260,7 @@ mat-card {
 }
 
 .contador-item {
-  min-height: 80vh;
+  min-height: 100vh;
   background-color: #050a30;
   color: #b5a642;
   display: flex;
@@ -271,10 +290,9 @@ mat-card {
   align-items: center;
   justify-content: center;
   gap: 10px;
-  padding-top: 20px;
-  padding-bottom: 20px;
   border-radius: 10px;
   width: 100%;
+  color: white;
 }
 
 .ceremonia-icon {
@@ -291,26 +309,37 @@ mat-card {
 }
 .vestimenta-icon {
   width: 150px;
+  filter: saturate(500%) contrast(800%) brightness(500%) invert(80%) sepia(50%)
+    hue-rotate(120deg);
 }
 .nota-importante {
-  background: rgba(250, 250, 250, 0.8);
+  background: rgba(181, 166, 66, 0.9);
   border-radius: 5px;
   margin-bottom: -200px;
+  flex-basis: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 .nota-importante h3 {
   padding-top: 20px;
   padding-bottom: 20px;
 }
 .nota-importante p {
-  padding-top: 20px;
-  padding-bottom: 20px;
+  padding: 20px 30px 20px 30px;
 }
-
+.nota-importante hr {
+  width: 80%;
+  border: 2px solid black;
+  border-radius: 5px;
+}
 .hoteles {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
   align-items: center;
+  padding: 2em 0;
 }
 .hotel-logo {
   width: 100%;
@@ -327,9 +356,12 @@ mat-card {
 }
 
 .rsvp-item {
-  min-height: 20vh;
+  min-height: 100vh;
+  padding-bottom: 50px;
 }
-
+.mesa-container {
+  color: white;
+}
 .regalos-icon {
   width: 100%;
   min-height: 140px;
@@ -348,7 +380,7 @@ mat-card {
   /* The image used */
 
   /* Set a specific height */
-  min-height: 500px;
+  min-height: 80vh;
 
   /* Create the parallax scrolling effect */
   background-attachment: fixed;
@@ -384,58 +416,33 @@ mat-card {
   height: 100px;
   border: 1px solid black;
   text-align: center;
+  position: absolute;
+  transition: 600ms ease;;
 }
 
 .box1 {
-  display: block;
   opacity: 1;
+  visibility: visible;
+  background-color: red;
 }
 
 .box2 {
-  display: none;
   opacity: 0;
+  visibility: hidden;
+  background-color: green;
 }
 
 .wrapper {
   width: auto;
   display: inline-block;
-  background-color: red;
 }
 
 .wrapper:hover .box1 {
-  /* display: none; */
-  -webkit-animation: fadeinout 2s linear forwards;
-  animation: fadeinout 2s linear forwards;
+  opacity: 0;
+  visibility: hidden;
 }
 
 .wrapper:hover .box2 {
-  /* display: block; */
-  -webkit-animation: fadeoutin 2s linear forwards;
-  animation: fadeoutin 2s linear forwards;
-}
-
-@keyframes fadeinout {
-  50% {
-    opacity: 0.5;
-    height: 50%;
-  }
-  99% {
-    opacity: 0;
-    height: 20%;
-  }
-  100% {
-    display: none;
-    height: 0px;
-  }
-}
-
-@keyframes fadeoutin {
-  50% {
-    opacity: 0;
-    display: block;
-  }
-  100% {
-    opacity: 1;
-    display: block;
-  }
+  opacity: 1;
+  visibility: visible;
 }

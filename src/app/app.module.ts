@@ -30,6 +30,7 @@ import { RsvpComponent } from './rsvp/rsvp.component';
 import { CountdownComponent } from './countdown/countdown.component';
 import { TimelineComponent } from './timeline/timeline.component';
 import { CommonModule } from '@angular/common';
+import { HotelCardComponent } from './hotel-card/hotel-card.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import { CommonModule } from '@angular/common';
     RsvpComponent,
     CountdownComponent,
     TimelineComponent,
+    HotelCardComponent,
   ],
   imports: [
     BrowserModule,

@@ -11,10 +11,15 @@
     flex-direction: column !important;
   }
 }
+.confirmar-asistencia-form {
+  color: white;
+}
 
 .rsvp-form {
   display: flex;
   flex-direction: column;
+  /* background-color: rgba(5, 10, 48); */
+  min-width: 70%;
 }
 .row {
   display: flex;
@@ -27,6 +32,10 @@
 }
 .icon-col {
   width: 100px;
+}
+.icon {
+  filter: saturate(500%) contrast(800%) brightness(500%) invert(80%) sepia(50%)
+    hue-rotate(120deg);
 }
 .form-col {
   width: 100%;
@@ -57,6 +66,17 @@
   align-content: center;
   flex-direction: column;
 }
-.divider{
-  border-top-color: rgba(255,255,255,.50);
+.divider {
+  border-top-color: rgba(255, 255, 255, 0.5);
+}
+
+:host ::ng-deep label {
+  color: white;
+}
+
+:host ::ng-deep .mdc-radio__background .mdc-radio__outer-circle {
+  border-color: white !important; /*change radio button not checked border */
+}
+:host ::ng-deep .mdc-checkbox__background {
+  border-color: white !important;
 }

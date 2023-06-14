@@ -8,6 +8,7 @@ import {
   FadeInOutAnimation,
   SlideInOutAnimationVertical,
 } from 'src/app/core/animations';
+import { Hotel } from '../hotel-card/hotel-card.component';
 
 @Component({
   selector: 'app-home',
@@ -30,6 +31,52 @@ export class HomeComponent {
     'https://www.elpalaciodehierro.com/buscar?eventId=376579',
     'https://guadalquivirregalos.com.mx/',
     ' https://www.amazon.com.mx/wedding/share/VioletayCarlos',
+  ];
+  hoteles: Array<Hotel> = [
+    {
+      nombre: 'JW Marriot',
+      logo: 'jwlogo.png',
+      imagenExterior: 'jwimgext.jpg',
+      imagenHabitacion: 'jwimghab.jpg',
+      descuento: '99999999999',
+      url: 'https://www.marriott.com/en-us/hotels/mtyjw-jw-marriott-hotel-monterrey-valle/overview/',
+      direccion:
+        'Avenida del Roble 670, Valle del Campestre, San Pedro Garza García, Nuevo Leon, Mexico, 66265',
+      telefono: '+52 81-8850-6700',
+    },
+    {
+      nombre: 'Westin',
+      logo: 'westinlogo.png',
+      imagenExterior: 'westinext.jpg',
+      imagenHabitacion: 'westinhab.jpg',
+      descuento: '99999999999',
+      url: 'https://www.marriott.com/es/hotels/mtywi-the-westin-monterrey-valle/overview/',
+      direccion:
+        'Ave. Manuel Gomez Morin Y Rio Missouri, Punto Valle, 66220 San Pedro Garza García, N.L.',
+      telefono: '+52 81-2713-3100',
+    },
+    {
+      nombre: 'NH Collection',
+      logo: 'nhlogo.png',
+      imagenExterior: 'nhext.jpg',
+      imagenHabitacion: 'nhhab.jpg',
+      descuento: '',
+      url: 'https://www.nh-hoteles.es/hotel/nh-collection-monterrey-san-pedro',
+      direccion:
+        'Av. José Vasconcelos 402, Zona la Alianza, 66268 Monterrey, N.L.',
+      telefono: '+52 81-8173-1800',
+    },
+    {
+      nombre: 'Holiday Inn',
+      logo: 'hinnlogo.png',
+      imagenExterior: 'hinnext.jpg',
+      imagenHabitacion: 'hinnhab.jpg',
+      descuento: '',
+      url: 'https://www.ihg.com/holidayinnexpress/hotels/us/en/monterrey/mtyrr/hoteldetail',
+      direccion:
+        'Av. José Vasconcelos 345-Oriente, Santa Engracia, 66267 Monterrey, N.L.',
+      telefono: '+52 81-88506700',
+    },
   ];
 
   get isMobile() {
