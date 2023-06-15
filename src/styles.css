@@ -34,12 +34,16 @@ body {
 }
 
 @font-face {
-  font-family: "Cinzel";
+  font-family: "CinzelDecorative";
   src: url("assets/fonts/Cinzel_Decorative/CinzelDecorative-Regular.ttf");
 }
 @font-face {
   font-family: "Cinzel-bold";
   src: url("assets/fonts/Cinzel_Decorative/CinzelDecorative-Bold.ttf");
+}
+@font-face {
+  font-family: "Cinzel";
+  src: url("assets/fonts/Cinzel/Cinzel-Regular.ttf");
 }
 @font-face {
   font-family: "Cinzel-black";

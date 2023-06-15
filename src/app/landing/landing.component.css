@@ -20,6 +20,20 @@
     background-position: center center;
     width: 115%;
   }
+  .title-name {
+    font-size: 2.5rem;
+  }
+  .title .title-date {
+    font-size: 1rem;
+  }
+  .title .title-save {
+    font-size: 1rem;
+  }
+  .transparent-box {
+    top: -55px !important;
+    width: 474px !important;
+    height: 775px !important;
+  }
 }
 
 /* Small screen devices (600px and below) */
@@ -55,6 +69,15 @@
     align-content: flex-end;
     align-items: flex-end;
   }
+  .title-name {
+    font-size: 3rem;
+  }
+  .title .title-date {
+    font-size: 1.4rem;
+  }
+  .title .title-place {
+    font-size: 1.2rem;
+  }
 }
 
 /* Big screen devices (889px and above) */
@@ -72,13 +95,13 @@
     font-size: 60px;
   }
   .title-name {
-    font-size: 5rem;
+    font-size: 3rem;
   }
   .title .title-date {
-    font-size: 2.2rem;
+    font-size: 1.4rem;
   }
-  .title .title-save {
-    font-size: 2.2rem;
+  .title .title-place {
+    font-size: 1.2rem;
   }
 }
 
@@ -193,9 +216,9 @@
 }
 .title {
   text-align: center;
-  color: #050a30;
-  font-family: Cinzel-bold;
-  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.62);
+  color: black;
+  font-family: Cinzel;
+  text-shadow: 0.5px 0.5px 0.5px rgba(0, 0, 0, 0.62);
   line-height: 1.1;
   margin: 0;
   padding: 40px 0 0 0;
@@ -204,16 +227,20 @@
   margin: 0;
   line-height: 1;
   padding-top: 40px;
-  -webkit-text-stroke-width: 0, 0.5px;
-  -webkit-text-stroke-color: #b5a642;
+  z-index: 4;
+  position: relative;
+
+  /* -webkit-text-stroke-width: 0, 0.5px;
+  -webkit-text-stroke-color: #b5a642; */
 }
 .title-name {
-  /* font-family: Cinzel-bold; */
-  font-family: DancingScript;
+  font-family: Cinzel;
   padding-top: 40px;
   margin-bottom: 20px;
+  letter-spacing: 8px;
+  line-height: 1.18;
 }
-.title-name::after {
+/* .title-name::after {
   content: "";
   display: block;
   position: absolute;
@@ -222,10 +249,49 @@
   left: 25%;
   border-top: 2px solid #050a30;
   box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.62);
-}
+} */
 .title-save {
-  font-family: DellaRespira;
+  font-family: Cinzel;
+  letter-spacing: 4px;
+  line-height: 1.18;
 }
 .title-date {
-  font-family: DellaRespira;
+  font-family: Cinzel;
+  letter-spacing: 4px;
+  line-height: 1.18;
 }
+.title-place {
+  font-family: Cinzel;
+  letter-spacing: 4px;
+  line-height: 2;
+}
+
+.transparent-box {
+  box-sizing: border-box;
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 800px;
+  height: 808px;
+  background: rgb(211, 248, 255);
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.2) 50%,
+    rgba(255, 255, 255, 0.9) 93%,
+    rgba(255, 255, 255, 1) 100%
+  );
+  z-index: 3;
+  transform: translate(9.9rem, -11ex) rotate(310deg);
+}
+
+/*     box-sizing: border-box;
+    position: fixed;
+    top: -100px;
+    right: -227px;
+    width: 100vw;
+    height: 450px;
+    background: rgb(211, 248, 255);
+    background: linear-gradient( to bottom, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0.9) 93%, rgba(255, 255, 255, 1) 100% );
+    z-index: 3;
+    transform: rotate(210deg); */
