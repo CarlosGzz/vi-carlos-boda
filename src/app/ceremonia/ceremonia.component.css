@@ -31,7 +31,7 @@
     margin-top: 20px;
     margin-bottom: 20px;
   }
-  .vestimenta-icon{
+  .vestimenta-icon {
     width: 110px !important;
   }
 }
@@ -59,6 +59,8 @@
 .section-header {
   color: white;
   font-family: CinzelDecorative;
+  letter-spacing: 7px;
+  line-height: 1.7;
 }
 
 .row {
@@ -110,12 +112,14 @@
   width: 100%;
   color: white;
   font-family: DellaRespira;
-  padding: 0 0 30px 0
+  padding: 0 0 30px 0;
 }
 .vestimenta {
   display: flex;
   align-items: center;
   justify-content: center;
+  letter-spacing: 1.84px;
+  line-height: 1.78;
 }
 .traje {
   text-align: right;
@@ -124,9 +128,13 @@
   text-align: left;
 }
 .vestimenta-icon {
-  width: 150px;
-  filter: saturate(500%) contrast(800%) brightness(500%) invert(80%) sepia(50%)
-    hue-rotate(120deg);
+  width: 400px;
+}
+.vestimenta-traje {
+  margin-right: -150px;
+}
+.vestimenta-vestido {
+  margin-left: -150px;
 }
 .nota {
   width: 70%;
@@ -144,8 +152,8 @@
   font-family: DellaRespira;
 }
 .nota-importante h3 {
-  padding-top: 20px;
-  padding-bottom: 20px;
+  padding-top: 40px;
+  padding-bottom: 2px;
   font-family: DellaRespira;
   font-weight: normal;
   letter-spacing: 2px;
@@ -153,11 +161,16 @@
 .nota-importante p {
   font-size: small;
   font-weight: lighter;
-  letter-spacing: 1px;
-  line-height: 2;
+  letter-spacing: 1.5px;
+  line-height: 1.78;
+  padding-top: 10px;
 }
 .nota-importante hr {
   width: 40%;
   border: 1px solid rgba(181, 166, 66);
   border-radius: 5px;
+}
+
+.linea {
+  width: 55%;
 }

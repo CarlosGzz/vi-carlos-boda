@@ -21,18 +21,26 @@
     width: 115%;
   }
   .title-name {
-    font-size: 2.5rem;
+    font-size: 2.7rem !important;
   }
   .title .title-date {
-    font-size: 1rem;
+    font-size: 1.2rem !important;
   }
   .title .title-save {
-    font-size: 1rem;
+    font-size: 1rem !important;
   }
   .transparent-box {
     top: -55px !important;
     width: 474px !important;
     height: 775px !important;
+    background: linear-gradient(
+      to right,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 0.5) 50%,
+      rgba(255, 255, 255, 0.9) 93%,
+      rgba(255, 255, 255, 1) 100%
+    ) !important;
+    transform: translate(9.9rem, -11ex) rotate(270deg) !important;
   }
 }
 
@@ -283,6 +291,7 @@
   );
   z-index: 3;
   transform: translate(9.9rem, -11ex) rotate(310deg);
+  animation: fadein 1.5s linear;
 }
 
 /*     box-sizing: border-box;

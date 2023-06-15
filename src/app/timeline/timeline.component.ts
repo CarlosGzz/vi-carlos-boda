@@ -72,7 +72,7 @@ export class TimelineComponent {
         'Av. del Roble 670, Valle del Campestre, 66265 San Pedro Garza García, N.L.',
       maps: 'http://maps.google.com/?q=JW Marriot, Arboleda, San Pedro Garza Garcia',
       horario: '5:30 pm',
-      img: 'signature.png',
+      img: 'signatureIcon.png',
     },
     {
       title: 'Misa',
@@ -81,7 +81,7 @@ export class TimelineComponent {
         'Los Rosales 385, Santa Engracia, 66267 San Pedro Garza García, N.L.',
       maps: 'http://maps.google.com/?q=Parroquia Santa Engracia, San Pedro Garza Garcia',
       horario: '6:30 pm',
-      img: 'church.png',
+      img: 'churchIcon.png',
     },
     {
       title: 'Recepcion',
@@ -90,7 +90,7 @@ export class TimelineComponent {
         'Av. del Roble 670, Valle del Campestre, 66265 San Pedro Garza García, N.L.',
       maps: 'http://maps.google.com/?q=JW Marriot, Arboleda, San Pedro Garza Garcia',
       horario: '8:30 pm',
-      img: 'champagne-glass.png',
+      img: 'champagneIcon.png',
     },
   ];
   scrollerHeight = 0;

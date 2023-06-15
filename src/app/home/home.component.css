@@ -43,6 +43,9 @@
     margin-top: 20px;
     margin-bottom: 20px;
   }
+  .padres-nombres {
+    font-size: 6px !important;
+  }
 }
 @media (620px <= width <= 920px) {
   .hoteles .row {
@@ -120,7 +123,7 @@
 }
 
 .section-header {
-  color: white;
+  color: #f9eddc;
   font-family: CinzelDecorative;
 }
 
@@ -139,12 +142,31 @@
   margin-right: 5px;
 }
 
-.contador-item {
+.padres-item {
   min-height: 100vh;
-  background-color: #050a30;
-  color: #b5a642;
+  color: #f9eddc;
   display: flex;
   align-items: center;
+  justify-content: center;
+  font-family: Cinzel;
+  flex-direction: column;
+}
+.padres-mensaje {
+  font-family: CinzelDecorative;
+  letter-spacing: 3px;
+  line-height: 1.7;
+}
+.padres-nombres {
+  font-family: DellaRespira;
+  letter-spacing: 3px;
+  line-height: 1.7;
+}
+.contador-item {
+  min-height: 100vh;
+  color: #f9eddc;
+  display: flex;
+  align-items: center;
+  font-family: Cinzel;
 }
 .contador {
   padding-left: 20px;

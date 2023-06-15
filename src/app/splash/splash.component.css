@@ -5,7 +5,7 @@
   left: 50%;
   height: 100%;
   width: 100%;
-  background-color: #050a30;
+  background-color: #07192E;
   transform: translate(-50%, -50%);
   transition: all ease-in-out 600ms;
   z-index: 9000;
@@ -27,11 +27,11 @@
 .topline,
 .bottomline {
   display: inline;
-  fill: #b5a642;
+  fill: #F9EDDC;
   fill-opacity: 1;
   stroke-width: 0.264583;
   stroke-opacity: 1;
-  stroke: #b5a642 ;
+  stroke: #F9EDDC ;
   stroke-width: 1 ;
   stroke-dasharray: 2566;
   stroke-dashoffset: 2566;

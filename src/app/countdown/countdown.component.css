@@ -1,7 +1,8 @@
 /* For extremely small screen devices (595px and below) */
 @media only screen and (max-width: 290) {
   .time-unit {
-    width: calc(70% / 4)
+    width: calc(30% / 4);
+    height: 80px;
   }
   .time-label {
     font-size: x-small !important;
@@ -10,7 +11,8 @@
 /* For extremely small screen devices (595px and below) */
 @media only screen and (max-width: 595px) {
   .time-unit {
-    width: calc(80% / 4)
+    width: calc(30% / 4);
+    height: 80px;
   }
   .time-label {
     font-size: x-small !important;
@@ -18,7 +20,11 @@
 }
 @media only screen and (min-width: 700px) {
   .time-unit {
-    width: calc(85% / 4)
+    width: calc(40% / 4);
+    height: 100px;
+  }
+  .time-label {
+    font-size: small !important;
   }
 }
 
@@ -31,7 +37,23 @@
   padding-bottom: 2em;
 }
 .time-unit {
-  background: rgba(255,255,255, 0.4);
+  background: rgba(249, 237, 220, 0.17);
   margin: 4px;
-  border-radius: 5px;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.time-label {
+  font-family: DellaRespira;
+  letter-spacing: 3px;
+  line-height: 1.78;
+}
+.time-number {
+  font-family: CinzelDecorative;
+  font-size: 2rem;
+  letter-spacing: 3px;
+  line-height: 1.78;
 }
