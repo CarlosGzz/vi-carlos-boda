@@ -16,7 +16,7 @@ export interface Hotel {
 })
 export class HotelCardComponent {
   @Input() hotel: Hotel | undefined;
-  styleBackgroundImg = 'background-image: "../../assets/images/"';
+  styleBackgroundImg = 'background-image: "../../assets/images/hoteles/"';
 
   goToHotel(hotelURL: string) {
     window.open(hotelURL, '_blank');

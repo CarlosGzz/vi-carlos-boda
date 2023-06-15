@@ -1,67 +1,57 @@
 <nav id="navigation" [class.sticky]="sticky" #stickyMenu>
   <div class="menu" *ngIf="!showMobileMenu">
     <div class="cvicon">
-      <img class="logo" src="../../assets/images/cvlogo.svg" />
+      <img class="logo" src="../../assets/images/icons/cvlogo.svg" />
     </div>
     <a class="menu-link" (click)="navigateToSection('ceremonia')">
       <span class="text">Ceremonia</span>
-      <img class="icon" src="../../assets/images/wedding-rings.png" />
+      <img class="icon" src="../../assets/images/icons/wedding-rings.png" />
     </a>
     <a class="menu-link" (click)="navigateToSection('hospedaje')">
       <span class="text">Hospedaje</span>
-      <img class="icon" src="../../assets/images/hotel.png" />
-    </a>
-    <a class="menu-link" (click)="navigateToSection('rsvp')">
-      <span class="text">RSVP</span>
-      <img class="icon" src="../../assets/images/rsvp.png" />
+      <img class="icon" src="../../assets/images/icons/hotel.png" />
     </a>
     <a class="menu-link" (click)="navigateToSection('mesaRegalo')">
       <span class="text">Mesa de Regalo</span>
-      <img class="icon" src="../../assets/images/gift.png" />
+      <img class="icon" src="../../assets/images/icons/gift.png" />
     </a>
-    <!-- <div class="links">
-      <a class="active" (click)="navigateToSection('ceremonia')">
-        <span class="text">Ceremonia</span>
-        <img class="icon" src="../../assets/images/wedding-rings.png" />
-      </a>
-      <a (click)="navigateToSection('hospedaje')">
-        <span class="text">Hospedaje</span>
-        <img class="icon" src="../../assets/images/hotel.png" />
-      </a>
-      <a (click)="navigateToSection('rsvp')">
-        <span class="text">RSVP</span>
-        <img class="icon" src="../../assets/images/rsvp.png" />
-      </a>
-      <a (click)="navigateToSection('mesaRegalo')">
-        <span class="text">Mesa de Regalo</span>
-        <img class="icon" src="../../assets/images/gift.png" />
-      </a>
-    </div> -->
+    <a class="menu-link" (click)="navigateToSection('rsvp')">
+      <span class="text">RSVP</span>
+      <img class="icon" src="../../assets/images/icons/rsvp.png" />
+    </a>
   </div>
   <div class="mobileMenu" *ngIf="showMobileMenu">
     <a class="mobile-menu-link" (click)="navigateToSection('ceremonia')">
       <span class="text">Ceremonia</span>
       <img
         class="icon"
-        src="../../assets/images/rings.png"
+        src="../../assets/images/icons/rings.png"
         alt="Ceremonia"
       />
     </a>
     <a class="mobile-menu-link" (click)="navigateToSection('hospedaje')">
       <span class="text">Hospedaje</span>
-      <img class="icon hotel-icon" src="../../assets/images/hotel.png" alt="Hospedaje" />
+      <img
+        class="icon hotel-icon"
+        src="../../assets/images/icons/hotel.png"
+        alt="Hospedaje"
+      />
     </a>
     <a class="mobile-menu-link" (click)="navigateToSection('mesaRegalo')">
       <span class="text">Mesa de Regalo</span>
       <img
         class="icon gift-icon"
-        src="../../assets/images/gift.png"
+        src="../../assets/images/icons/gift.png"
         alt="Mesa de Regalo"
       />
     </a>
     <a class="mobile-menu-link" (click)="navigateToSection('rsvp')">
       <span class="text">RSVP</span>
-      <img class="icon" src="../../assets/images/rsvpIcon.png" alt="RSVP" />
+      <img
+        class="icon"
+        src="../../assets/images/icons/rsvpIcon.png"
+        alt="RSVP"
+      />
     </a>
   </div>
 </nav>

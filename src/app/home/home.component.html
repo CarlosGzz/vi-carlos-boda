@@ -3,44 +3,55 @@
 <app-navigation></app-navigation>
 
 <section class="content-container">
-  <div id="padres" class="item container padres-item">
-    <div class="section-header">
-      <h2 class="padres-mensaje">Con la bendición de nuestros padres</h2>
-    </div>
-    <div class="row">
-      <div class="column padres-nombres">
-        <p>Padres del Novia</p>
-        <h2>Silvia Patricia Pompa del Ángel</h2>
-        <h2>Jesús Cavazos de la Garza</h2>
+  <div id="welcome" class="item container welcome-item">
+    <div class="mensaje-item">
+      <img class="linea" src="/src/assets/images/hoteles/hinnext.jpg" />
+      <img class="linea up" src="../../assets/images/linea.png" />
+      <div class="row">
+        <div class="column">
+          <div class="mensaje">
+            <p>
+              Los mejores momentos de la vida merecen ser compartidos, gracias
+              por ser parte de nuestra historia.
+            </p>
+            <h1 class="nombre-invitado" *ngIf="invitado">
+              {{ invitado.nombre }}
+            </h1>
+            <p *ngIf="invitado">
+              ¡Nos hará muy felices que nos
+              {{
+                invitado.numeroDeInvitadosExtra === 0
+                  ? "acompañes"
+                  : "acompañen"
+              }}
+              en este día tan especial!
+            </p>
+          </div>
+        </div>
       </div>
-      <div class="column padres-nombres">
-        <p>Padres del Novio</p>
-        <h2>Carlota de la Rosa Falcón</h2>
-        <h2>Horacio Augusto González Rodríguez</h2>
+      <img class="linea" src="../../assets/images/linea.png" />
+    </div>
+    <div class="padres-item">
+      <div class="section-header">
+        <h2 class="padres-mensaje">Con la bendición de nuestros padres</h2>
+      </div>
+      <div class="row">
+        <div class="column padres-nombres">
+          <p>Padres del Novia</p>
+          <h2>Silvia Patricia Pompa del Ángel</h2>
+          <h2>Jesús Cavazos de la Garza</h2>
+        </div>
+        <div class="column padres-nombres">
+          <p>Padres del Novio</p>
+          <h2>Carlota de la Rosa Falcón</h2>
+          <h2>Horacio Augusto González Rodríguez</h2>
+        </div>
       </div>
     </div>
-  </div>
-
-  <div class="parallax parallax2"></div>
-
-  <div id="contador" class="item container contador-item">
-    <div class="row">
-      <div class="column">
-        <div class="mensaje">
-          <p>
-            Los mejores momentos de la vida merecen ser compartidos, gracias por
-            ser parte de nuestra historia.
-          </p>
-          <h1 class="nombre-invitado" *ngIf="invitado">
-            {{ invitado.nombre }}
-          </h1>
-          <p *ngIf="invitado">
-            ¡Nos hará muy felices que nos
-            {{
-              invitado.numeroDeInvitadosExtra === 0 ? "acompañes" : "acompañen"
-            }}
-            en este día tan especial!
-          </p>
+    <div class="contador-item">
+      <div class="row">
+        <div class="column">
+          <app-countdown></app-countdown>
           <p class="agregarCalendario">
             <add-to-calendar-button
               label="Agregar a Calendario"
@@ -57,10 +68,11 @@
             ></add-to-calendar-button>
           </p>
         </div>
-        <app-countdown></app-countdown>
       </div>
     </div>
   </div>
+  <div class="parallax parallax1"></div>
+
   <div id="ceremonia" class="item container ceremonia-container">
     <app-ceremonia></app-ceremonia>
   </div>
@@ -93,25 +105,26 @@
     </p>
     <div class="row">
       <div class="column mesa-regalo-item" (click)="goToMesaRegalos(0)">
-        <img class="regalos-icon" src="../../assets/images/liverpoollogo.png" />
+        <img class="regalos-icon" src="../../assets/images/mesaRegalos/liverpoollogo.png" />
         <small>51069619</small>
       </div>
       <div class="column mesa-regalo-item" (click)="goToMesaRegalos(1)">
-        <img class="regalos-icon" src="../../assets/images/palaciologo.png" />
+        <img class="regalos-icon" src="../../assets/images/mesaRegalos/palaciologo.png" />
         <small>376579</small>
       </div>
       <div class="column mesa-regalo-item" (click)="goToMesaRegalos(2)">
-        <img class="regalos-icon" src="../../assets/images/guadalquivir.png" />
+        <img class="regalos-icon" src="../../assets/images/mesaRegalos/guadalquivir.png" />
         <small>no lo se</small>
       </div>
       <div class="column mesa-regalo-item" (click)="goToMesaRegalos(3)">
-        <img class="regalos-icon" src="../../assets/images/amazonlogo.png" />
+        <img class="regalos-icon" src="../../assets/images/mesaRegalos/amazonlogo.png" />
         <small>no lo se</small>
       </div>
     </div>
   </div>
 
   <div class="parallax parallax3"></div>
+
   <div id="rsvp" class="item rsvp-item">
     <div class="section-header">
       <h2>Confirma tu Asistencia</h2>

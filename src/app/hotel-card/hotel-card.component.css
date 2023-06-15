@@ -207,6 +207,8 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  font-family: 'DellaRespira';
+    font-size: 15px;
 }
 .telefono {
   padding-top: 10px;

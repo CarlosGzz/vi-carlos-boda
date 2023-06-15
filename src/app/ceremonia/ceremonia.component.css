@@ -1,5 +1,5 @@
 /* For extremely small screen devices (595px and below) */
-@media only screen and (max-width: 290) {
+@media only screen and (max-width: 290px) {
   .ceremonia {
     padding: 0;
   }
@@ -8,22 +8,19 @@
     margin-bottom: 20px;
   }
 }
-/* For extremely small screen devices (595px and below) */
-@media only screen and (max-width: 595px) {
-  .ceremonia-content-item {
-    width: 100%;
+@media (290px <= width <= 390px) {
+  .vestimenta-icon {
+    width: 210px;
   }
-  .section-header {
-    margin-top: 20px;
-    margin-bottom: 20px;
+  .vestimenta-traje {
+    margin-right: -80px;
+  }
+  .vestimenta-vestido {
+    margin-left: -80px;
   }
 }
-
-/* Small screen devices (600px and below) */
-@media only screen and (max-width: 600px) {
-  .row {
-    flex-direction: column !important;
-  }
+/* For extremely small screen devices (595px and below) */
+@media (390px <= width <= 595px) {
   .ceremonia-content-item {
     width: 100%;
   }
@@ -32,7 +29,33 @@
     margin-bottom: 20px;
   }
   .vestimenta-icon {
-    width: 110px !important;
+    width: 210px;
+  }
+  .vestimenta-traje {
+    margin-right: -80px;
+  }
+  .vestimenta-vestido {
+    margin-left: -80px;
+  }
+}
+
+/* Small screen devices (600px and below) */
+@media (595px <= width <= 620px) {
+  .ceremonia-content-item {
+    width: 100%;
+  }
+  .section-header {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  .vestimenta-icon {
+    width: 250px;
+  }
+  .vestimenta-traje {
+    margin-right: -90px;
+  }
+  .vestimenta-vestido {
+    margin-left: -90px;
   }
 }
 
@@ -41,6 +64,15 @@
   .section-header {
     margin-top: 40px;
     margin-bottom: 40px;
+  }
+  .vestimenta-icon {
+    width: 400px;
+  }
+  .vestimenta-traje {
+    margin-right: -150px;
+  }
+  .vestimenta-vestido {
+    margin-left: -150px;
   }
 }
 
@@ -127,15 +159,7 @@
 .vestido {
   text-align: left;
 }
-.vestimenta-icon {
-  width: 400px;
-}
-.vestimenta-traje {
-  margin-right: -150px;
-}
-.vestimenta-vestido {
-  margin-left: -150px;
-}
+
 .nota {
   width: 70%;
 }
@@ -173,4 +197,8 @@
 
 .linea {
   width: 55%;
+}
+
+.vestido-traje-row p {
+  width: 50%;
 }

@@ -16,7 +16,7 @@ export class SplashComponent {
     const isShowSplash = sessionStorage.getItem('isShowSplash');
     if (isShowSplash) {
         // don't show splash
-        this.isHidden = true;
+        // this.isHidden = true;
     } else {
         // show splash
         this.isHidden = false;
@@ -33,6 +33,7 @@ export class SplashComponent {
   hideSplash() {
     setTimeout(() => {
       this.isHidden = true;
-    }, 4000);
+      console.log('cargo pagina');
+    }, 2000);
   }
 }

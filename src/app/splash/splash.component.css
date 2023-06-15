@@ -1,5 +1,4 @@
 .container {
-  cursor: pointer;
   position: fixed;
   top: 50%;
   left: 50%;
@@ -47,7 +46,7 @@
   to {
     stroke-opacity: 0;
     stroke-dashoffset: 0;
-    fill: #b5a642;
+    fill: #F9EDDC;
     stroke: none;
     fill-opacity: 1;
   }

@@ -18,8 +18,8 @@
 /* For extremely small screen devices (595px and below) */
 @media only screen and (max-width: 595px) {
   .item {
-    padding-left: 20px;
-    padding-right: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
   }
   .parallax3 {
     background-position: -300px 50px !important;
@@ -35,16 +35,27 @@
   .row {
     flex-direction: column !important;
   }
+  .padres-item .row {
+    flex-direction: row !important;
+  }
   .item {
-    padding-left: 30px;
-    padding-right: 30px;
+    padding-left: 20px;
+    padding-right: 20px;
   }
   .section-header {
     margin-top: 20px;
     margin-bottom: 20px;
   }
   .padres-nombres {
-    font-size: 6px !important;
+    font-size: 7px !important;
+  }
+  .padres-mensaje {
+    font-size: 1.5rem;
+  }
+  .nombre-invitado {
+    padding-top: 30px;
+    padding-bottom: 30px;
+    font-size: 30px;
   }
 }
 @media (620px <= width <= 920px) {
@@ -65,6 +76,11 @@
   .section-header {
     margin-top: 40px;
     margin-bottom: 40px;
+  }
+  .nombre-invitado {
+    padding-top: 40px;
+    padding-bottom: 40px;
+    font-size: 40px;
   }
 }
 
@@ -118,8 +134,6 @@
   width: 100%;
   text-align: center;
   min-height: 100vh;
-  padding-top: 40px;
-  padding-bottom: 40px;
 }
 
 .section-header {
@@ -142,15 +156,41 @@
   margin-right: 5px;
 }
 
-.padres-item {
+.welcome-item {
   min-height: 100vh;
   color: #f9eddc;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   font-family: Cinzel;
-  flex-direction: column;
+  padding-top: 60px;
 }
+
+.mensaje-item {
+  min-height: 50vh;
+  color: #f9eddc;
+  font-family: Cinzel;
+  padding-bottom: 40px;
+}
+.mensaje {
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+.linea {
+  width: 40%;
+}
+.up {
+  transform: rotate(180deg);
+}
+.nombre-invitado {
+  font-family: CinzelDecorative;
+  letter-spacing: 3px;
+  line-height: 1.7;
+}
+
+.padres-item {
+  min-height: 50vh;
+  color: #f9eddc;
+  font-family: Cinzel;
+}
+
 .padres-mensaje {
   font-family: CinzelDecorative;
   letter-spacing: 3px;
@@ -161,29 +201,23 @@
   letter-spacing: 3px;
   line-height: 1.7;
 }
+
 .contador-item {
-  min-height: 100vh;
+  min-height: 50vh;
   color: #f9eddc;
+  font-family: Cinzel;
   display: flex;
   align-items: center;
-  font-family: Cinzel;
+  justify-content: center;
 }
 .contador {
   padding-left: 20px;
   padding-right: 20px;
 }
-.mensaje {
-  padding-top: 40px;
-  padding-bottom: 40px;
-}
 .agregarCalendario {
   display: flex;
   align-items: center;
   justify-content: center;
-}
-.nombre-invitado {
-  padding-top: 40px;
-  padding-bottom: 40px;
 }
 
 .hoteles {
@@ -244,11 +278,11 @@
   background-size: cover;
 }
 .parallax1 {
-  background-image: url("../../assets/images/VYC2.jpg");
+  background-image: url("../../assets/images/parallax/VYC2.jpg");
 }
 .parallax2 {
-  background-image: url("../../assets/images/VYC3.jpg");
+  background-image: url("../../assets/images/parallax/VYC3.jpg");
 }
 .parallax3 {
-  background-image: url("../../assets/images/VYC4.jpg");
+  background-image: url("../../assets/images/parallax/VYC4.jpg");
 }
