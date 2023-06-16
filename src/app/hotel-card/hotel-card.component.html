@@ -6,19 +6,17 @@
           <div class="info">
             <div class="hotel-img-container">
               <img
-
                 class="hotel-logo"
-                [src]="'../../assets/images/hoteles' + hotel.logo"
-                alt="Holiday Inn Express & Suites"
+                [src]="'../../assets/images/hoteles/' + hotel.logo"
+                [alt]="hotel.nombre + ' logo'"
               />
             </div>
             <h3 class="nombre-hotel">{{ hotel.nombre }}</h3>
           </div>
           <img
-
             class="hotel-img demo-bg"
             [src]="'../../assets/images/hoteles/' + hotel.imagenExterior"
-            alt="JW Marriot"
+            [alt]="hotel.nombre + ' exterior'"
           />
         </div>
       </div>
@@ -45,8 +43,8 @@
           </div>
           <img
             class="hotel-img demo-bg"
-            [src]="'/src/assets/images/hoteles' + hotel.imagenHabitacion"
-            alt="JW Marriot"
+            [src]="'../../assets/images/hoteles/' + hotel.imagenHabitacion"
+            [alt]="hotel.nombre + ' habitacion'"
           />
         </div>
       </div>

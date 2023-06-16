@@ -5,7 +5,6 @@
 <section class="content-container">
   <div id="welcome" class="item container welcome-item">
     <div class="mensaje-item">
-      <img class="linea" src="/src/assets/images/hoteles/hinnext.jpg" />
       <img class="linea up" src="../../assets/images/linea.png" />
       <div class="row">
         <div class="column">
@@ -64,7 +63,7 @@
               options="'Apple','Google'"
               timeZone="America/Monterrey"
               lightMode="bodyScheme"
-              styleLight="--btn-background: #F9EDDC;--btn-border:none;"
+              styleLight="--btn-background: #b68c54; --btn-border:none; --btn-text:#07192e;  --btn-text-hover:#b68c54; ;--font: DellaRespira; --btn-background-hover:#f9eddc; --list-text:#b68c54;  "
             ></add-to-calendar-button>
           </p>
         </div>
@@ -103,22 +102,23 @@
       Tu presencia es nuestro mejor regalo, pero si quieres tener un detalle con
       nosotros te damos algunas ideas.
     </p>
-    <div class="row">
-      <div class="column mesa-regalo-item" (click)="goToMesaRegalos(0)">
-        <img class="regalos-icon" src="../../assets/images/mesaRegalos/liverpoollogo.png" />
-        <small>51069619</small>
-      </div>
-      <div class="column mesa-regalo-item" (click)="goToMesaRegalos(1)">
-        <img class="regalos-icon" src="../../assets/images/mesaRegalos/palaciologo.png" />
-        <small>376579</small>
-      </div>
-      <div class="column mesa-regalo-item" (click)="goToMesaRegalos(2)">
-        <img class="regalos-icon" src="../../assets/images/mesaRegalos/guadalquivir.png" />
-        <small>no lo se</small>
-      </div>
-      <div class="column mesa-regalo-item" (click)="goToMesaRegalos(3)">
-        <img class="regalos-icon" src="../../assets/images/mesaRegalos/amazonlogo.png" />
-        <small>no lo se</small>
+    <div class="mesa-regalo-item">
+      <div class="row">
+        <ng-container *ngFor="let mesa of mesaDeRegalos">
+          <div
+            class="column mesa-regalo-card"
+            (click)="goToMesaRegalos(mesa.url)"
+          >
+            <img
+              class="regalos-icon"
+              [src]="'../../assets/images/mesaRegalos/' + mesa.logo"
+              [alt]="mesa.nombre + ' logo'"
+            />
+            <small class="mesa-regalo-text" *ngIf="mesa.codigo">{{
+              mesa.codigo
+            }}</small>
+          </div>
+        </ng-container>
       </div>
     </div>
   </div>
@@ -136,3 +136,24 @@
     ></app-rsvp>
   </div>
 </section>
+<footer>
+  <div class="contacto">
+    <div class="row">
+      <div class="column wp">
+        <h2>Brenda Tovar</h2>
+        <p>wedding planner</p>
+      </div>
+      <div class="column contactos">
+        <a target="_blank" href="tel:+5218126080000">Teléfono</a>
+        <a target="_blank" href="https://api.whatsapp.com/send?phone=8126080000"
+          >Whatsapp</a
+        >
+      </div>
+    </div>
+  </div>
+  <img class="linea up" src="../../assets/images/linea.png" />
+  <div class="row">
+    <div class="love">made with &#9829; and code</div>
+  </div>
+  <img class="linea" src="../../assets/images/linea.png" />
+</footer>

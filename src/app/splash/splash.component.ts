@@ -16,7 +16,7 @@ export class SplashComponent {
     const isShowSplash = sessionStorage.getItem('isShowSplash');
     if (isShowSplash) {
         // don't show splash
-        // this.isHidden = true;
+        this.isHidden = true;
     } else {
         // show splash
         this.isHidden = false;

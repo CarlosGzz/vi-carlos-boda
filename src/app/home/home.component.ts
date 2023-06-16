@@ -26,10 +26,30 @@ export class HomeComponent {
   public hoveredElement: any;
   private userId: any;
   mesaDeRegalos = [
-    'https://mesaderegalos.liverpool.com.mx/milistaderegalos/51069619',
-    'https://www.elpalaciodehierro.com/buscar?eventId=376579',
-    'https://guadalquivirregalos.com.mx/',
-    ' https://www.amazon.com.mx/wedding/share/VioletayCarlos',
+    {
+      nombre: 'Liverpool',
+      logo: 'liverpoolLogo.png',
+      codigo: '51069619',
+      url: 'https://mesaderegalos.liverpool.com.mx/milistaderegalos/51069619',
+    },
+    {
+      nombre: 'Palacio de Hierro',
+      logo: 'palacioLogo.png',
+      codigo: '376579',
+      url: 'https://www.elpalaciodehierro.com/buscar?eventId=376579',
+    },
+    {
+      nombre: 'Regalos Guadalquivir',
+      logo: 'guadalquivirLogo.png',
+      codigo: '.',
+      url: 'https://guadalquivirregalos.com.mx/',
+    },
+    {
+      nombre: 'Amazon',
+      logo: 'amazonLogo.png',
+      codigo: '.',
+      url: ' https://www.amazon.com.mx/wedding/share/VioletayCarlos',
+    },
   ];
   hoteles: Array<Hotel> = [
     {
@@ -135,8 +155,8 @@ export class HomeComponent {
     this.hoveredElement = null;
   }
 
-  goToMesaRegalos(id: number) {
-    window.open(this.mesaDeRegalos[id], '_blank');
+  goToMesaRegalos(url: string) {
+    window.open(url, '_blank');
   }
 
   updateInvitado(invitadoActualizado: Invitado) {

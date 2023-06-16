@@ -86,7 +86,7 @@ nav {
   width: 100%;
   height: 40px;
   gap: 10px;
-  color: #F9EDDC;
+  color: #b68c54;
 }
 .menu-link {
   padding: 10px;
@@ -103,14 +103,16 @@ nav {
 }
 
 a {
-  color: #F9EDDC;
+  color: #b68c54;
   text-decoration: none;
 }
 a:hover {
-  color: white;
+  color: #F9EDDC;
+  cursor: pointer;
 }
 .text {
   display: block;
+  font-family: CinzelDecorative;
 }
 
 .mobileMenu {
@@ -136,11 +138,11 @@ a:hover {
 }
 .hotel-icon {
   width: 45px;
-  filter: invert(55%) sepia(73%) saturate(449%) hue-rotate(355deg) brightness(90%) contrast(92%);
+  filter: invert(61%) sepia(8%) saturate(2228%) hue-rotate(355deg) brightness(93%) contrast(86%);
 }
 .gift-icon{
   width: 45px;
-  filter: invert(55%) sepia(73%) saturate(449%) hue-rotate(355deg) brightness(90%) contrast(92%);
+  filter: invert(61%) sepia(8%) saturate(2228%) hue-rotate(355deg) brightness(93%) contrast(86%);
 }
 .sticky{
   position: fixed;

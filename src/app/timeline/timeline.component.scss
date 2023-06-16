@@ -930,14 +930,14 @@ body {
   font-size: var(--text-base-size, 1em);
   // font-family: "Droid Serif", serif;
   // color: hsl(240, 4%, 20%);
-  color: white;
+  color: #f9eddc;
 }
 h1,
 h2,
 h3,
 h4 {
   // color: hsl(240, 8%, 12%);
-  color: white;
+  color: #f9eddc;
   line-height: 1.2;
   line-height: var(--heading-line-height, 1.2);
 }
@@ -1197,17 +1197,11 @@ u,
   text-decoration: none;
   line-height: 1;
   font-size: 1em;
-  font-size: var(--btn-font-size, 1em);
   padding-top: 0.5em;
-  padding-top: var(--btn-padding-y, 0.5em);
   padding-bottom: 0.5em;
-  padding-bottom: var(--btn-padding-y, 0.5em);
   padding-left: 0.75em;
-  padding-left: var(--btn-padding-x, 0.75em);
   padding-right: 0.75em;
-  padding-right: var(--btn-padding-x, 0.75em);
   border-radius: 0.25em;
-  border-radius: var(--btn-radius, 0.25em);
 }
 .btn--primary {
   background-color: hsl(220, 90%, 56%);
@@ -1216,10 +1210,8 @@ u,
   color: var(--color-white, #fff);
 }
 .btn--subtle {
-  background-color: hsl(240, 1%, 83%);
-  background-color: var(--color-contrast-low, #d3d3d4);
-  color: hsl(240, 8%, 12%);
-  color: var(--color-contrast-higher, #1c1c21);
+  background-color: #b68c54;
+  color: #07192e;
 }
 .btn--accent {
   background-color: hsl(355, 90%, 61%);
@@ -2972,7 +2964,7 @@ mark {
   top: 10;
   left: 18px;
   width: 4px;
-  background: #B68C54
+  background: #b68c54;
 }
 @media (min-width: 48rem) {
   .time-line {
@@ -3235,12 +3227,21 @@ mark {
   padding-top: 10px;
   padding-bottom: 20px;
   font-family: DellaRespira;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 .timeline-item-content h4 {
   padding-bottom: 5px;
+  font-family: Cinzel;
+}
+.timeline-item-content p {
+  width: 70%;
+  font-family: Cinzel;
 }
 .timeline-item-date {
   margin-top: 90px;
-  color: white;
+  color: #f9eddc;
   font-size: 2em;
 }

@@ -1,8 +1,5 @@
 /* For extremely small screen devices (595px and below) */
 @media only screen and (max-width: 290) {
-  .heading-title {
-    font-size: 20px;
-  }
   .item {
     padding-left: 5px;
     padding-right: 5px;
@@ -28,10 +25,16 @@
     margin-top: 20px;
     margin-bottom: 20px;
   }
+  .linea {
+    width: 80% !important;
+  }
 }
 
 /* Small screen devices (600px and below) */
 @media only screen and (max-width: 600px) {
+  footer {
+    padding-bottom: 70px !important;
+  }
   .row {
     flex-direction: column !important;
   }
@@ -105,35 +108,13 @@
   margin: 0 auto;
   text-align: center;
 }
-.container ul li {
-  list-style: none;
-  margin: 0 10px;
-  display: inline-block;
-}
-.container ul li a:hover {
-  padding: 12px;
-  color: #fc0;
-}
-.container ul li a {
-  margin: 8px;
-  padding: 10px;
-  color: #fff;
-  font-size: 1.2em;
-  text-decoration: none;
-  transition: all 0.3s ease-out;
-}
-.active {
-  border-bottom: 2px solid #d0d7d9;
-}
-.container p {
-  margin-bottom: 16px;
-  font-size: 20px;
-}
 
 .item {
   width: 100%;
   text-align: center;
   min-height: 100vh;
+  padding-top: 30px;
+  padding-bottom: 30px;
 }
 
 .section-header {
@@ -146,7 +127,6 @@
   flex-direction: row;
   width: 100%;
   justify-content: space-evenly;
-  /* padding-bottom: 2em; */
 }
 
 .column {
@@ -183,12 +163,19 @@
   font-family: CinzelDecorative;
   letter-spacing: 3px;
   line-height: 1.7;
+
+  color: #b68c54;
 }
 
 .padres-item {
   min-height: 50vh;
   color: #f9eddc;
   font-family: Cinzel;
+  margin: 20px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .padres-mensaje {
@@ -239,30 +226,40 @@
   width: 100%;
   height: 100%;
 }
-.sugerencia {
-  margin-top: 5px;
-  margin-bottom: 10px;
-}
 
-.rsvp-item {
-  min-height: 100vh;
-  padding-bottom: 50px;
-}
 .mesa-container {
-  color: white;
+  color: #f9eddc;
+  font-family: Cinzel;
 }
 .regalos-icon {
   width: 100%;
   min-height: 140px;
   padding: 2em 2em 2em 2em;
 }
-
 .mesa-regalo-item {
   display: flex;
   justify-content: center;
   flex-direction: column;
   align-items: center;
+  min-height: 40vh;
+  padding: 30px 0;
+}
+.mesa-regalo-card {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
   cursor: pointer;
+}
+.mesa-regalo-text {
+  font-family: DellaRespira;
+  letter-spacing: 3px;
+  line-height: 1.7;
+}
+
+.rsvp-item {
+  min-height: 100vh;
+  padding-bottom: 50px;
 }
 
 .parallax {
@@ -285,4 +282,56 @@
 }
 .parallax3 {
   background-image: url("../../assets/images/parallax/VYC4.jpg");
+}
+
+footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 10vh;
+  background-color: #07192e;
+  color: #b68c54;
+  font-family: Cinzel;
+  flex-direction: column;
+  border-top: 0.5rem solid;
+  border-top-color: #f9eddc;
+  padding-bottom: 20px;
+}
+
+.contacto {
+  margin: 10px 10px;
+  padding: 10px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: CinzelDecorative;
+  flex-direction: column;
+  width: 80%;
+  color: #f9eddc;
+}
+.contacto .row {
+  align-items: center;
+  justify-content: center;
+}
+.contacto a {
+  font-family: DellaRespira;
+  text-decoration: none;
+  color: #b68c54;
+}
+.contactos {
+  display: flex;
+  flex-direction: column;
+  padding-left: 30px;
+}
+.wp {
+  display: flex;
+  flex-direction: column;
+  justify-content: right;
+  align-items: end;
+}
+.love {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }

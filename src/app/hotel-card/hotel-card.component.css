@@ -7,7 +7,7 @@
   }
   .box1,
   .box2 {
-    width: 80%;
+    width: 85%;
     min-height: 50%;
     font-size: x-small;
   }
@@ -24,7 +24,7 @@
   }
   .box1,
   .box2 {
-    width: 80%;
+    width: 85%;
     min-height: 50%;
     font-size: x-small;
   }
@@ -41,7 +41,7 @@
   }
   .box1,
   .box2 {
-    width: 80%;
+    width: 85%;
     min-height: 50%;
     font-size: x-small;
   }
@@ -58,7 +58,7 @@
   }
   .box1,
   .box2 {
-    width: 80%;
+    width: 88%;
     min-height: 50%;
   }
   .column {
@@ -74,7 +74,7 @@
   }
   .box1,
   .box2 {
-    width: 80%;
+    width: 89%;
     min-height: 50%;
   }
   .column {
@@ -90,7 +90,7 @@
   }
   .box1,
   .box2 {
-    width: 80%;
+    width: 90%;
     min-height: 50%;
   }
 }
@@ -115,7 +115,7 @@
   .box1,
   .box2 {
     width: calc(80% / 4);
-    min-height: 30%;
+    min-height: 50%;
   }
 }
 .box1,
@@ -135,13 +135,13 @@
 .box1 {
   opacity: 1;
   visibility: visible;
-  background-color: whitesmoke;
+  background-color: #f9eddc;
 }
 
 .box2 {
   opacity: 0;
   visibility: hidden;
-  background-color: whitesmoke;
+  background-color: #f9eddc;
 }
 
 .wrapper {
