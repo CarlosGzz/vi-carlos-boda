@@ -232,9 +232,15 @@
   font-family: Cinzel;
 }
 .regalos-icon {
-  width: 100%;
-  min-height: 140px;
-  padding: 2em 2em 2em 2em;
+  width: 60%;
+  /* min-height: 140px;
+  padding: 2em 2em 2em 2em; */
+}
+.end{
+  align-items: flex-end !important;
+}
+.start{
+  align-items: flex-start !important;
 }
 .mesa-regalo-item {
   display: flex;
@@ -275,13 +281,16 @@
   background-size: cover;
 }
 .parallax1 {
-  background-image: url("../../assets/images/parallax/VYC2.jpg");
+  background-image: url("../../assets/images/parallax/VYC2-copy-min.jpg");
 }
 .parallax2 {
-  background-image: url("../../assets/images/parallax/VYC3.jpg");
+  background-image: url("../../assets/images/parallax/VYC4-min.jpg");
 }
 .parallax3 {
-  background-image: url("../../assets/images/parallax/VYC4.jpg");
+  background-image: url("../../assets/images/parallax/VYC8-min.jpg");
+}
+.parallax4 {
+  background-image: url("../../assets/images/parallax/VYC5-min.jpg");
 }
 
 footer {
@@ -298,26 +307,6 @@ footer {
   padding-bottom: 20px;
 }
 
-.contacto {
-  margin: 10px 10px;
-  padding: 10px 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: CinzelDecorative;
-  flex-direction: column;
-  width: 80%;
-  color: #f9eddc;
-}
-.contacto .row {
-  align-items: center;
-  justify-content: center;
-}
-.contacto a {
-  font-family: DellaRespira;
-  text-decoration: none;
-  color: #b68c54;
-}
 .contactos {
   display: flex;
   flex-direction: column;

@@ -3,11 +3,48 @@
     <div class="column icon-col">
       <img class="icon" src="../../assets/images/icons/rsvpIcon.png" />
     </div>
-    <div class="column" *ngIf="invitadoConfirmado">
-      <h2>¡Gracias por confirmar tu asistencia, nos vemos en la fiesta!</h2>
+    <div class="column" *ngIf="!showForm">
+      <h2 *ngIf="invitadoConfirmacionPositiva">
+        ¡Gracias por confirmar tu asistencia, nos vemos en la fiesta!
+      </h2>
+      <h2 *ngIf="!invitadoConfirmacionPositiva">
+        ¡Te extrañaremos, Gracias por confirmar!
+      </h2>
       <button mat-raised-button color="accent" (click)="reabrirFormulario()">
         Modificar confirmacion
       </button>
+      <div class="contacto" *ngIf="invitadoConfirmacionPositiva">
+        <div class="row">
+          <p>
+            Si tienes alguna duda o inquietud puedes contactar a nuestra wedding
+            planner.
+          </p>
+        </div>
+        <div class="row">
+          <div class="column">
+            <a
+              class="wp"
+              target="_blank"
+              href="https://www.instagram.com/brendatovarwp/?hl=en"
+            >
+              <h2>Brenda Tovar</h2>
+              <p>wedding planner</p>
+            </a>
+          </div>
+          <div class="column">
+            <a
+              target="_blank"
+              href="https://api.whatsapp.com/send?phone=8126080000"
+            >
+              <img
+                class="whatsap-icon"
+                src="../../assets/images/icons/whatsappIcon.png"
+              />
+              Whatsapp</a
+            >
+          </div>
+        </div>
+      </div>
     </div>
     <form
       class="rsvp-form"

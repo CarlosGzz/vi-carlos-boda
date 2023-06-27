@@ -13,6 +13,7 @@ export interface Invitado {
   numeroDeInvitadosExtra: number;
   confirmacionAsistencia: boolean;
   invitadosExtraLista?: Array<InvitadoExtra>;
+  estatusDeInvitacion?: string;
 }
 export interface InvitadoExtra {
   nombre?: string;

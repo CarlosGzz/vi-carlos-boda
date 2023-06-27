@@ -7,16 +7,27 @@
     margin-top: 20px;
     margin-bottom: 20px;
   }
+  .vestimenta-icon {
+    width: 190px;
+  }
+  .vestimenta-traje {
+    margin-right: -0px;
+    margin-left: -65px;
+  }
+  .vestimenta-vestido {
+    margin-left: -60px;
+    margin-right: -50px;
+  }
 }
 @media (290px <= width <= 390px) {
   .vestimenta-icon {
     width: 210px;
   }
   .vestimenta-traje {
-    margin-right: -80px;
+    margin-right: -45px;
   }
   .vestimenta-vestido {
-    margin-left: -80px;
+    margin-left: -70px;
   }
 }
 /* For extremely small screen devices (595px and below) */
@@ -32,10 +43,10 @@
     width: 210px;
   }
   .vestimenta-traje {
-    margin-right: -80px;
+    margin-right: -50px;
   }
   .vestimenta-vestido {
-    margin-left: -80px;
+    margin-left: -50px;
   }
 }
 

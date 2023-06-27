@@ -75,3 +75,26 @@
 :host ::ng-deep .mdc-checkbox__background {
   border-color: #f9eddc !important;
 }
+
+.contacto {
+  margin: 50px 10px;
+  font-family: DellaRespira;
+  color: #f9eddc;
+}
+.contacto .row {
+  align-items: center;
+  justify-content: center;
+}
+.contacto a {
+  font-family: DellaRespira;
+  text-decoration: none;
+  color: #b68c54;
+}
+
+.whatsap-icon {
+  width: 20px;
+}
+
+.wp {
+  color: #f9eddc !important;
+}

@@ -76,7 +76,7 @@
     <app-ceremonia></app-ceremonia>
   </div>
 
-  <div class="parallax parallax1"></div>
+  <div class="parallax parallax2"></div>
 
   <div id="hospedaje" class="item container hospedaje-container">
     <div class="section-header">
@@ -92,7 +92,7 @@
     </div>
   </div>
 
-  <div class="parallax parallax2"></div>
+  <div class="parallax parallax3"></div>
 
   <div id="mesaRegalo" class="item container mesa-container">
     <div class="section-header">
@@ -104,14 +104,15 @@
     </p>
     <div class="mesa-regalo-item">
       <div class="row">
-        <ng-container *ngFor="let mesa of mesaDeRegalos">
+        <ng-container *ngFor="let mesa of mesaDeRegalos; let i = index;">
           <div
             class="column mesa-regalo-card"
+            [ngClass]="{'end': i === 0, 'start' : i === 2 }"
             (click)="goToMesaRegalos(mesa.url)"
           >
             <img
               class="regalos-icon"
-              [src]="'../../assets/images/mesaRegalos/' + mesa.logo"
+              [src]="'../../assets/images/mesa/' + mesa.logo"
               [alt]="mesa.nombre + ' logo'"
             />
             <small class="mesa-regalo-text" *ngIf="mesa.codigo">{{
@@ -123,7 +124,7 @@
     </div>
   </div>
 
-  <div class="parallax parallax3"></div>
+  <div class="parallax parallax4"></div>
 
   <div id="rsvp" class="item rsvp-item">
     <div class="section-header">
@@ -137,20 +138,6 @@
   </div>
 </section>
 <footer>
-  <div class="contacto">
-    <div class="row">
-      <div class="column wp">
-        <h2>Brenda Tovar</h2>
-        <p>wedding planner</p>
-      </div>
-      <div class="column contactos">
-        <a target="_blank" href="tel:+5218126080000">Teléfono</a>
-        <a target="_blank" href="https://api.whatsapp.com/send?phone=8126080000"
-          >Whatsapp</a
-        >
-      </div>
-    </div>
-  </div>
   <img class="linea up" src="../../assets/images/linea.png" />
   <div class="row">
     <div class="love">made with &#9829; and code</div>

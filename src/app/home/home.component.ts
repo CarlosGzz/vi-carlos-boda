@@ -32,22 +32,22 @@ export class HomeComponent {
       codigo: '51069619',
       url: 'https://mesaderegalos.liverpool.com.mx/milistaderegalos/51069619',
     },
-    {
-      nombre: 'Palacio de Hierro',
-      logo: 'palacioLogo.png',
-      codigo: '376579',
-      url: 'https://www.elpalaciodehierro.com/buscar?eventId=376579',
-    },
+    // {
+    //   nombre: 'Palacio de Hierro',
+    //   logo: 'palacioLogo.png',
+    //   codigo: '376579',
+    //   url: 'https://www.elpalaciodehierro.com/buscar?eventId=376579',
+    // },
     {
       nombre: 'Regalos Guadalquivir',
       logo: 'guadalquivirLogo.png',
-      codigo: '.',
+      codigo: 'Boda Violeta y Carlos',
       url: 'https://guadalquivirregalos.com.mx/',
     },
     {
       nombre: 'Amazon',
       logo: 'amazonLogo.png',
-      codigo: '.',
+      codigo: 'VioletayCarlos',
       url: ' https://www.amazon.com.mx/wedding/share/VioletayCarlos',
     },
   ];
@@ -85,17 +85,17 @@ export class HomeComponent {
         'Av. José Vasconcelos 402, Zona la Alianza, 66268 Monterrey, N.L.',
       telefono: '+52 81-8173-1800',
     },
-    {
-      nombre: 'Holiday Inn',
-      logo: 'hinnlogo.png',
-      imagenExterior: 'hinnext.jpg',
-      imagenHabitacion: 'hinnhab.jpg',
-      descuento: '',
-      url: 'https://www.ihg.com/holidayinnexpress/hotels/us/en/monterrey/mtyrr/hoteldetail',
-      direccion:
-        'Av. José Vasconcelos 345-Oriente, Santa Engracia, 66267 Monterrey, N.L.',
-      telefono: '+52 81-88506700',
-    },
+    // {
+    //   nombre: 'Holiday Inn',
+    //   logo: 'hinnlogo.png',
+    //   imagenExterior: 'hinnext.jpg',
+    //   imagenHabitacion: 'hinnhab.jpg',
+    //   descuento: '',
+    //   url: 'https://www.ihg.com/holidayinnexpress/hotels/us/en/monterrey/mtyrr/hoteldetail',
+    //   direccion:
+    //     'Av. José Vasconcelos 345-Oriente, Santa Engracia, 66267 Monterrey, N.L.',
+    //   telefono: '+52 81-88506700',
+    // },
   ];
 
   get isMobile() {
@@ -133,6 +133,11 @@ export class HomeComponent {
           component: 'Home Component',
         });
         this.invitadosService.getInvitado(this.userId);
+        if (this.invitado?.estatusDeInvitacion === 'no visto') {
+          this.invitadosService.update(this.userId, {
+            estatusDeInvitacion: 'visto',
+          });
+        }
       } else {
         this.analytics.logEvent('home without user id ', {
           component: 'Home Component',

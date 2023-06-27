@@ -29,11 +29,11 @@ export class RsvpComponent {
   showForm = true;
 
   rsvpForm = this.fb.group({
-    nombre: ['', Validators.required],
+    nombre: ['', [Validators.required, Validators.maxLength(150)]],
     telefono: ['', [Validators.required, Validators.maxLength(15)]],
     tieneAlergia: [false],
     alergias: [''],
-    confirmarAsistencia: [false],
+    confirmarAsistencia: [false, Validators.required,],
     invitadosExtra: this.fb.array([]),
   });
 
@@ -62,9 +62,13 @@ export class RsvpComponent {
 
   get invitadoConfirmado(): boolean {
     if (this.hasInvitado) {
-      return this.invitado.confirmacionAsistencia && !this.showForm;
+      return this.invitado.estatusDeInvitacion === 'confirmado';
     }
     return !this.showForm;
+  }
+
+  get invitadoConfirmacionPositiva(): boolean {
+    return this.invitado.confirmacionAsistencia;
   }
 
   constructor(private fb: FormBuilder, private router: Router) {}
@@ -82,7 +86,7 @@ export class RsvpComponent {
       changes['invitado'].currentValue !== changes['invitado'].previousValue
     ) {
       if (this.hasInvitado) {
-        this.showForm = !this.invitado.confirmacionAsistencia;
+        this.showForm = this.invitado.estatusDeInvitacion !== 'confirmado';
         const tieneAlergia = this.invitado.alergias !== '';
         this.rsvpForm.patchValue({
           nombre: this.invitado.nombre,
@@ -161,6 +165,7 @@ export class RsvpComponent {
       telefono: this.rsvpForm.value.telefono,
       alergias: this.rsvpForm.value.alergias,
       confirmacionAsistencia: this.rsvpForm.value.confirmarAsistencia,
+      estatusDeInvitacion: 'confirmado'
     };
     if (this.invitado.numeroDeInvitadosExtra > 0) {
       updatedInvitado['invitadosExtraLista'] =
@@ -182,5 +187,6 @@ export class RsvpComponent {
       }
     }
     this.updatedInvitado.emit(updatedInvitado);
+    this.showForm = false;
   }
 }

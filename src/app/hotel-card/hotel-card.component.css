@@ -109,12 +109,12 @@
 @media only screen and (min-width: 920px) {
   .hotel-container {
     margin: 0 10px;
-    width: calc(100% / 4);
+    width: calc(100% / 3);
     height: 400px;
   }
   .box1,
   .box2 {
-    width: calc(80% / 4);
+    width: calc(80% / 3);
     min-height: 50%;
   }
 }

@@ -6,6 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./ceremonia.component.css'],
 })
 export class CeremoniaComponent {
+
   get isMobile() {
     if (window.screen.width <= 600) {
       return true;
