@@ -34,16 +34,16 @@
       <div class="section-header">
         <h2 class="padres-mensaje">Con la bendición de nuestros padres</h2>
       </div>
-      <div class="row">
-        <div class="column padres-nombres">
-          <p>Padres del Novia</p>
+      <div class="row padres">
+        <div class="column padres-nombres padres-novia">
+          <p class="padres-titulo">Padres del Novia</p>
           <h2>Silvia Patricia Pompa del Ángel</h2>
           <h2>Jesús Cavazos de la Garza</h2>
         </div>
-        <div class="column padres-nombres">
-          <p>Padres del Novio</p>
+        <div class="column padres-nombres padres-novio">
+          <p class="padres-titulo">Padres del Novio</p>
           <h2>Carlota de la Rosa Falcón</h2>
-          <h2>Horacio Augusto González Rodríguez</h2>
+          <h2>Horacio A. González Rodríguez</h2>
         </div>
       </div>
     </div>
@@ -63,6 +63,7 @@
               options="'Apple','Google'"
               timeZone="America/Monterrey"
               lightMode="bodyScheme"
+              hideBackground="true"
               styleLight="--btn-background: #b68c54; --btn-border:none; --btn-text:#07192e;  --btn-text-hover:#b68c54; ;--font: DellaRespira; --btn-background-hover:#f9eddc; --list-text:#b68c54;  "
             ></add-to-calendar-button>
           </p>
@@ -73,7 +74,7 @@
   <div class="parallax parallax1"></div>
 
   <div id="ceremonia" class="item container ceremonia-container">
-    <app-ceremonia></app-ceremonia>
+    <app-ceremonia [invitado]="invitado"></app-ceremonia>
   </div>
 
   <div class="parallax parallax2"></div>
@@ -98,26 +99,31 @@
     <div class="section-header">
       <h2>Mesa de regalos</h2>
     </div>
+    <p>Tu presencia es nuestro mejor regalo</p>
     <p>
-      Tu presencia es nuestro mejor regalo, pero si quieres tener un detalle con
-      nosotros te damos algunas ideas.
+      pero si quieres tener un detalle con nosotros te damos algunas ideas.
     </p>
     <div class="mesa-regalo-item">
       <div class="row">
-        <ng-container *ngFor="let mesa of mesaDeRegalos; let i = index;">
+        <ng-container *ngFor="let mesa of mesaDeRegalos; let i = index">
           <div
             class="column mesa-regalo-card"
-            [ngClass]="{'end': i === 0, 'start' : i === 2 }"
+            [ngClass]="{
+              end: i === 0 && !isMobile,
+              start: i === 2 && !isMobile
+            }"
             (click)="goToMesaRegalos(mesa.url)"
           >
-            <img
-              class="regalos-icon"
-              [src]="'../../assets/images/mesa/' + mesa.logo"
-              [alt]="mesa.nombre + ' logo'"
-            />
-            <small class="mesa-regalo-text" *ngIf="mesa.codigo">{{
-              mesa.codigo
-            }}</small>
+            <div class="regalo-codigo">
+              <img
+                class="regalos-icon"
+                [src]="'../../assets/images/mesa/' + mesa.logo"
+                [alt]="mesa.nombre + ' logo'"
+              />
+              <small class="mesa-regalo-text" *ngIf="mesa.codigo">{{
+                mesa.codigo
+              }}</small>
+            </div>
           </div>
         </ng-container>
       </div>

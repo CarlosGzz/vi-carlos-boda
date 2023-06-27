@@ -18,6 +18,12 @@
     margin-left: -60px;
     margin-right: -50px;
   }
+  .ceremonia-content {
+    padding-bottom: 50px;
+  }
+  .vestido-traje-row p {
+    font-size: 0.5em;
+  }
 }
 @media (290px <= width <= 390px) {
   .vestimenta-icon {
@@ -28,6 +34,12 @@
   }
   .vestimenta-vestido {
     margin-left: -70px;
+  }
+  .ceremonia-content {
+    padding-bottom: 50px;
+  }
+  .vestido-traje-row p {
+    font-size: 0.5em;
   }
 }
 /* For extremely small screen devices (595px and below) */
@@ -48,6 +60,12 @@
   .vestimenta-vestido {
     margin-left: -50px;
   }
+  .ceremonia-content {
+    padding-bottom: 50px;
+  }
+  .vestido-traje-row p {
+    font-size: 0.5em;
+  }
 }
 
 /* Small screen devices (600px and below) */
@@ -67,6 +85,12 @@
   }
   .vestimenta-vestido {
     margin-left: -90px;
+  }
+  .ceremonia-content {
+    padding-bottom: 50px;
+  }
+  .vestido-traje-row p {
+    font-size: 0.5em;
   }
 }
 

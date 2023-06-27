@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Invitado } from '../core/database.service';
 
 @Component({
   selector: 'app-ceremonia',
@@ -6,6 +7,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./ceremonia.component.css'],
 })
 export class CeremoniaComponent {
+  @Input()
+  invitado!: Invitado | null;
 
   get isMobile() {
     if (window.screen.width <= 600) {

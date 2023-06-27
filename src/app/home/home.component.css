@@ -4,7 +4,7 @@
     padding-left: 5px;
     padding-right: 5px;
   }
-  .parallax3 {
+  .parallax2 {
     background-position: -300px 50px !important;
   }
   .section-header {
@@ -18,7 +18,7 @@
     padding-left: 10px;
     padding-right: 10px;
   }
-  .parallax3 {
+  .parallax2 {
     background-position: -300px 50px !important;
   }
   .section-header {
@@ -38,9 +38,9 @@
   .row {
     flex-direction: column !important;
   }
-  .padres-item .row {
+  /* .padres-item .row {
     flex-direction: row !important;
-  }
+  } */
   .item {
     padding-left: 20px;
     padding-right: 20px;
@@ -50,10 +50,17 @@
     margin-bottom: 20px;
   }
   .padres-nombres {
-    font-size: 7px !important;
+    font-size: 10px !important;
+  }
+  .padres-titulo {
+    font-size: 15px;
   }
   .padres-mensaje {
     font-size: 1.5rem;
+  }
+  .padres-novia{
+    margin-top: 50px;
+    padding-bottom: 50px;
   }
   .nombre-invitado {
     padding-top: 30px;
@@ -68,6 +75,9 @@
   }
   .hoteles .row .column {
     flex-basis: 45%;
+  }
+  .padres {
+    padding-bottom: 70px;
   }
 }
 /* Medium screen devices (768px and above) */
@@ -84,6 +94,9 @@
     padding-top: 40px;
     padding-bottom: 40px;
     font-size: 40px;
+  }
+  .padres {
+    padding-bottom: 100px;
   }
 }
 
@@ -184,9 +197,12 @@
   line-height: 1.7;
 }
 .padres-nombres {
-  font-family: DellaRespira;
+  font-family: Cinzel;
   letter-spacing: 3px;
   line-height: 1.7;
+}
+.padres-titulo{
+  padding-bottom: 15px;
 }
 
 .contador-item {
@@ -319,6 +335,13 @@ footer {
   align-items: end;
 }
 .love {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.regalo-codigo {
   display: flex;
   align-items: center;
   justify-content: center;

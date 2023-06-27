@@ -42,7 +42,7 @@ export class HomeComponent {
       nombre: 'Regalos Guadalquivir',
       logo: 'guadalquivirLogo.png',
       codigo: 'Boda Violeta y Carlos',
-      url: 'https://guadalquivirregalos.com.mx/',
+      url: 'https://goo.gl/maps/xZBzj3rHhpLnZVKp6',
     },
     {
       nombre: 'Amazon',
@@ -57,7 +57,7 @@ export class HomeComponent {
       logo: 'jwlogo.png',
       imagenExterior: 'jwimgext.jpg',
       imagenHabitacion: 'jwimghab.jpg',
-      descuento: '99999999999',
+      descuento: 'Boda Violeta y Carlos',
       url: 'https://www.marriott.com/en-us/hotels/mtyjw-jw-marriott-hotel-monterrey-valle/overview/',
       direccion:
         'Avenida del Roble 670, Valle del Campestre, San Pedro Garza García, Nuevo Leon, Mexico, 66265',
@@ -68,7 +68,7 @@ export class HomeComponent {
       logo: 'westinlogo.png',
       imagenExterior: 'westinext.jpg',
       imagenHabitacion: 'westinhab.jpg',
-      descuento: '99999999999',
+      descuento: 'Boda Violeta y Carlos',
       url: 'https://www.marriott.com/es/hotels/mtywi-the-westin-monterrey-valle/overview/',
       direccion:
         'Ave. Manuel Gomez Morin Y Rio Missouri, Punto Valle, 66220 San Pedro Garza García, N.L.',
@@ -105,7 +105,7 @@ export class HomeComponent {
     return false;
   }
 
-  get invitado() {
+  get invitado(): Invitado | null {
     this.invitadosService.invitado;
     if (this.invitadosService.invitado) {
       return this.invitadosService.invitado;

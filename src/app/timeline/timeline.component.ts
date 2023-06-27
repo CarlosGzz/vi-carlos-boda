@@ -1,5 +1,13 @@
-import { Component, ElementRef, HostListener, ViewChild } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  HostListener,
+  ViewChild,
+  Input,
+  SimpleChanges,
+} from '@angular/core';
 import AOS from 'aos';
+import { Invitado } from '../core/database.service';
 
 class VerticalTimeline {
   blocks: any;
@@ -57,6 +65,8 @@ class VerticalTimeline {
   styleUrls: ['./timeline.component.scss'],
 })
 export class TimelineComponent {
+  @Input()
+  invitado!: Invitado | null;
   @ViewChild('firstElement')
   firstElement!: ElementRef;
   firstPosition = 0;
@@ -100,6 +110,17 @@ export class TimelineComponent {
       return true;
     }
     return false;
+  }
+  ngOnChanges(changes: SimpleChanges) {
+    if (
+      changes['invitado'] &&
+      changes['invitado'].currentValue !== null &&
+      changes['invitado'].currentValue !== changes['invitado'].previousValue
+    ) {
+      if (!this.invitado?.invitadoCivil) {
+        this.timeLineItems.shift();
+      }
+    }
   }
 
   ngAfterViewInit() {

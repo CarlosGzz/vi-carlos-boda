@@ -22,7 +22,8 @@ import { Invitado } from '../core/database.service';
   styleUrls: ['./rsvp.component.css'],
 })
 export class RsvpComponent {
-  @Input() invitado: any;
+  @Input()
+  invitado!: Invitado | null;
   @Input() invitadosData: any;
   @Output() updatedInvitado = new EventEmitter<Invitado>();
 
@@ -33,7 +34,7 @@ export class RsvpComponent {
     telefono: ['', [Validators.required, Validators.maxLength(15)]],
     tieneAlergia: [false],
     alergias: [''],
-    confirmarAsistencia: [false, Validators.required,],
+    confirmarAsistencia: [false, Validators.required],
     invitadosExtra: this.fb.array([]),
   });
 
@@ -61,14 +62,15 @@ export class RsvpComponent {
   }
 
   get invitadoConfirmado(): boolean {
-    if (this.hasInvitado) {
+    if (this.hasInvitado && this.invitado) {
       return this.invitado.estatusDeInvitacion === 'confirmado';
     }
     return !this.showForm;
   }
 
   get invitadoConfirmacionPositiva(): boolean {
-    return this.invitado.confirmacionAsistencia;
+    if (this.invitado) return this.invitado.confirmacionAsistencia;
+    return false;
   }
 
   constructor(private fb: FormBuilder, private router: Router) {}
@@ -85,7 +87,7 @@ export class RsvpComponent {
       changes['invitado'].currentValue !== null &&
       changes['invitado'].currentValue !== changes['invitado'].previousValue
     ) {
-      if (this.hasInvitado) {
+      if (this.hasInvitado && this.invitado) {
         this.showForm = this.invitado.estatusDeInvitacion !== 'confirmado';
         const tieneAlergia = this.invitado.alergias !== '';
         this.rsvpForm.patchValue({
@@ -165,28 +167,30 @@ export class RsvpComponent {
       telefono: this.rsvpForm.value.telefono,
       alergias: this.rsvpForm.value.alergias,
       confirmacionAsistencia: this.rsvpForm.value.confirmarAsistencia,
-      estatusDeInvitacion: 'confirmado'
+      estatusDeInvitacion: 'confirmado',
     };
-    if (this.invitado.numeroDeInvitadosExtra > 0) {
-      updatedInvitado['invitadosExtraLista'] =
-        this.invitado.invitadosExtraLista;
-      for (
-        let index = 0;
-        index < this.invitado.numeroDeInvitadosExtra;
-        index++
-      ) {
-        if (updatedInvitado.invitadosExtraLista[index]) {
-          let invExtraForm = this.invitadosExtraArray.value[index];
-          updatedInvitado.invitadosExtraLista[index] = {
-            ...updatedInvitado.invitadosExtraLista[index],
-            nombre: invExtraForm.nombre,
-            alergias: invExtraForm.alergias,
-            confirmacionAsistencia: invExtraForm.confirmarAsistencia,
-          };
+    if (this.invitado) {
+      if (this.invitado.numeroDeInvitadosExtra > 0) {
+        updatedInvitado['invitadosExtraLista'] =
+          this.invitado.invitadosExtraLista;
+        for (
+          let index = 0;
+          index < this.invitado.numeroDeInvitadosExtra;
+          index++
+        ) {
+          if (updatedInvitado.invitadosExtraLista[index]) {
+            let invExtraForm = this.invitadosExtraArray.value[index];
+            updatedInvitado.invitadosExtraLista[index] = {
+              ...updatedInvitado.invitadosExtraLista[index],
+              nombre: invExtraForm.nombre,
+              alergias: invExtraForm.alergias,
+              confirmacionAsistencia: invExtraForm.confirmarAsistencia,
+            };
+          }
         }
       }
+      this.updatedInvitado.emit(updatedInvitado);
+      this.showForm = false;
     }
-    this.updatedInvitado.emit(updatedInvitado);
-    this.showForm = false;
   }
 }

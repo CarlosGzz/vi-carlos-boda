@@ -3012,8 +3012,8 @@ mark {
 }
 @media (min-width: 48rem) {
   .cd-timeline__img {
-    width: 60px;
-    height: 60px;
+    width: 60px !important;
+    height: 60px !important;
     -ms-flex-order: 1;
     order: 1;
     margin-left: calc(5% - 30px);
