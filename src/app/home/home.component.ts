@@ -58,7 +58,8 @@ export class HomeComponent {
       imagenExterior: 'jwimgext.jpg',
       imagenHabitacion: 'jwimghab.jpg',
       descuento: 'Boda Violeta y Carlos',
-      url: 'https://www.marriott.com/en-us/hotels/mtyjw-jw-marriott-hotel-monterrey-valle/overview/',
+      url: 'https://www.marriott.com/event-reservations/reservation-link.mi?id=1687912577693&key=GRP&app=resvlink',
+      descripcion: '',
       direccion:
         'Avenida del Roble 670, Valle del Campestre, San Pedro Garza García, Nuevo Leon, Mexico, 66265',
       telefono: '+52 81-8850-6700',
@@ -69,7 +70,8 @@ export class HomeComponent {
       imagenExterior: 'westinext.jpg',
       imagenHabitacion: 'westinhab.jpg',
       descuento: 'Boda Violeta y Carlos',
-      url: 'https://www.marriott.com/es/hotels/mtywi-the-westin-monterrey-valle/overview/',
+      url: 'https://www.marriott.com/event-reservations/reservation-link.mi?id=1687912577693&key=GRP&app=resvlink',
+      descripcion: 'Ubicado a 10 minutos en carro',
       direccion:
         'Ave. Manuel Gomez Morin Y Rio Missouri, Punto Valle, 66220 San Pedro Garza García, N.L.',
       telefono: '+52 81-2713-3100',
@@ -81,6 +83,7 @@ export class HomeComponent {
       imagenHabitacion: 'nhhab.jpg',
       descuento: '',
       url: 'https://www.nh-hoteles.es/hotel/nh-collection-monterrey-san-pedro',
+      descripcion: 'Ubicado a 3 cuadras de la recepción',
       direccion:
         'Av. José Vasconcelos 402, Zona la Alianza, 66268 Monterrey, N.L.',
       telefono: '+52 81-8173-1800',

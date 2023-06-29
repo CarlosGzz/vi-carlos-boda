@@ -17,13 +17,9 @@
               {{ invitado.nombre }}
             </h1>
             <p *ngIf="invitado">
-              ¡Nos hará muy felices que nos
-              {{
-                invitado.numeroDeInvitadosExtra === 0
-                  ? "acompañes"
-                  : "acompañen"
-              }}
-              en este día tan especial!
+              ¡Esperamos que nos puedan
+              {{ invitado.numeroDeInvitadosExtra === 0 ? "puedas" : "puedan" }}
+              acompañar en este día tan especial!
             </p>
           </div>
         </div>
@@ -36,7 +32,7 @@
       </div>
       <div class="row padres">
         <div class="column padres-nombres padres-novia">
-          <p class="padres-titulo">Padres del Novia</p>
+          <p class="padres-titulo">Padres de la Novia</p>
           <h2>Silvia Patricia Pompa del Ángel</h2>
           <h2>Jesús Cavazos de la Garza</h2>
         </div>
@@ -100,9 +96,7 @@
       <h2>Mesa de regalos</h2>
     </div>
     <p>Tu presencia es nuestro mejor regalo</p>
-    <p>
-      pero si quieres tener un detalle con nosotros te damos algunas ideas.
-    </p>
+    <p>pero si quieres tener un detalle con nosotros te damos algunas ideas.</p>
     <div class="mesa-regalo-item">
       <div class="row">
         <ng-container *ngFor="let mesa of mesaDeRegalos; let i = index">
@@ -147,6 +141,9 @@
   <img class="linea up" src="../../assets/images/linea.png" />
   <div class="row">
     <div class="love">made with &#9829; and code</div>
+  </div>
+  <div class="row">
+    <div class="love">by Carlos Gonzalez</div>
   </div>
   <img class="linea" src="../../assets/images/linea.png" />
 </footer>

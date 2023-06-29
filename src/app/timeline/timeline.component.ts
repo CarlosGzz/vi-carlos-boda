@@ -118,7 +118,9 @@ export class TimelineComponent {
       changes['invitado'].currentValue !== changes['invitado'].previousValue
     ) {
       if (!this.invitado?.invitadoCivil) {
-        this.timeLineItems.shift();
+        this.timeLineItems = this.timeLineItems.filter(
+          (item) => item.title !== 'Civil'
+        );
       }
     }
   }

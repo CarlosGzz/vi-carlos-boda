@@ -3237,11 +3237,23 @@ mark {
   font-family: Cinzel;
 }
 .timeline-item-content p {
-  width: 70%;
+  width: 85%;
   font-family: Cinzel;
 }
 .timeline-item-date {
   margin-top: 90px;
   color: #f9eddc;
   font-size: 2em;
+}
+.mobile-date {
+  color: #f9eddc;
+  font-size: 1.3em;
+  margin-top: -10px;
+}
+.padup {
+  padding: 15px 0px
+}
+.direccion-mobil {
+  color: #b68c54;
+  font-size: 0.9em;
 }

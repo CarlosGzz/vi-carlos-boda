@@ -318,9 +318,9 @@ footer {
   color: #b68c54;
   font-family: Cinzel;
   flex-direction: column;
-  border-top: 0.5rem solid;
-  border-top-color: #f9eddc;
-  padding-bottom: 20px;
+  border-top: 0.2rem solid;
+  padding-bottom: 50px;
+  padding-top: 50px;
 }
 
 .contactos {

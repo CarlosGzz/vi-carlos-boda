@@ -6,6 +6,7 @@ export interface Hotel {
   imagenHabitacion: string;
   descuento: string;
   url: string;
+  descripcion: string;
   direccion: string;
   telefono: string
 }

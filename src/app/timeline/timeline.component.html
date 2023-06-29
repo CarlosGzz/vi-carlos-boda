@@ -10,7 +10,10 @@
     <ng-template [ngIf]="isMobile">
       <div class="cd-timeline__block" *ngFor="let item of timeLineItems">
         <div class="cd-timeline__img cd-timeline__img--movie">
-          <img [src]="'../../assets/images/icons/' + item.img" [alt]="item.title" />
+          <img
+            [src]="'../../assets/images/icons/' + item.img"
+            [alt]="item.title"
+          />
         </div>
         <!-- cd-timeline__img -->
 
@@ -19,17 +22,22 @@
           data-aos="zoom-in-right"
           data-aos-duration="3000"
         >
-          <span class="cd-timeline__date">
-            {{ item.horario }}
-          </span>
-          <h2 class="timeline-item-title">{{ item.title }}</h2>
+          <h4 class="timeline-item-title">
+            {{ item.title }}
+          </h4>
+          <span class="cd-timeline__date mobile-date">
+          {{ item.horario }}
+        </span>
           <div class="timeline-item-content">
-            <h4>
+            <h2 class="padup">
               {{ item.lugar }}
-            </h4>
-            <p class="color-contrast-medium" (click)="goToMap(item.maps)">
+            </h2>
+            <p class="color-contrast-medium padup direccion-mobil" (click)="goToMap(item.maps)">
               {{ item.direccion }}
             </p>
+            <a target="_blank" [href]="item.maps" class="btn btn--subtle">
+              Ver en Mapa
+            </a>
           </div>
 
           <div class="flex justify-between items-center">
@@ -45,7 +53,10 @@
     <ng-template [ngIf]="!isMobile">
       <div class="cd-timeline__block" *ngFor="let item of timeLineItems">
         <div class="cd-timeline__img cd-timeline__img--movie">
-          <img [src]="'../../assets/images/icons/' + item.img" [alt]="item.title" />
+          <img
+            [src]="'../../assets/images/icons/' + item.img"
+            [alt]="item.title"
+          />
         </div>
         <!-- cd-timeline__img -->
 
