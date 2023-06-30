@@ -3220,7 +3220,7 @@ mark {
   }
 }
 .timeline-item-title {
-  padding-bottom: 20px;
+  padding-bottom: 10px;
   font-family: CinzelDecorative;
 }
 .timeline-item-content {
@@ -3256,4 +3256,9 @@ mark {
 .direccion-mobil {
   color: #b68c54;
   font-size: 0.9em;
+}
+.timeline-direccion {
+  padding: 15px 0px;
+  color: #b68c54;
+  font-size: 1.2em;
 }

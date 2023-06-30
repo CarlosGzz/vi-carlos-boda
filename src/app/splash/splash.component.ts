@@ -25,6 +25,9 @@ export class SplashComponent {
   }
 
   ngAfterViewInit() {
+    setTimeout(() => {
+      this.isHidden = true;
+    }, 6000);
     window.onload = (event) => {
       this.hideSplash();
     };

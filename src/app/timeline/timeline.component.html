@@ -61,12 +61,12 @@
         <!-- cd-timeline__img -->
 
         <div class="cd-timeline__content text-component">
-          <h2 class="timeline-item-title">{{ item.title }}</h2>
+          <h4 class="timeline-item-title">{{ item.title }}</h4>
           <div class="timeline-item-content">
-            <h4>
+            <h2>
               {{ item.lugar }}
-            </h4>
-            <p class="color-contrast-medium" (click)="goToMap(item.maps)">
+            </h2>
+            <p class="color-contrast-medium timeline-direccion" (click)="goToMap(item.maps)">
               {{ item.direccion }}
             </p>
           </div>
