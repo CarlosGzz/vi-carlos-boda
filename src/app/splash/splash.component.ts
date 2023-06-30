@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FadeInOutAnimation, LogoAnimation } from '../core/animations';
 
@@ -15,19 +15,22 @@ export class SplashComponent {
     // it will be null if it doesn't exist
     const isShowSplash = sessionStorage.getItem('isShowSplash');
     if (isShowSplash) {
-        // don't show splash
-        this.isHidden = true;
+      // don't show splash
+      this.isHidden = true;
     } else {
-        // show splash
-        this.isHidden = false;
+      // show splash
+      this.isHidden = false;
     }
     sessionStorage.setItem('isShowSplash', JSON.stringify(false));
-}
+  }
 
   ngAfterViewInit() {
     window.onload = (event) => {
       this.hideSplash();
     };
+  }
+  @HostListener('load', ['$event']) onPageLoad(event: Event) {
+    this.hideSplash();
   }
 
   hideSplash() {
