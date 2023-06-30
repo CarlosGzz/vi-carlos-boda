@@ -1,3 +1,20 @@
+@media all and (-webkit-min-device-pixel-ratio:0) and (min-resolution: .001dpcm) {
+  .hotel-container {
+    margin: 20px 0px;
+    width: 100%;
+    height: 350px;
+  }
+  .box1,
+  .box2 {
+    width: 85%;
+    min-height: 50%;
+    font-size: x-small;
+  }
+  .column {
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+}
 /* For extremely small screen devices (595px and below) */
 @media only screen and (max-width: 280px) {
   .hotel-container {

@@ -102,7 +102,7 @@ export class HomeComponent {
   ];
 
   get isMobile() {
-    if (window.screen.width <= 600) {
+    if (window.screen.width <= 600 || window.innerWidth <=600) {
       return true;
     }
     return false;

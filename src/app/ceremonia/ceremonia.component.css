@@ -1,4 +1,30 @@
 /* For extremely small screen devices (595px and below) */
+@media all and (-webkit-min-device-pixel-ratio:0) and (min-resolution: .001dpcm) {
+  .ceremonia {
+    padding: 0;
+  }
+  .section-header {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  .vestimenta-icon {
+    width: 190px;
+  }
+  .vestimenta-traje {
+    margin-right: -0px;
+    margin-left: -65px;
+  }
+  .vestimenta-vestido {
+    margin-left: -60px;
+    margin-right: -50px;
+  }
+  .ceremonia-content {
+    padding-bottom: 50px;
+  }
+  .vestido-traje-row p {
+    font-size: 0.5em;
+  }
+}
 @media only screen and (max-width: 290px) {
   .ceremonia {
     padding: 0;

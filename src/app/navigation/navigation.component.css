@@ -1,4 +1,3 @@
-/* For extremely small screen devices (595px and below) */
 @media only screen and (max-width: 595px) {
   nav {
     bottom: 0;
