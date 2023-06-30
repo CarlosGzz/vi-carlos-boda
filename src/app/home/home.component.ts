@@ -71,7 +71,7 @@ export class HomeComponent {
       imagenHabitacion: 'westinhab.jpg',
       descuento: 'Boda Violeta y Carlos',
       url: 'https://www.marriott.com/event-reservations/reservation-link.mi?id=1687912577693&key=GRP&app=resvlink',
-      descripcion: 'Ubicado a 10 minutos en carro',
+      descripcion: 'Ubicado a 5 minutos en carro',
       direccion:
         'Ave. Manuel Gomez Morin Y Rio Missouri, Punto Valle, 66220 San Pedro Garza García, N.L.',
       telefono: '+52 81-2713-3100',
