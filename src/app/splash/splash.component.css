@@ -26,11 +26,11 @@
 .topline,
 .bottomline {
   display: inline;
-  fill: #F9EDDC;
+  fill: #b68c54;
   fill-opacity: 1;
   stroke-width: 0.264583;
   stroke-opacity: 1;
-  stroke: #F9EDDC ;
+  stroke: #b68c54 ;
   stroke-width: 1 ;
   stroke-dasharray: 2566;
   stroke-dashoffset: 2566;
@@ -46,7 +46,7 @@
   to {
     stroke-opacity: 0;
     stroke-dashoffset: 0;
-    fill: #F9EDDC;
+    fill: #b68c54;
     stroke: none;
     fill-opacity: 1;
   }
