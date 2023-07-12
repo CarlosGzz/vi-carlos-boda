@@ -21,7 +21,13 @@
   <div class="row">
     <button mat-raised-button (click)="exportExcel()">Export To Excel</button>
     <ng-container *ngFor="let item of columns">
-      <button mat-raised-button [color]="isDisplayedColumnColor(item.name)" (click)="toggleColumn(item.name)">{{item.name}}</button>
+      <button
+        mat-raised-button
+        [color]="isDisplayedColumnColor(item.name)"
+        (click)="toggleColumn(item.name)"
+      >
+        {{ item.name }}
+      </button>
     </ng-container>
     <!-- <button mat-raised-button (click)="addColumn()">Add column</button>
     <button mat-raised-button (click)="removeColumn()">Remove column</button>
@@ -48,10 +54,7 @@
       [groupRowsBy]="'key'"
     >
       <!-- Group Header Template -->
-      <ngx-datatable-group-header
-        [rowHeight]="50"
-        #myGroupHeader
-      >
+      <ngx-datatable-group-header [rowHeight]="50" #myGroupHeader>
         <ng-template
           let-group="group"
           let-expanded="expanded"
@@ -105,7 +108,9 @@
             let-rowIndex="rowIndex"
             ngx-datatable-cell-template
           >
-            {{ value }}
+            <a [href]="value" target="_blank">
+              {{ value }}
+            </a>
           </ng-template>
         </ngx-datatable-column>
         <ngx-datatable-column
