@@ -118,6 +118,9 @@ only screen and (                min-resolution: 2dppx)  and (min-width: 320px) 
   .padres {
     padding-bottom: 100px;
   }
+  .parallax3{
+    background-position: 0px 10px !important;
+  }
 }
 
 /* Big screen devices (889px and above) */
