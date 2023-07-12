@@ -58,7 +58,7 @@ export class HomeComponent {
       imagenExterior: 'jwimgext.jpg',
       imagenHabitacion: 'jwimghab.jpg',
       descuento: 'Boda Violeta y Carlos',
-      url: 'https://www.marriott.com/event-reservations/reservation-link.mi?id=1687912577693&key=GRP&app=resvlink',
+      url: 'https://www.marriott.com/event-reservations/reservation-link.mi?id=1682379249891&key=GRP&app=resvlink',
       descripcion: '',
       direccion:
         'Avenida del Roble 670, Valle del Campestre, San Pedro Garza García, Nuevo Leon, Mexico, 66265',

@@ -47,7 +47,7 @@ export class ExcelServiceService {
         const invitado = jsonData[index];
         const invitadoKey = this.getInvitadoKey(invitado, keyValidatorArray);
         let auxInvitadoObj: Invitado = {
-          id: invitadoKey,
+          id: invitado.id,
           alergias: '',
           confirmacionAsistencia: false,
           estatusDeInvitacion: 'no visto',
