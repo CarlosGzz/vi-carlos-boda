@@ -1,11 +1,168 @@
 <div class="container">
   <div class="row">
-    <button mat-raised-button (click)="exportExcel()">Export To Excel</button>
-    <button mat-raised-button (click)="addColumn()">Add column</button>
-    <button mat-raised-button (click)="removeColumn()">Remove column</button>
-    <button mat-raised-button (click)="shuffle()">Shuffle</button>
+    <form [formGroup]="excelForm" (ngSubmit)="parseExcelFile()">
+      <button type="button" mat-raised-button (click)="fileInput.click()">
+        Choose File
+      </button>
+      <input
+        #fileInput
+        hidden
+        mat-raised-button
+        type="file"
+        formControlName="excelFile"
+        (change)="incomingfile($event)"
+        accept=".xlsx, .xls"
+      />
+      <button mat-raised-button type="submit" [disabled]="excelForm.invalid">
+        Parse Excel
+      </button>
+    </form>
   </div>
   <div class="row">
+    <button mat-raised-button (click)="exportExcel()">Export To Excel</button>
+    <ng-container *ngFor="let item of columns">
+      <button mat-raised-button [color]="isDisplayedColumnColor(item.name)" (click)="toggleColumn(item.name)">{{item.name}}</button>
+    </ng-container>
+    <!-- <button mat-raised-button (click)="addColumn()">Add column</button>
+    <button mat-raised-button (click)="removeColumn()">Remove column</button>
+    <button mat-raised-button (click)="shuffle()">Shuffle</button> -->
+  </div>
+  <div>
+    <input
+      type="text"
+      style="padding: 8px; margin: 15px auto; width: 30%"
+      placeholder="Type to filter the name column..."
+      (keyup)="updateFilter($event)"
+    />
+    <ngx-datatable
+      class="material"
+      [rows]="rows"
+      [columns]="columnsToDisplay"
+      [columnMode]="ColumnMode.standard"
+      [headerHeight]="50"
+      [footerHeight]="50"
+      rowHeight="auto"
+      [scrollbarH]="true"
+      [limit]="10"
+      [groupExpansionDefault]="true"
+      [groupRowsBy]="'key'"
+    >
+      <!-- Group Header Template -->
+      <ngx-datatable-group-header
+        [rowHeight]="50"
+        #myGroupHeader
+      >
+        <ng-template
+          let-group="group"
+          let-expanded="expanded"
+          ngx-datatable-group-header-template
+        >
+          <div style="padding-left: 5px">
+            <button
+              [class.datatable-icon-right]="!expanded"
+              [class.datatable-icon-down]="expanded"
+              title="Expand/Collapse Group"
+              (click)="toggleExpandGroup(group)"
+            >
+              <b>Key: {{ group.value[0].key }}</b>
+            </button>
+          </div>
+        </ng-template>
+      </ngx-datatable-group-header>
+      <ng-container *ngFor="let column of columns; let i = index">
+        <ngx-datatable-column
+          name="{{ column.name }}"
+          [flexGrow]="i === columns.length ? 1 : 3"
+          [frozenLeft]="i === 0"
+          [width]="200"
+          *ngIf="
+            column.name !== 'url' &&
+            column.name !== 'confirmacion asistencia' &&
+            column.name !== 'estatus de invitacion'
+          "
+        >
+          <ng-template
+            let-row="row"
+            let-value="value"
+            let-group="group"
+            let-rowIndex="rowIndex"
+            ngx-datatable-cell-template
+          >
+            {{ value }}
+          </ng-template>
+        </ngx-datatable-column>
+        <ngx-datatable-column
+          name="{{ column.name }}"
+          [flexGrow]="i === columns.length ? 1 : 3"
+          [frozenLeft]="i === 0"
+          *ngIf="column.name === 'url'"
+          [width]="500"
+        >
+          <ng-template
+            let-row="row"
+            let-value="value"
+            let-group="group"
+            let-rowIndex="rowIndex"
+            ngx-datatable-cell-template
+          >
+            {{ value }}
+          </ng-template>
+        </ngx-datatable-column>
+        <ngx-datatable-column
+          name="{{ column.name }}"
+          [flexGrow]="i === columns.length ? 1 : 3"
+          [frozenLeft]="i === 0"
+          [width]="150"
+          *ngIf="column.name === 'estatus de invitacion'"
+        >
+          <ng-template
+            let-row="row"
+            let-value="value"
+            let-group="group"
+            let-rowIndex="rowIndex"
+            ngx-datatable-cell-template
+          >
+            <ng-container *ngIf="row.estatusDeInvitacion">
+              <mat-chip-option
+                [color]="getEstatusInvitacion(row)"
+                disabled
+                selected
+              >
+                {{ row.estatusDeInvitacion }}</mat-chip-option
+              >
+            </ng-container>
+          </ng-template>
+        </ngx-datatable-column>
+        <ngx-datatable-column
+          name="{{ column.name }}"
+          [flexGrow]="i === columns.length ? 1 : 3"
+          [frozenLeft]="i === 0"
+          [width]="150"
+          *ngIf="column.name === 'confirmacion asistencia'"
+        >
+          <ng-template
+            let-row="row"
+            let-value="value"
+            let-group="group"
+            let-rowIndex="rowIndex"
+            ngx-datatable-cell-template
+          >
+            <mat-chip-listbox>
+              <mat-chip-option
+                color="accent"
+                disabled=""
+                [selected]="row.confirmacionAsistencia"
+                >{{
+                  row.confirmacionAsistencia ? "confirmado" : "sin confirmar"
+                }}</mat-chip-option
+              >
+            </mat-chip-listbox>
+          </ng-template>
+        </ngx-datatable-column>
+      </ng-container>
+    </ngx-datatable>
+  </div>
+  <!-- <div class="row">
     <table
       mat-table
       [dataSource]="invitadosList"
@@ -40,7 +197,6 @@
         </td>
       </ng-container>
 
-      <!-- Expanded Content Column - The detail row is made up of this one column that spans across all columns -->
       <ng-container matColumnDef="invitadosExtraLista">
         <td
           mat-cell
@@ -87,5 +243,5 @@
         class="example-detail-row"
       ></tr>
     </table>
-  </div>
+  </div> -->
 </div>

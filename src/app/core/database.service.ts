@@ -6,15 +6,22 @@ import {
 import { map } from 'rxjs/operators';
 
 export interface Invitado {
-  id: number;
+  id?: number;
   nombre: string;
   telefono: string;
   alergias: string;
-  numeroDeInvitadosExtra: number;
+  numeroDeInvitadosExtra?: number;
   confirmacionAsistencia: boolean;
-  invitadosExtraLista?: Array<InvitadoExtra>;
+  invitadosExtraLista?: Array<Invitado>;
   estatusDeInvitacion?: string;
   invitadoCivil?: boolean;
+  quienInvito?: string;
+  url?: string;
+  adultoOJoven?: string;
+  quienInvita?: string;
+  posibleNoAsistencia?: boolean;
+  nombreEnInvitacion?: string;
+  sexo?: string;
 }
 export interface InvitadoExtra {
   nombre?: string;
@@ -45,6 +52,11 @@ export class DatabaseService {
       .valueChanges()
       .subscribe((user: any) => {
         this.invitado = user;
+        if (this.invitado?.estatusDeInvitacion === 'no visto') {
+          this.update('' + userId, {
+            estatusDeInvitacion: 'visto',
+          });
+        }
       });
   }
 

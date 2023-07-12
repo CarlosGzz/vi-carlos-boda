@@ -136,11 +136,7 @@ export class HomeComponent {
           component: 'Home Component',
         });
         this.invitadosService.getInvitado(this.userId);
-        if (this.invitado?.estatusDeInvitacion === 'no visto') {
-          this.invitadosService.update(this.userId, {
-            estatusDeInvitacion: 'visto',
-          });
-        }
+
       } else {
         this.analytics.logEvent('home without user id ', {
           component: 'Home Component',
@@ -169,6 +165,13 @@ export class HomeComponent {
 
   updateInvitado(invitadoActualizado: Invitado) {
     this.invitadosService.update(this.userId, invitadoActualizado);
+  }
+
+  nombreInvitado(invitado) {
+    if(invitado.nombreEnInvitacion) {
+      return invitado.nombreEnInvitacion
+    }
+    return invitado.nombre;
   }
 
   addKeyToJSON() {
