@@ -79,25 +79,25 @@ export class TimelineComponent {
       title: 'Civil',
       lugar: 'JW Marriot',
       direccion:
-        'Av. del Roble 670, Valle del Campestre, 66265 San Pedro Garza García, N.L.',
+        'Arboleda, Av. del Roble 670, Valle del Campestre, 66265 San Pedro Garza García, N.L.',
       maps: 'http://maps.google.com/?q=JW Marriot, Arboleda, San Pedro Garza Garcia',
       horario: '5:30 pm',
       img: 'signatureIcon.png',
     },
     {
       title: 'Misa',
-      lugar: 'Santa Engracia',
+      lugar: 'Parroquia Santa Engracia',
       direccion:
         'Los Rosales 385, Santa Engracia, 66267 San Pedro Garza García, N.L.',
       maps: 'http://maps.google.com/?q=Parroquia Santa Engracia, San Pedro Garza Garcia',
-      horario: '6:30 pm',
+      horario: '7:30 pm',
       img: 'churchIcon.png',
     },
     {
       title: 'Recepcion',
       lugar: 'JW Marriot',
       direccion:
-        'Av. del Roble 670, Valle del Campestre, 66265 San Pedro Garza García, N.L.',
+        'Arboleda, Av. del Roble 670, Valle del Campestre, 66265 San Pedro Garza García, N.L.',
       maps: 'http://maps.google.com/?q=JW Marriot, Arboleda, San Pedro Garza Garcia',
       horario: '8:30 pm',
       img: 'champagneIcon.png',
