@@ -140,7 +140,9 @@ export class RsvpComponent {
   }
 
   addInvitadoExtra(formArray: any, invitadoExtraData: any) {
-    formArray.push(this.invitadoExtraFormGroup(invitadoExtraData));
+    if(formArray.length <= this.invitado.numeroDeInvitadosExtra) {
+      formArray.push(this.invitadoExtraFormGroup(invitadoExtraData));
+    }
   }
 
   tieneAlergiaInvitadoExtra(form: any): boolean {
