@@ -145,6 +145,7 @@ export class ListaInvitadosComponent {
           invExtraRow['key'] = row.key;
           invExtraRow['treeStatus'] = 'disabled';
           invExtraRow['class'] = 'child-row-file';
+          invExtraRow['estatusDeInvitacion'] = row.estatusDeInvitacion;
           auxRows.push(invExtraRow);
         });
       }
