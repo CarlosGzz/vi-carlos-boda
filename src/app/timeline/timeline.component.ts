@@ -117,7 +117,7 @@ export class TimelineComponent {
       changes['invitado'].currentValue !== null &&
       changes['invitado'].currentValue !== changes['invitado'].previousValue
     ) {
-      if (!this.invitado?.invitadoCivil) {
+      if (this.invitado?.invitadoCivil === 'NO') {
         this.timeLineItems = this.timeLineItems.filter(
           (item) => item.title !== 'Civil'
         );

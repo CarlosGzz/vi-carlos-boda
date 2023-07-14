@@ -14,7 +14,7 @@ export interface Invitado {
   confirmacionAsistencia: boolean;
   invitadosExtraLista?: Array<Invitado>;
   estatusDeInvitacion?: string;
-  invitadoCivil?: boolean;
+  invitadoCivil?: string;
   quienInvito?: string;
   url?: string;
   adultoOJoven?: string;
