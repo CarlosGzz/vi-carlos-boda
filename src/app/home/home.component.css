@@ -87,6 +87,13 @@ only screen and (                min-resolution: 2dppx)  and (min-width: 320px) 
     padding-bottom: 30px;
     font-size: 30px;
   }
+  .regalo-sobre {
+    padding-top: 20px;
+    flex-direction: column !important;
+  }
+  .mesa-regalo-text-sobre {
+    padding: none !important;
+  }
 }
 @media (620px <= width <= 920px) {
   .hoteles .row {
@@ -300,6 +307,26 @@ only screen and (                min-resolution: 2dppx)  and (min-width: 320px) 
   font-family: DellaRespira;
   letter-spacing: 3px;
   line-height: 1.7;
+}
+.sobre {
+  min-height: 20em;
+}
+.regalo-sobre {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  align-items: center;
+}
+.regalo-sobre-icon {
+  width: 40px;
+  filter: invert(48%) sepia(98%) saturate(243%) hue-rotate(355deg) brightness(99%) contrast(89%);
+}
+
+.mesa-regalo-text-sobre {
+  font-family: DellaRespira;
+  letter-spacing: 3px;
+  line-height: 1.7;
+  padding-left: 10px;
 }
 
 .rsvp-item {
