@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="row">
+  <!-- <div class="row">
     <form [formGroup]="excelForm" (ngSubmit)="parseExcelFile()">
       <button type="button" mat-raised-button (click)="fileInput.click()">
         Choose File
@@ -17,7 +17,7 @@
         Parse Excel
       </button>
     </form>
-  </div>
+  </div> -->
   <div class="row">
     <button mat-raised-button (click)="exportExcel()">Export To Excel</button>
     <!-- <button mat-raised-button (click)="exportExcelFromFile()">
@@ -32,6 +32,170 @@
         {{ item.name }}
       </button>
     </ng-container>
+  </div>
+  <div class="row">
+    <button mat-raised-button (click)="hideDash = !hideDash">
+      {{ hideDash ? "Colapsar Dashboard" : "Abrir Dashboard" }}
+    </button>
+  </div>
+  <div class="row" *ngIf="hideDash">
+    <div class="column datos-inv">
+      <div class="row no-pad clickable" (click)="filterTable('')">
+        <div class="column left">Quien Invita:</div>
+      </div>
+      <div class="row no-pad">
+        <div class="column left">Invitados:</div>
+      </div>
+      <div class="row no-pad">
+        <div class="column left">Pendientes:</div>
+      </div>
+      <div class="row no-pad">
+        <div class="column left">Asistentes:</div>
+      </div>
+      <div class="row no-pad">
+        <div class="column left">No Asistentes</div>
+      </div>
+    </div>
+    <div class="column datos-inv">
+      <p class="clickable">Violeta & Carlos</p>
+      <div class="row no-pad clickable" (click)="filterTable('Carlos & Vi')">
+        <div class="column right">
+          {{ getInvitadosByPerson("Carlos & Vi") }}
+        </div>
+      </div>
+      <div
+        class="row no-pad clickable"
+        (click)="filterTable('Carlos & Vi Pendientes')"
+      >
+        <div class="column right">
+          {{ getInvitadosPendientesByPerson("Carlos & Vi") }}
+        </div>
+      </div>
+      <div
+        class="row no-pad clickable"
+        (click)="filterTable('Carlos & Vi Confirmados')"
+      >
+        <div class="column right">
+          {{ getInvitadosConfirmadosAsistentesByPerson("Carlos & Vi") }}
+        </div>
+      </div>
+      <div
+        class="row no-pad clickable"
+        (click)="filterTable('Carlos & Vi No Asistentes')"
+      >
+        <div class="column right">
+          {{ getInvitadosNoAsistentesByPerson("Carlos & Vi") }}
+        </div>
+      </div>
+    </div>
+    <div class="column datos-inv">
+      <p (click)="filterTable('Violeta')" class="clickable">Violeta</p>
+      <div class="row no-pad clickable" (click)="filterTable('Carlos & Vi')">
+        <div class="column right">{{ getInvitadosByPerson("Violeta") }}</div>
+      </div>
+      <div
+        class="row no-pad clickable"
+        (click)="filterTable('Violeta Pendientes')"
+      >
+        <div class="column right">
+          {{ getInvitadosPendientesByPerson("Violeta") }}
+        </div>
+      </div>
+      <div
+        class="row no-pad clickable"
+        (click)="filterTable('Violeta Confirmados')"
+      >
+        <div class="column right">
+          {{ getInvitadosConfirmadosAsistentesByPerson("Violeta") }}
+        </div>
+      </div>
+      <div
+        class="row no-pad clickable"
+        (click)="filterTable('Violeta No Asistentes')"
+      >
+        <div class="column right">
+          {{ getInvitadosNoAsistentesByPerson("Violeta") }}
+        </div>
+      </div>
+    </div>
+    <div class="column datos-inv">
+      <p>Carlos</p>
+      <div class="row no-pad clickable" (click)="filterTable('Carlos')">
+        <div class="column right">{{ getInvitadosByPerson("Carlos") }}</div>
+      </div>
+      <div
+        class="row no-pad clickable"
+        (click)="filterTable('Carlos Pendientes')"
+      >
+        <div class="column right">
+          {{ getInvitadosPendientesByPerson("Carlos") }}
+        </div>
+      </div>
+      <div
+        class="row no-pad clickable"
+        (click)="filterTable('Carlos Confirmados')"
+      >
+        <div class="column right">
+          {{ getInvitadosConfirmadosAsistentesByPerson("Carlos") }}
+        </div>
+      </div>
+      <div
+        class="row no-pad clickable"
+        (click)="filterTable('Carlos No Asistentes')"
+      >
+        <div class="column right">
+          {{ getInvitadosNoAsistentesByPerson("Carlos") }}
+        </div>
+      </div>
+    </div>
+    <div class="column datos-inv">
+      <p>Familia Violeta</p>
+      <div class="row no-pad clickable" (click)="filterTable('FV ')">
+        <div class="column right">{{ getInvitadosByPerson("FV") }}</div>
+      </div>
+      <div class="row no-pad clickable" (click)="filterTable('FV Pendientes')">
+        <div class="column right">
+          {{ getInvitadosPendientesByPerson("FV") }}
+        </div>
+      </div>
+      <div class="row no-pad clickable" (click)="filterTable('FV Confirmados')">
+        <div class="column right">
+          {{ getInvitadosConfirmadosAsistentesByPerson("FV") }}
+        </div>
+      </div>
+      <div
+        class="row no-pad clickable"
+        (click)="filterTable('FV No Asistentes')"
+      >
+        <div class="column right">
+          {{ getInvitadosNoAsistentesByPerson("FV") }}
+        </div>
+      </div>
+    </div>
+    <div class="column datos-inv">
+      <p>Familia Carlos</p>
+      <div class="row no-pad clickable" (click)="filterTable('FC ')">
+        <div class="column right">{{ getInvitadosByPerson("FC") }}</div>
+      </div>
+      <div class="row no-pad clickable" (click)="filterTable('FC Pendientes')">
+        <div class="column right">
+          {{ getInvitadosPendientesByPerson("FC") }}
+        </div>
+      </div>
+      <div class="row no-pad clickable" (click)="filterTable('FC Confirmados')">
+        <div class="column right">
+          {{ getInvitadosConfirmadosAsistentesByPerson("FC") }}
+        </div>
+      </div>
+      <div
+        class="row no-pad clickable"
+        (click)="filterTable('FC No Asistentes')"
+      >
+        <div class="column right">
+          {{ getInvitadosNoAsistentesByPerson("FC") }}
+        </div>
+      </div>
+    </div>
   </div>
   <div class="row">
     <mat-chip-option

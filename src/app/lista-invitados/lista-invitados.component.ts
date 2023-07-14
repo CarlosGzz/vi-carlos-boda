@@ -16,6 +16,137 @@ import {
 } from '@swimlane/ngx-datatable';
 import { HttpClient } from '@angular/common/http';
 
+let filters = {
+  novistos: (inv) => {
+    return inv.estatusDeInvitacion === 'no visto';
+  },
+  vistos: (inv) => {
+    return inv.estatusDeInvitacion === 'visto';
+  },
+  confirmados: (inv) => {
+    return inv.estatusDeInvitacion === 'confirmado';
+  },
+  asistiran: (inv) => {
+    return (
+      inv.confirmacionAsistencia === true &&
+      inv.estatusDeInvitacion === 'confirmado'
+    );
+  },
+  noAsistiran: (inv) => {
+    return (
+      inv.confirmacionAsistencia === false &&
+      inv.estatusDeInvitacion === 'confirmado'
+    );
+  },
+  'Carlos & Vi': (inv) => {
+    return inv.quienInvito === 'Carlos & Vi';
+  },
+  'Carlos & Vi Pendientes': (inv) => {
+    return (
+      inv.quienInvito === 'Carlos & Vi' &&
+      inv.estatusDeInvitacion !== 'confirmado'
+    );
+  },
+  'Carlos & Vi Confirmados': (inv) => {
+    return (
+      inv.quienInvito === 'Carlos & Vi' &&
+      inv.estatusDeInvitacion === 'confirmado' &&
+      inv.confirmacionAsistencia
+    );
+  },
+  'Carlos & Vi No Asistentes': (inv) => {
+    return (
+      inv.quienInvito === 'Carlos & Vi' &&
+      inv.estatusDeInvitacion === 'confirmado' &&
+      !inv.confirmacionAsistencia
+    );
+  },
+  Violeta: (inv) => {
+    return inv.quienInvito === 'Violeta';
+  },
+  'Violeta Pendientes': (inv) => {
+    return (
+      inv.quienInvito === 'Violeta' && inv.estatusDeInvitacion !== 'confirmado'
+    );
+  },
+  'Violeta Confirmados': (inv) => {
+    return (
+      inv.quienInvito === 'Violeta' &&
+      inv.estatusDeInvitacion === 'confirmado' &&
+      inv.confirmacionAsistencia
+    );
+  },
+  'Violeta No Asistentes': (inv) => {
+    return (
+      inv.quienInvito === 'Violeta' &&
+      inv.estatusDeInvitacion === 'confirmado' &&
+      !inv.confirmacionAsistencia
+    );
+  },
+  Carlos: (inv) => {
+    return inv.quienInvito === 'Carlos';
+  },
+  'Carlos Pendientes': (inv) => {
+    return (
+      inv.quienInvito === 'Carlos' && inv.estatusDeInvitacion !== 'confirmado'
+    );
+  },
+  'Carlos Confirmados': (inv) => {
+    return (
+      inv.quienInvito === 'Carlos' &&
+      inv.estatusDeInvitacion === 'confirmado' &&
+      inv.confirmacionAsistencia
+    );
+  },
+  'Carlos No Asistentes': (inv) => {
+    return (
+      inv.quienInvito === 'Carlos' &&
+      inv.estatusDeInvitacion === 'confirmado' &&
+      !inv.confirmacionAsistencia
+    );
+  },
+  FV: (inv) => {
+    return inv.quienInvito === 'FV';
+  },
+  'FV Pendientes': (inv) => {
+    return inv.quienInvito === 'FV' && inv.estatusDeInvitacion !== 'confirmado';
+  },
+  'FV Confirmados': (inv) => {
+    return (
+      inv.quienInvito === 'FV' &&
+      inv.estatusDeInvitacion === 'confirmado' &&
+      inv.confirmacionAsistencia
+    );
+  },
+  'FV No Asistentes': (inv) => {
+    return (
+      inv.quienInvito === 'FV' &&
+      inv.estatusDeInvitacion === 'confirmado' &&
+      !inv.confirmacionAsistencia
+    );
+  },
+  FC: (inv) => {
+    return inv.quienInvito === 'FC';
+  },
+  'FC Pendientes': (inv) => {
+    return inv.quienInvito === 'FC' && inv.estatusDeInvitacion !== 'confirmado';
+  },
+  'FC Confirmados': (inv) => {
+    return (
+      inv.quienInvito === 'FC' &&
+      inv.estatusDeInvitacion === 'confirmado' &&
+      inv.confirmacionAsistencia
+    );
+  },
+  'FC No Asistentes': (inv) => {
+    return (
+      inv.quienInvito === 'FC' &&
+      inv.estatusDeInvitacion === 'confirmado' &&
+      !inv.confirmacionAsistencia
+    );
+  },
+};
+
 @Component({
   selector: 'app-lista-invitados',
   templateUrl: './lista-invitados.component.html',
@@ -52,10 +183,11 @@ export class ListaInvitadosComponent {
   ColumnMode = ColumnMode;
   SortType = SortType;
   isFiltered = ['', false];
+  hideDash = false;
 
   get getNoVistos() {
-    if (this.invitadosList) {
-      let noVistos = this.invitadosList.filter(
+    if (this.temp) {
+      let noVistos = this.temp.filter(
         (invitado) =>
           invitado.estatusDeInvitacion.toLocaleLowerCase() === 'no visto'
       );
@@ -64,8 +196,8 @@ export class ListaInvitadosComponent {
     return 0;
   }
   get getVistos() {
-    if (this.invitadosList) {
-      let vistos = this.invitadosList.filter(
+    if (this.temp) {
+      let vistos = this.temp.filter(
         (invitado) =>
           invitado.estatusDeInvitacion.toLocaleLowerCase() === 'visto'
       );
@@ -74,8 +206,8 @@ export class ListaInvitadosComponent {
     return 0;
   }
   get getConfirmados() {
-    if (this.invitadosList) {
-      let noVistos = this.invitadosList.filter(
+    if (this.temp) {
+      let noVistos = this.temp.filter(
         (invitado) =>
           invitado.estatusDeInvitacion.toLocaleLowerCase() === 'confirmado'
       );
@@ -84,8 +216,8 @@ export class ListaInvitadosComponent {
     return 0;
   }
   get getAsistentes() {
-    if (this.invitadosList) {
-      let asistiran = this.invitadosList.filter(
+    if (this.temp) {
+      let asistiran = this.temp.filter(
         (invitado) =>
           invitado.confirmacionAsistencia &&
           invitado.estatusDeInvitacion === 'confirmado'
@@ -95,8 +227,8 @@ export class ListaInvitadosComponent {
     return 0;
   }
   get getNoAsistentes() {
-    if (this.invitadosList) {
-      let noAsistiran = this.invitadosList.filter(
+    if (this.temp) {
+      let noAsistiran = this.temp.filter(
         (invitado) =>
           !invitado.confirmacionAsistencia &&
           invitado.estatusDeInvitacion === 'confirmado'
@@ -146,6 +278,7 @@ export class ListaInvitadosComponent {
           invExtraRow['treeStatus'] = 'disabled';
           invExtraRow['class'] = 'child-row-file';
           invExtraRow['estatusDeInvitacion'] = row.estatusDeInvitacion;
+          invExtraRow['quienInvito'] = row.quienInvito;
           auxRows.push(invExtraRow);
         });
       }
@@ -160,6 +293,38 @@ export class ListaInvitadosComponent {
         };
     }
     return '';
+  }
+
+  getInvitadosByPerson(person) {
+    let aux = this.temp.filter((inv) => inv.quienInvito === person);
+    return aux.length;
+  }
+
+  getInvitadosPendientesByPerson(person) {
+    let aux = this.temp.filter(
+      (inv) =>
+        inv.quienInvito === person && inv.estatusDeInvitacion !== 'confirmado'
+    );
+    return aux.length;
+  }
+  getInvitadosConfirmadosAsistentesByPerson(person) {
+    let aux = this.temp.filter(
+      (inv) =>
+        inv.quienInvito === person &&
+        inv.estatusDeInvitacion === 'confirmado' &&
+        inv.confirmacionAsistencia
+    );
+    return aux.length;
+  }
+
+  getInvitadosNoAsistentesByPerson(person) {
+    let aux = this.temp.filter(
+      (inv) =>
+        inv.quienInvito === person &&
+        inv.estatusDeInvitacion === 'confirmado' &&
+        !inv.confirmacionAsistencia
+    );
+    return aux.length;
   }
 
   search(event) {
@@ -184,33 +349,9 @@ export class ListaInvitadosComponent {
       return true;
     };
     this.isFiltered = [filter, setFilterStatus()];
-    if (!this.isFiltered[1]) {
+    if (!this.isFiltered[1] || filter === null || filter === '') {
       this.rows = [...this.temp];
     } else {
-      let filters = {
-        novistos: (inv) => {
-          return inv.estatusDeInvitacion === 'no visto';
-        },
-        vistos: (inv) => {
-          return inv.estatusDeInvitacion === 'visto';
-        },
-        confirmados: (inv) => {
-          return inv.estatusDeInvitacion === 'confirmado';
-        },
-        asistiran: (inv) => {
-          return (
-            inv.confirmacionAsistencia === true &&
-            inv.estatusDeInvitacion === 'confirmado'
-          );
-        },
-        noAsistiran: (inv) => {
-          return (
-            inv.confirmacionAsistencia === false &&
-            inv.estatusDeInvitacion === 'confirmado'
-          );
-        },
-      };
-
       // filter our data
       const temp = this.temp.filter((inv) => {
         return filters[filter](inv);
@@ -241,6 +382,7 @@ export class ListaInvitadosComponent {
     }
     return '';
   }
+
   getEstatusConfirmado(row) {
     let estaConfirmado = row.estatusDeInvitacion === 'confirmado';
     if (estaConfirmado) {

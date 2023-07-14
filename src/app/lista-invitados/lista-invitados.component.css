@@ -15,15 +15,37 @@
   margin-left: 5px;
   margin-right: 5px;
 }
+
+.datos-inv {
+  color: #f9eddc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.left {
+  display: flex;
+  align-items: left;
+  justify-content: left;
+}
+.right {
+  display: flex;
+  align-items: right;
+  justify-content: center;
+}
+.no-pad {
+  padding: 0;
+}
+.clickable{
+  cursor: pointer;
+}
 .mat-footer-row,
 .mat-header-row,
 .mat-row {
-    display: inline-flex;
-    min-width: 100%;
+  display: inline-flex;
+  min-width: 100%;
 }
-
 
 :host ::ng-deep .mat-mdc-standard-chip.mdc-evolution-chip--disabled {
   opacity: 1 !important;
 }
-
