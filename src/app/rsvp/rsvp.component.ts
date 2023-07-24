@@ -61,6 +61,14 @@ export class RsvpComponent {
     return this.rsvpForm.get('confirmarAsistencia') as FormControl;
   }
 
+  get telefonoFormControl(): FormControl {
+    return this.rsvpForm.get('telefono') as FormControl;
+  }
+
+  get nombreFormControl(): FormControl {
+    return this.rsvpForm.get('nombre') as FormControl;
+  }
+
   get invitadoConfirmado(): boolean {
     if (this.hasInvitado && this.invitado) {
       return this.invitado.estatusDeInvitacion === 'confirmado';
@@ -171,7 +179,7 @@ export class RsvpComponent {
       confirmacionAsistencia: this.rsvpForm.value.confirmarAsistencia,
       estatusDeInvitacion: 'confirmado',
     };
-    if (this.invitado) {
+    if (this.invitado && this.rsvpForm.valid) {
       if (this.invitado.numeroDeInvitadosExtra > 0) {
         updatedInvitado['invitadosExtraLista'] =
           this.invitado.invitadosExtraLista;

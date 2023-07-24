@@ -69,6 +69,9 @@
         <mat-form-field class="example-full-width">
           <mat-label>Nombre</mat-label>
           <input type="text" matInput formControlName="nombre" />
+          <mat-error *ngIf="nombreFormControl.invalid">
+            Nombre requerido
+          </mat-error>
         </mat-form-field>
         <mat-form-field class="example-full-width">
           <mat-label>Telefono</mat-label>
@@ -78,6 +81,14 @@
             formControlName="telefono"
             placeholder="+52 81-1778-4810"
           />
+          <mat-error
+            *ngIf="
+              telefonoFormControl.invalid &&
+              telefonoFormControl.getError('required')
+            "
+          >
+            Telefono requerido
+          </mat-error>
         </mat-form-field>
         <div class="radio-field">
           <p>¿Tienes alguna alergia?</p>
