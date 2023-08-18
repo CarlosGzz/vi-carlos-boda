@@ -1,17 +1,15 @@
-@media all and (-webkit-min-device-pixel-ratio:0) and (min-resolution: .001dpcm) {
+@media all and (-webkit-min-device-pixel-ratio: 0) and (min-resolution: 0.001dpcm) {
   .parallax {
     background-attachment: scroll !important;
   }
 }
 
-@media
-only screen and (-webkit-min-device-pixel-ratio: 2)      and (min-width: 320px),
-only screen and (   min--moz-device-pixel-ratio: 2)      and (min-width: 320px),
-only screen and (     -o-min-device-pixel-ratio: 2/1)    and (min-width: 320px),
-only screen and (        min-device-pixel-ratio: 2)      and (min-width: 320px),
-only screen and (                min-resolution: 192dpi) and (min-width: 320px),
-only screen and (                min-resolution: 2dppx)  and (min-width: 320px) {
-
+@media only screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 320px),
+  only screen and (min--moz-device-pixel-ratio: 2) and (min-width: 320px),
+  only screen and (-o-min-device-pixel-ratio: 2/1) and (min-width: 320px),
+  only screen and (min-device-pixel-ratio: 2) and (min-width: 320px),
+  only screen and (min-resolution: 192dpi) and (min-width: 320px),
+  only screen and (min-resolution: 2dppx) and (min-width: 320px) {
   /* Small screen, retina, stuff to override above media query */
   .parallax2 {
     background-position: -160px 50px !important;
@@ -78,7 +76,7 @@ only screen and (                min-resolution: 2dppx)  and (min-width: 320px) 
   .padres-mensaje {
     font-size: 1.5rem;
   }
-  .padres-novia{
+  .padres-novia {
     margin-top: 50px;
     padding-bottom: 50px;
   }
@@ -125,7 +123,7 @@ only screen and (                min-resolution: 2dppx)  and (min-width: 320px) 
   .padres {
     padding-bottom: 100px;
   }
-  .parallax3{
+  .parallax3 {
     background-position: 0px 10px !important;
   }
 }
@@ -231,7 +229,7 @@ only screen and (                min-resolution: 2dppx)  and (min-width: 320px) 
   letter-spacing: 3px;
   line-height: 1.7;
 }
-.padres-titulo{
+.padres-titulo {
   padding-bottom: 15px;
 }
 
@@ -282,10 +280,10 @@ only screen and (                min-resolution: 2dppx)  and (min-width: 320px) 
   /* min-height: 140px;
   padding: 2em 2em 2em 2em; */
 }
-.end{
+.end {
   align-items: flex-end !important;
 }
-.start{
+.start {
   align-items: flex-start !important;
 }
 .mesa-regalo-item {
@@ -319,7 +317,8 @@ only screen and (                min-resolution: 2dppx)  and (min-width: 320px) 
 }
 .regalo-sobre-icon {
   width: 40px;
-  filter: invert(48%) sepia(98%) saturate(243%) hue-rotate(355deg) brightness(99%) contrast(89%);
+  filter: invert(48%) sepia(98%) saturate(243%) hue-rotate(355deg)
+    brightness(99%) contrast(89%);
 }
 
 .mesa-regalo-text-sobre {
@@ -396,4 +395,15 @@ footer {
   align-items: center;
   justify-content: center;
   flex-direction: column;
+}
+
+.whatsap-icon {
+  width: 20px;
+}
+.mesa-regalo-text a {
+  font-family: DellaRespira;
+  text-decoration: none;
+  color: #b68c54;
+  letter-spacing: 3px;
+  line-height: 1.7;
 }

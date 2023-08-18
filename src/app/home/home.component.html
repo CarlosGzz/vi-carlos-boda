@@ -106,17 +106,43 @@
               end: i === 0 && !isMobile,
               start: i === 2 && !isMobile
             }"
-            (click)="goToMesaRegalos(mesa.url)"
           >
             <div class="regalo-codigo">
               <img
                 class="regalos-icon"
                 [src]="'../../assets/images/mesa/' + mesa.logo"
                 [alt]="mesa.nombre + ' logo'"
+                (click)="goToMesaRegalos(mesa.url)"
               />
-              <small class="mesa-regalo-text" *ngIf="mesa.codigo">{{
-                mesa.codigo
-              }}</small>
+              <ng-container
+                select="selector"
+                *ngIf="mesa.nombre === 'Regalos Guadalquivir'"
+              >
+                <small class="mesa-regalo-text">
+                  <a
+                    target="_blank"
+                    href="https://api.whatsapp.com/send?phone=8117789742"
+                  >
+                    <img
+                      class="whatsap-icon"
+                      src="../../assets/images/icons/whatsappIcon.png"
+                    />
+                    (81) 1778 - 9742</a
+                  >
+                </small>
+              </ng-container>
+              <ng-container
+                select="selector"
+                *ngIf="mesa.nombre !== 'Regalos Guadalquivir'"
+              >
+                <small
+                  class="mesa-regalo-text"
+                  *ngIf="mesa.codigo"
+                  (click)="goToMesaRegalos(mesa.url)"
+                >
+                  {{ mesa.codigo }}
+                </small>
+              </ng-container>
             </div>
           </div>
         </ng-container>
